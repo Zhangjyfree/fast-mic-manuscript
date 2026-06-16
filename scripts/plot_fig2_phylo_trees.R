@@ -103,9 +103,11 @@ pLac <- draw_tree(LAC_TREE, lac_meta, "Lactobacillus group (10 strains, 5 genera
 # Assemble as one column; combine with other Fig 1 panels in your layout
 fig2_phylo <- (pAkk / pLac) + plot_layout(heights = c(1, 1.4))
 
+ggsave(file.path(OUTDIR, "fig2_phylo_trees.tiff"), fig2_phylo,
+       width = 90/25.4, height = 150/25.4, dpi = 300, device = "tiff", compression = "lzw")
 ggsave(file.path(OUTDIR, "fig2_phylo_trees.pdf"), fig2_phylo,
        width = 90/25.4, height = 150/25.4, device = cairo_pdf)
 ggsave(file.path(OUTDIR, "fig2_phylo_trees.png"), fig2_phylo,
        width = 90/25.4, height = 150/25.4, dpi = 300)
 
-cat("Saved fig2_phylo_trees (PDF/PNG) to", OUTDIR, "\n")
+cat("Saved fig2_phylo_trees (TIFF/PDF/PNG) to", OUTDIR, "\n")
