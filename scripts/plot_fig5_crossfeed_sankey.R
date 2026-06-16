@@ -53,7 +53,10 @@ CUR$freq <- mapply(function(pro, cpd) {
 }, CUR$probiotic, CUR$cpd)
 
 dat <- CUR |> filter(freq >= 5) |>
-  mutate(met_lab = ifelse(cpd == "cpd00130", "L-Malate  (shared)",
+  mutate(met_lab = ifelse(cpd == "cpd00130",
+                          sprintf("L-Malate  %.0f/%.0f%%",
+                                  CUR$freq[CUR$cpd == "cpd00130" & CUR$probiotic == "Akkermansia"],
+                                  CUR$freq[CUR$cpd == "cpd00130" & CUR$probiotic == "Lactobacillus"]),
                           sprintf("%s  %.0f%%%s", name, round(freq), ifelse(ref, " *", ""))),
          probiotic = factor(probiotic, levels = c("Akkermansia","Lactobacillus")),
          func = factor(func, levels = unique(CUR$func)))
