@@ -15,7 +15,7 @@
 #     benchmark_results/correctness/stats.tsv \
 #     [output_prefix]
 #
-#   output_prefix defaults to "benchmark_results/benchmark_figure"
+#   output_prefix defaults to "results/figures_paper/fig1_benchmark"
 
 suppressPackageStartupMessages({
   library(ggplot2)
@@ -23,6 +23,7 @@ suppressPackageStartupMessages({
   library(tidyr)
   library(patchwork)
   library(scales)
+  library(ggrepel)
 })
 
 # ── CLI args ──────────────────────────────────────────────────────────────────
@@ -34,7 +35,7 @@ scatter_tsv  <- if (length(args) >= 2) args[2] else
 stats_tsv    <- if (length(args) >= 3) args[3] else
   "benchmark_results/correctness/stats.tsv"
 out_prefix   <- if (length(args) >= 4) args[4] else
-  "benchmark_results/benchmark_figure"
+  "results/figures_paper/fig1_benchmark"
 
 # ── Shared theme ──────────────────────────────────────────────────────────────
 base_theme <- theme_bw(base_size = 10) +
@@ -137,7 +138,7 @@ speedup_1t <- all_summ |>
   mutate(
     n_label  = make_nfac(n_models),
     speedup  = cobra / fastmic,
-    label    = sprintf("%.0f× faster\n(n=%d)", speedup, n_models),
+    label    = sprintf("%.0f× faster (n=%d)", speedup, n_models),
     # Midpoint between the two lines on log scale → geometric mean
     y_mid    = sqrt(cobra * fastmic)
   ) |>
@@ -149,14 +150,16 @@ pA <- ggplot(all_summ,
   geom_ribbon(aes(ymin = wall_min, ymax = wall_max, fill = tool),
               alpha = 0.15, colour = NA) +
   geom_line(linewidth = 0.8) +
-  geom_point(size = 2.5) +
+  geom_errorbar(aes(ymin = wall_min, ymax = wall_max), width = 0.16,
+                linewidth = 0.6, alpha = 0.95) +
+  geom_point(size = 1.3) +
   {
     if (nrow(speedup_1t) > 0)
       geom_text(data = speedup_1t,
-                aes(x = 1.15, y = y_mid, label = label),
+                aes(x = 1.05, y = y_mid, label = label),
                 inherit.aes = FALSE,
-                hjust = 0, vjust = 0.5, size = 2.8,
-                colour = "grey20", lineheight = 0.85)
+                hjust = 0, vjust = 0.5, size = 2.3,
+                colour = "grey20")
   } +
   scale_x_continuous(breaks = x_breaks, trans = "log2",
                      labels = function(x) as.integer(x)) +
@@ -199,7 +202,9 @@ pB <- ggplot(speedup_df,
            y = max(x_breaks) * 0.92,
            label = "Ideal", colour = GREY, hjust = 1, size = 3) +
   geom_line(linewidth = 0.8, colour = BLUE) +
-  geom_point(size = 2.5, colour = BLUE) +
+  geom_errorbar(aes(ymin = speedup_min, ymax = speedup_max), width = 0.16,
+                linewidth = 0.6, colour = BLUE, alpha = 0.95) +
+  geom_point(size = 1.3, colour = BLUE) +
   scale_x_continuous(breaks = x_breaks, trans = "log2",
                      labels = function(x) as.integer(x)) +
   scale_linetype_manual(values = size_lty, name = "Models") +
@@ -217,6 +222,13 @@ pB <- ggplot(speedup_df,
 mem_fm <- fm_summ   |> filter(mem_med > 0)
 mem_cb <- cb_summ   |> filter(mem_med > 0, threads == 1) |>
   mutate(n_label = make_nfac(n_models))
+# Label each fast-mic curve with its corpus size at the right-hand end,
+# where the three n levels are well separated on the y-axis.
+mem_fm_end <- mem_fm |>
+  group_by(n_label) |>
+  slice_max(threads, n = 1, with_ties = FALSE) |>
+  ungroup() |>
+  mutate(lbl = paste0("n=", as.character(n_label)))
 
 pC <- ggplot(mem_fm,
              aes(threads, mem_med,
@@ -224,7 +236,13 @@ pC <- ggplot(mem_fm,
   geom_ribbon(aes(ymin = mem_min, ymax = mem_max),
               fill = BLUE, alpha = 0.15, colour = NA) +
   geom_line(linewidth = 0.8, colour = BLUE) +
-  geom_point(size = 2.5, colour = BLUE) +
+  geom_errorbar(aes(ymin = mem_min, ymax = mem_max), width = 0.16,
+                linewidth = 0.6, colour = BLUE, alpha = 0.95) +
+  geom_point(size = 1.3, colour = BLUE) +
+  geom_text(data = mem_fm_end,
+            aes(x = threads, y = mem_med, label = lbl),
+            inherit.aes = FALSE, colour = BLUE, size = 2.3,
+            hjust = 0, nudge_x = 0.05, vjust = 0.4) +
   # COBRApy single-process reference points (at threads=1)
   {
     if (nrow(mem_cb) > 0)
@@ -235,14 +253,17 @@ pC <- ggplot(mem_fm,
   } +
   {
     if (nrow(mem_cb) > 0)
-      geom_text(data = mem_cb,
-                aes(x = 1.15, y = mem_med,
+      geom_text_repel(data = mem_cb,
+                aes(x = threads, y = mem_med,
                     label = sprintf("COBRApy 1t (n=%d)", n_models)),
-                inherit.aes = FALSE,
-                hjust = 0, vjust = 0.5, size = 2.6, colour = RED)
+                inherit.aes = FALSE, colour = RED, size = 2.3,
+                direction = "y", hjust = 0, nudge_x = 0.3,
+                box.padding = 0.25, min.segment.length = 0,
+                segment.size = 0.3, segment.colour = RED, seed = 1)
   } +
   scale_x_continuous(breaks = x_breaks, trans = "log2",
-                     labels = function(x) as.integer(x)) +
+                     labels = function(x) as.integer(x),
+                     expand = expansion(mult = c(0.05, 0.16))) +
   scale_y_continuous(labels = label_number(suffix = " MB", accuracy = 1)) +
   scale_linetype_manual(values = size_lty, name = "Models") +
   scale_shape_manual(values = c(15, 17, 18, 19)[seq_along(n_labels)],
@@ -346,7 +367,7 @@ pE <- ggplot(scatter, aes(cobra_growth, fastmic_growth)) +
 fig_caption <- sprintf(
   paste0(
     "Each (tool, n_models, threads) cell ran in %d independent repeats; ",
-    "lines/bars show the median, ribbons span [min, max]. ",
+    "lines and points show the median; error bars and ribbons span [min, max]. ",
     "COBRApy 2/4/8/12-thread points reflect external multiprocessing.Pool ",
     "parallelisation applied by the benchmark harness — COBRApy itself is ",
     "single-threaded per FBA call; only the 1-thread datum is its native ",
@@ -354,29 +375,27 @@ fig_caption <- sprintf(
   ),
   as.integer(n_repeats)
 )
+# Wrap the caption onto multiple lines so it never overflows the figure width
+fig_caption <- paste(strwrap(fig_caption, width = 150), collapse = "\n")
 
-combined <- (pA | pB | pC) / (pD | pE) +
+combined <- (pA | pB) / (pC | pE) +
   plot_layout(guides = "collect") +
-  plot_annotation(
-    tag_levels = "A",
-    caption    = fig_caption,
-    theme      = theme(plot.caption = element_text(size = 8,
-                                                   hjust = 0,
-                                                   lineheight = 1.1,
-                                                   margin = margin(t = 6)))
-  ) &
+  plot_annotation(tag_levels = "A") &
   theme(legend.position = "bottom")
 
 # ── Save ──────────────────────────────────────────────────────────────────────
 save_fig <- function(path, plot, w, h, ext) {
   if (ext == "pdf") {
     ggsave(path, plot, width = w, height = h, units = "in")
+  } else if (ext == "tiff") {
+    ggsave(path, plot, width = w, height = h, units = "in", dpi = 300,
+           device = "tiff", compression = "lzw")
   } else {
     ggsave(path, plot, width = w, height = h, units = "in", dpi = 300)
   }
   cat("Saved:", path, "\n")
 }
 
-for (ext in c("pdf", "png")) {
-  save_fig(paste0(out_prefix, ".", ext), combined, w = 13, h = 8.5, ext = ext)
+for (ext in c("pdf", "png", "tiff")) {
+  save_fig(paste0(out_prefix, ".", ext), combined, w = 11, h = 7.2, ext = ext)
 }
