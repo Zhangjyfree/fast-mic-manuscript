@@ -125,10 +125,10 @@ Rscript scripts/plot_fig5_crossfeed_sankey.R          # 需先生成下方汇总
 Rscript scripts/plot_fig6_strain_heatmap.R
 
 # 补充图 / Supplementary figures
-Rscript scripts/plot_figS1_threshold_sensitivity.R
-Rscript scripts/plot_figS2_interaction_composition.R
-Rscript scripts/plot_figS3_benefit_landscape.R
-Rscript scripts/plot_figS4_crossfeed_landscape.R
+Rscript scripts/plot_figS1_interaction_composition.R
+Rscript scripts/plot_figS2_benefit_landscape.R
+Rscript scripts/plot_figS3_crossfeed_landscape.R
+Rscript scripts/plot_figS4_threshold_sensitivity.R
 ```
 
 **Cross-feeding summary table / 交叉喂养汇总表** (used by Fig 5 & S4):
