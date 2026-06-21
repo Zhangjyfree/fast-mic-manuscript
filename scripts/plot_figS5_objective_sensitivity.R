@@ -77,7 +77,7 @@ ann <- agree_tbl |>
   mutate(level = as.character(level)) |>
   dplyr::left_join(lvl_top, by = "level") |>
   mutate(y = top + 5,
-         lbl = sprintf("agreement %.1f%%\nmutualism 100%% kept", agree),
+         lbl = sprintf("agreement %.2f%%\nmutualism 100%% kept", agree),
          level = factor(level, levels = c("L5 pectin", "L6 resistant\nstarch")))
 
 pA <- ggplot(summ, aes(level, mut_pct, fill = objective)) +
