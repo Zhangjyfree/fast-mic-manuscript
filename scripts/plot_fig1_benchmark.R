@@ -1,12 +1,12 @@
 #!/usr/bin/env Rscript
 # Combined benchmark figure: speed scaling + memory + time breakdown + correctness.
 #
-# Layout (2 rows):
-#   A  Wall time vs threads (log10 y) + speedup annotation
-#   B  Speedup vs threads  — fast-mic only (COBRApy parallelism is external)
-#   C  Peak memory vs threads (fast-mic curve + COBRApy 1-thread reference)
-#   D  Stacked bar: load vs FBA time  — both tools, faceted (tool × n_models)
-#   E  Correctness scatter
+# Final 2×2 layout (panel tags follow text citation order):
+#   A  Correctness scatter (numerical agreement)        [built as pE]
+#   B  Wall time vs threads (log10 y) + speedup labels   [built as pA]
+#   C  Speedup vs threads — fast-mic only                [built as pB]
+#   D  Peak memory vs threads (+ COBRApy 1-thread ref)   [built as pC]
+# (pD, the load-vs-FBA time breakdown, is built but not placed in the figure.)
 #
 # Usage:
 #   Rscript plot_benchmark.R \
@@ -371,14 +371,17 @@ fig_caption <- sprintf(
     "COBRApy 2/4/8/12-thread points reflect external multiprocessing.Pool ",
     "parallelisation applied by the benchmark harness — COBRApy itself is ",
     "single-threaded per FBA call; only the 1-thread datum is its native ",
-    "memory/runtime baseline (Panels B and C reflect this convention)."
+    "memory/runtime baseline (Panels C and D reflect this convention)."
   ),
   as.integer(n_repeats)
 )
 # Wrap the caption onto multiple lines so it never overflows the figure width
 fig_caption <- paste(strwrap(fig_caption, width = 150), collapse = "\n")
 
-combined <- (pA | pB) / (pC | pE) +
+# Panel order follows the order the panels are cited in the text:
+#   A = numerical agreement (accuracy, pE), B = runtime (pA),
+#   C = parallel speedup (pB),            D = peak memory (pC).
+combined <- (pE | pA) / (pB | pC) +
   plot_layout(guides = "collect") +
   plot_annotation(tag_levels = "A") &
   theme(legend.position = "bottom")
