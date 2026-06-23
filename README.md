@@ -9,7 +9,7 @@ human gut microbiome (UHGG) across a 10-step prebiotic gradient (L0–L9).
 
 > Associated study / 关联研究: *"Genome-scale modelling indicates that carbon
 > quality governs how generalist and specialist probiotics cooperate with the
-> resident microbiome across a prebiotic gradient."*
+> gut microbiome across a prebiotic gradient."*
 > The fast-mic engine (Rust source) lives in a separate repository:
 > <https://github.com/Zhangjyfree/fast-mic.git>. **This repository ships only the
 > data + scripts** needed to reproduce the figures and tables. / fast-mic 引擎
