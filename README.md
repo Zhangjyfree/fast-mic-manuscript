@@ -1,302 +1,326 @@
 # fast-mic-manuscript
 
-**Reproducibility repository for the fast-mic manuscript** — pairwise metabolic
-interactions between probiotics (*Akkermansia*, *Lactobacillus*-group) and the
-human gut microbiome (UHGG) across a 10-step prebiotic gradient (L0–L9).
+**Reproducibility repository for the fast-mic manuscript** — exhaustive,
+pair-resolved metabolic interaction typing between probiotics (*Akkermansia*,
+*Lactobacillus*-group) and the human gut microbiome (UHGG, 3,238 species
+representatives) across a ten-step prebiotic gradient (L0–L9).
 
-**fast-mic 论文的复现仓库** —— 益生菌（*Akkermansia*、*Lactobacillus* 类群）
-与人体肠道菌群（UHGG）之间的成对代谢互作，跨越 10 级益生元梯度（L0–L9）。
-
-> Associated study / 关联研究: *"Genome-scale modelling indicates that carbon
-> quality governs how generalist and specialist probiotics cooperate with the
-> gut microbiome across a prebiotic gradient."*
+> Associated study: *"fast-mic: a scalable tool for exhaustive pairwise
+> interaction typing of genome-scale metabolic models reveals that carbon
+> quality shapes probiotic–microbiome cooperation across a prebiotic gradient."*
+>
 > The fast-mic engine (Rust source) lives in a separate repository:
 > <https://github.com/Zhangjyfree/fast-mic.git>. **This repository ships the
-> data, benchmark inputs, and scripts** needed to reproduce the figures. /
-> fast-mic 引擎（Rust 源码）位于独立仓库；**本仓库提供复现图表所需的数据、基准
-> 输入与脚本**。
+> data, benchmark inputs, and scripts** needed to reproduce every figure.
 
 ---
 
-## 1. Overview / 概览
+## 1. What is here
 
-**EN** — This repo bundles the raw fast-mic simulation outputs, the genome /
-model inputs, the **benchmark data**, and every plotting script needed to
-regenerate the manuscript figures: **main Figures 1–6** and **Supplementary
-Figures S1–S8**. The outputs in `results/` (and the benchmark archive in
-`benchmark/`) let you redraw every figure directly; you only need the compiled
-`fast-mic` binary (from the engine repo) to *re-run* the underlying simulations.
+| | |
+|---|---|
+| **6 main figures + 12 supplementary figures** | `results/figures_paper/` — each as `pdf` / `png` / `tiff` |
+| **Every plotting script** | `scripts/plot_fig*.R` — one script per figure, no hidden steps |
+| **Every intermediate table** | `results/fig*/`, `results/figS*/`, `results/litvalidation/` |
+| **Raw per-pair simulation output** | `results/{akk,lac}_vs_uhgg/` — 10 media × all pairs |
+| **Benchmark inputs** | `results/fig1/benchmark/` — COBRApy correctness + thread scaling; generators in `scripts/benchmark/` |
+| **Genomes, models, trees** | `test/` — the two probiotic panels and the UHGG model set |
 
-**中文** —— 本仓库收录 fast-mic 的原始模拟输出、基因组/模型输入、**基准测试数据**，
-以及复现**正文图 1–6** 和**补充图 S1–S8** 所需的全部绘图脚本。`results/`（及
-`benchmark/` 中的基准压缩包）已附带输出，可直接重绘所有图；只有在**重跑模拟**时才
-需要从引擎仓库编译得到 `fast-mic` 可执行文件。
+Only the **submitted version** of each figure and script is kept here.
+Superseded drafts live in `_superseded/` in the working tree and are not
+mirrored into this repository.
 
 ---
 
-## 2. Directory layout / 目录结构
+## 2. Directory layout
 
 ```
 fast-mic-manuscript/
-├── README.md
-├── scripts/                            # 全部绘图/分析脚本 / all plotting & analysis scripts
-│   ├── run_gradient.sh                 # 跑 fast-mic 梯度模拟 / run the gradient simulation
-│   ├── make_crossfeed_table.py         # 汇总交叉喂养表 / pool the cross-feeding table
-│   ├── plot_fig1_benchmark.R           # 图1 性能基准 / Fig 1 benchmark
-│   ├── plot_fig2_phylo_trees.R         # 图2 系统发育树 / Fig 2 phylogeny
-│   ├── plot_fig3_gradient_overview.R   # 图3 梯度总览 / Fig 3 gradient overview
-│   ├── plot_fig4_mechanisms.R          # 图4 机制 / Fig 4 mechanisms
-│   ├── plot_fig5_crossfeed_sankey.R    # 图5 交叉喂养桑基图 / Fig 5 Sankey
-│   ├── plot_fig6_strain_heatmap.R      # 图6 菌株热图 / Fig 6 strain heatmap
-│   └── plot_figS1…S8_*.R               # 补充图 S1–S8 / Supplementary figures (见第 8 节)
-├── benchmark/                          # 图1 基准 + 去环验证 / benchmark (Fig 1) & loop-removal validation (Table S5)
-│   ├── benchmark_results.zip           # fast-mic vs COBRApy 计时/内存/正确性原始结果 / raw timing, memory & correctness results
-│   ├── benchmark_cobra.py              # COBRApy 基准脚本 / COBRApy benchmark harness
-│   ├── run_thread_scaling.sh           # 线程扩展基准运行脚本 / thread-scaling benchmark runner
-│   ├── cff_biomass_deviation.tsv       # 去环后生物量偏差(逐 模型×培养基) / post-CFF biomass deviation per (model, medium)
-│   └── cff_biomass_deviation_summary.txt  # 偏差汇总(max 1.0e-5 h⁻¹) / deviation summary (max 1.0e-5 h⁻¹)
-├── results/                            # fast-mic 输出 + 成图 / outputs + figures
-│   ├── akk_vs_uhgg/                    # Akkermansia × UHGG, L0–L9 (.tsv + .full.tsv)
-│   ├── lac_vs_uhgg/                    # Lactobacillus × UHGG, L0–L9 (.tsv + .full.tsv.gz)
-│   ├── l0_substrates/                  # L0 单培养底物摄取 / L0 uptake by substrate class (Fig S1)
-│   ├── glucose_isolation/              # 受控葡萄糖对照 / controlled glucose contrast (Fig S7)
-│   ├── objective_sensitivity/          # fixed-ratio vs lexicographic (Fig S6)
-│   ├── gpr_analysis/                   # 交叉喂养基因支持 vs GPR 覆盖 / GPR coverage (Fig S8)
-│   └── figures_paper/                  # 最终 PDF/PNG/TIFF + 汇总表 / final figures + tables
-└── test/                               # 输入基因组与模型 / input genomes & models
-    ├── akk/                            # Akkermansia 基因组 / gapseq 模型 / 树
-    ├── lac/                            # Lactobacillus 基因组 / gapseq 模型 / 树
-    └── UHGG/                           # 肠道群落模型 + 元数据 / community models + metadata
+├── scripts/
+│   ├── figure_theme.R                     # shared figure conventions: Arial, BMC geometry, italic taxon names
+│   ├── plot_fig1_benchmark.R              # Fig 1 benchmark, panels A–G
+│   ├── extract_fig2_traits.py             # Fig 2 GEM traits + per-level monoculture growth
+│   ├── plot_fig2_repertoire.R             # Fig 2 phylogeny + model repertoire + growth heatmap
+│   ├── plot_fig3_gradient_overview.R      # Fig 3 interactions across the gradient
+│   ├── plot_fig4_mechanisms.R             # Fig 4 glucose-crash mechanisms, panels A–G
+│   ├── extract_fig5_crossfeed.py          # Fig 5 per-level cross-feeding prevalence
+│   ├── plot_fig5_crossfeed.R              # Fig 5 Sankey + condition heatmaps + class composition
+│   ├── extract_fig6_enrich.py             # Fig 6 bootstrap CIs + partner phyla
+│   ├── plot_fig6_heterogeneity.R          # Fig 6 strain heterogeneity, panels A–E
+│   ├── plot_figS1_l0_substrates.R … plot_figS12_gapfill_knockout.R   # Supplementary Figs S1–S12
+│   ├── scaling_timing_smetana.py          # fast-mic vs SMETANA timing + peak memory (Fig 1F/1G)
+│   ├── run_smetana_batch.py               # SMETANA MIP/MRO batch runs (Fig S2B/C)
+│   ├── extract_interception.py            # higher-order interception bound (Fig S7B)
+│   ├── make_crossfeed_table.py            # pooled cross-feeding currency table (Fig S7A)
+│   ├── stats_strain_level.py              # strain-level statistics: bootstrap CIs, Mann-Whitney, Wilcoxon (Fig S4 + Table S9)
+│   ├── build_lit_validation_table.py      # predicted currencies vs published experimental evidence
+│   ├── run_gradient.sh                    # how the raw per-pair results were produced (needs the engine repo)
+│   └── benchmark/
+│       ├── benchmark_cobra.py             # COBRApy comparison
+│       └── run_thread_scaling.sh          # thread-scaling harness
+├── results/
+│   ├── figures_paper/                     # 18 final figures × 3 formats
+│   ├── akk_vs_uhgg/  lac_vs_uhgg/         # raw per-pair output, L0–L9
+│   ├── fig1/                              # timing/memory tables + benchmark/
+│   │   └── benchmark/                     # thread_scaling/ + correctness/ (COBRApy benchmark raw data)
+│   ├── fig2/ fig4/ fig5/ fig6/            # main-figure intermediates
+│   ├── figS1/ figS2/ figS4/ figS5/        # supplementary intermediates
+│   ├── figS7/ figS9/ figS10/ figS11/ figS12/
+│   ├── litvalidation/                     # literature cross-check
+│   └── tableS5/                           # post-CycleFreeFlux biomass deviation
+└── test/
+    ├── akk/  lac/                         # genomes, GEMs, IQ-TREE trees
+    └── UHGG/                              # split UHGG model archive + GTDB metadata
 ```
-
-**Two systems / 两个系统**
-
-| Key 键        | Probiotic 益生菌                     | Community 群落 |
-|---------------|--------------------------------------|----------------|
-| `akk_vs_uhgg` | *Akkermansia* (6 strains, 3 species) | UHGG (gut)     |
-| `lac_vs_uhgg` | *Lactobacillus*-group (10 strains)   | UHGG (gut)     |
-
-> `akk_vs_uhgg` = specialist × gut; `lac_vs_uhgg` = generalist × gut. The
-> specialist/generalist contrast runs through every figure. / `akk` 为特化菌、
-> `lac` 为泛能菌；特化 vs 泛能的对照贯穿全部图表。
 
 ---
 
-## 3. Prebiotic gradient / 益生元梯度 (L0–L9)
+## 3. Prebiotic gradient (L0–L9)
 
 Ten strictly nested, cumulative media. Each level adds the *in vivo* hydrolysis
 products of one more prebiotic on top of all previous levels. **L6 is the first
-level to release free glucose** ("glucose crash"). / 十级严格嵌套、累加式培养基；
-每一级在前面所有级别基础上加入一种益生元的体内水解产物；**L6 是首个释放游离
-葡萄糖的级别**（“葡萄糖崩溃”）。
+level to release free glucose** (the "glucose crash").
 
-| Level | File 文件             | Added carbon 新增碳源 / 益生元                              |
+| Level | File                  | Added carbon                                              |
 |-------|-----------------------|-----------------------------------------------------------|
-| L0    | `L0_base`             | 仅基础营养 + 黏蛋白聚糖（单体）/ housekeeping + mucin glycan monomers |
-| L1    | `L1_inulin`           | 菊粉 inulin (D-fructose, sucrose)                         |
-| L2    | `L2_fos`              | 低聚果糖 FOS (inulobiose)                                 |
-| L3    | `L3_gos`              | 低聚半乳糖 GOS (lactose, lactulose, D-galactose)          |
-| L4    | `L4_xos`              | 低聚木糖 XOS (D-xylose, L-arabinose)                      |
-| L5    | `L5_pectin`           | 果胶 pectin (D-galacturonate, L-rhamnose) — 峰值 peak     |
-| L6    | `L6_resistant_starch` | 抗性淀粉 (D-glucose, maltose) — **游离葡萄糖 free glucose**|
-| L7    | `L7_bglucan`          | β-葡聚糖 (cellobiose)                                     |
-| L8    | `L8_hmo`              | 母乳低聚糖 HMO (lacto-N-biose)                            |
-| L9    | `L9_mos`              | 甘露寡糖 MOS (D-mannose, mannobiose)                      |
+| L0    | `L0_base`             | housekeeping nutrients + mucin glycan monomers            |
+| L1    | `L1_inulin`           | inulin (D-fructose, sucrose)                              |
+| L2    | `L2_fos`              | FOS (inulobiose)                                          |
+| L3    | `L3_gos`              | GOS (lactose, lactulose, D-galactose)                     |
+| L4    | `L4_xos`              | XOS (D-xylose, L-arabinose)                               |
+| L5    | `L5_pectin`           | pectin (D-galacturonate, L-rhamnose) — peak               |
+| L6    | `L6_resistant_starch` | resistant starch (D-glucose, maltose) — **free glucose**  |
+| L7    | `L7_bglucan`          | β-glucan (cellobiose)                                     |
+| L8    | `L8_hmo`              | human milk oligosaccharides (lacto-N-biose)               |
+| L9    | `L9_mos`              | MOS (D-mannose, mannobiose)                               |
+
+Medium composition and uptake bounds are tabulated in **Supplementary Table
+S4**; the medium CSVs themselves live in the engine repository under `media/`
+(see §8).
 
 ---
 
-## 4. Requirements / 依赖
+## 4. Requirements
 
-**fast-mic binary** — build from the engine repo (only needed to re-run
-simulations): / fast-mic 可执行文件（仅重跑模拟时需要）：
+**R (≥ 4.2)** — CRAN: `tidyverse` (ggplot2, dplyr, tidyr, readr, tibble),
+`patchwork`, `scales`, `ggrepel`, `ggalluvial`, `cowplot`, `viridisLite`;
+Bioconductor (Fig 2 only): `ggtree`, `treeio`, `aplot`.
+
+```r
+install.packages(c("tidyverse","patchwork","scales","ggrepel","ggalluvial","cowplot"))
+if (!requireNamespace("BiocManager")) install.packages("BiocManager")
+BiocManager::install(c("ggtree","treeio","aplot"))   # Fig 2 only
+```
+
+PDF output uses `cairo_pdf` so that Unicode glyphs (μ, β, →, ×) survive; a
+`pdf()` device without cairo silently drops them.
+
+**Python (≥ 3.8)** — the extract/table scripts use the standard library only,
+except `extract_fig6_enrich.py` (needs `numpy` for the bootstrap) and
+`stats_strain_level.py` (needs `numpy` and `scipy` for the exact rank tests).
+
+**SMETANA comparison only** (Fig 1F, 1G, S2) — a conda env with `smetana`,
+`reframed` and a commercial MILP solver:
+
+```bash
+conda create -n smetana python=3.10 && conda activate smetana
+pip install smetana reframed        # + CPLEX 22.2 (or Gurobi) Python bindings
+```
+
+`reframed` has **no native HiGHS interface** (its only HiGHS route is a PuLP
+wrapper that the default solver order `gurobi > cplex > scip` never selects), so
+SMETANA is run on CPLEX while fast-mic keeps its free, natively linked HiGHS.
+The asymmetry favours SMETANA and is stated as such in the manuscript.
+
+**fast-mic binary** — only needed to re-run simulations:
 
 ```bash
 git clone https://github.com/Zhangjyfree/fast-mic.git
-cd fast-mic && cargo build --release    # → target/release/fast-mic
+cd fast-mic && cargo build --release        # → target/release/fast-mic
 ```
-
-**R (≥ 4.2)** — CRAN: `tidyverse` (ggplot2, dplyr, tidyr, readr, tibble),
-`patchwork`, `scales`, `ggrepel`, `ggalluvial`; Bioconductor (Fig 2 only):
-`ggtree`, `treeio`.
-
-```r
-install.packages(c("tidyverse","patchwork","scales","ggrepel","ggalluvial"))
-# Bioconductor (图2系统发育树 / Fig 2 phylogeny):
-if (!requireNamespace("BiocManager")) install.packages("BiocManager")
-BiocManager::install(c("ggtree","treeio"))
-```
-
-**Python (≥ 3.8)** — figure/table scripts use the standard library only
-(`csv`, `os`, `collections`). Re-generating the **benchmark** data
-(`benchmark/benchmark_cobra.py`) additionally needs `cobra` (COBRApy) and the
-fast-mic binary; this is optional, since `benchmark_results.zip` is provided. /
-绘图脚本仅用标准库；**重跑基准**（`benchmark/benchmark_cobra.py`）还需 `cobra`
-(COBRApy) 与 fast-mic 二进制——此步可选，因为已附带 `benchmark_results.zip`。
 
 ---
 
-## 5. Reproduce the figures / 复现图表
+## 5. Reproduce the figures
 
-**EN** — The simulation outputs in `results/` are already provided, so every
-figure can be regenerated directly. Each R script defaults to reading from
-`results/` and writing PDF + PNG + TIFF into `results/figures_paper/`; the input
-and output paths are documented in the header comment of each script.
+Every plotting script sources `scripts/figure_theme.R`, which holds the
+conventions the journal expects: Arial throughout, BMC page geometry
+(170 mm full-page / 85 mm half-page, 225 mm maximum height, 300 dpi, lines
+above 0.25 pt) and italic genus/species names. The helpers are `sp_md()` for
+scale and label text, `sp_labeller()` for facet strips and `sp_plotmath()` for
+geoms that cannot render markdown (ggtree tip labels). They change only how a
+label is drawn — never the underlying data — and the text element that shows
+them is an `element_markdown()`, so run the scripts from the repository root
+so that `scripts/figure_theme.R` resolves.
 
-**中文** —— `results/` 中已附带模拟输出，可直接重绘所有图。每个 R 脚本默认从
-`results/` 读取，并把 PDF + PNG + TIFF 输出到 `results/figures_paper/`；各脚本头部
-注释标明了输入/输出路径。
+Every figure is drawn at its final printed size: 170 mm wide (BMC full page),
+at most 225 mm tall, 300 dpi, Arial throughout. Heights by figure: Fig 1 225,
+Fig 2 210, Fig 3 160, Fig 4 205, Fig 5 200, Fig 6 225, S1 105, S2 195, S3 70,
+S4 82, S5 88, S6 150, S7 190, S8 80, S9 95, S10 84, S11 80, S12 85 mm.
 
 ```bash
-# 图1 需先解压基准数据 / Fig 1 first needs the benchmark archive unzipped
-unzip -o benchmark/benchmark_results.zip -d benchmark/      # → benchmark/benchmark_results/...
-
-# 正文图 / Main figures
-Rscript scripts/plot_fig1_benchmark.R \
-    benchmark/benchmark_results/thread_scaling/thread_scaling_results.tsv \
-    benchmark/benchmark_results/correctness/scatter.tsv \
-    benchmark/benchmark_results/correctness/stats.tsv
-Rscript scripts/plot_fig2_phylo_trees.R
+# Main figures
+# Fig 1 benchmark data sits in results/fig1/benchmark/ — no archive to unpack
+Rscript scripts/plot_fig1_benchmark.R      # default input paths point there
+Rscript scripts/plot_fig2_repertoire.R    results/figures_paper/fig2_repertoire
 Rscript scripts/plot_fig3_gradient_overview.R
 Rscript scripts/plot_fig4_mechanisms.R
-Rscript scripts/plot_fig5_crossfeed_sankey.R             # 需先生成下方汇总表 / needs the table below
-Rscript scripts/plot_fig6_strain_heatmap.R
+Rscript scripts/plot_fig5_crossfeed.R     results/figures_paper/fig5_crossfeed
+Rscript scripts/plot_fig6_heterogeneity.R results/figures_paper/fig6_heterogeneity
 
-# 补充图 S1–S8 / Supplementary figures (citation order)
-Rscript scripts/plot_figS1_l0_substrates.R               # in: results/l0_substrates/
-Rscript scripts/plot_figS2_interaction_composition.R     # in: results/{akk,lac}_vs_uhgg/
-Rscript scripts/plot_figS3_benefit_landscape.R
-Rscript scripts/plot_figS4_crossfeed_landscape.R         # in: crossfeed_landscape_table.tsv (below)
-Rscript scripts/plot_figS5_threshold_sensitivity.R       # in: results/{akk,lac}_vs_uhgg/
-Rscript scripts/plot_figS6_objective_sensitivity.R       # in: results/objective_sensitivity/
-Rscript scripts/plot_figS7_glucose_isolation.R           # in: results/glucose_isolation/
-Rscript scripts/plot_figS8_gpr_coverage.R                # in: results/gpr_analysis/
+# Supplementary figures S1–S12 (numbered in order of first citation)
+Rscript scripts/plot_figS1_l0_substrates.R           --outdir results/figures_paper
+Rscript scripts/plot_figS2_smetana_comparison.R      results/figures_paper/figS2_smetana_comparison
+Rscript scripts/plot_figS3_interaction_composition.R
+Rscript scripts/plot_figS4_strain_bootstrap.R        --outdir results/figures_paper
+Rscript scripts/plot_figS5_benefit_metric.R          --outdir results/figures_paper
+Rscript scripts/plot_figS6_benefit_landscape.R
+Rscript scripts/plot_figS7_crossfeed_landscape.R     # needs the two tables in §6
+Rscript scripts/plot_figS8_threshold_sensitivity.R
+Rscript scripts/plot_figS9_objective_sensitivity.R
+Rscript scripts/plot_figS10_uhgg_sensitivity.R       --outdir results/figures_paper
+Rscript scripts/plot_figS11_gpr_coverage.R           --outdir results/figures_paper
+Rscript scripts/plot_figS12_gapfill_knockout.R       --outdir results/figures_paper
 ```
 
-**Cross-feeding summary table / 交叉喂养汇总表** (used by Fig 5 & Fig S4):
-
-```bash
-python3 scripts/make_crossfeed_table.py
-# → results/figures_paper/crossfeed_landscape_table.tsv
-```
-
-It pools every mutualistic pair across L0–L9 and counts, for each exchanged
-metabolite, the fraction of mutualistic pairs that trade it in **either**
-direction (a→b ∪ b→a, de-duplicated per pair). / 把 L0–L9 所有互利菌对汇总，
-统计每种交换代谢物在**任一方向**（a→b ∪ b→a，按菌对去重）被交换的比例。
+Every intermediate table these scripts read is already in `results/`, so the
+figures reproduce without re-running any simulation.
 
 ---
 
-## 6. Supplementary & benchmark analyses / 补充分析与基准
+## 6. Intermediate files — how each is generated
 
-Beyond the gradient sweep, several focused analyses back individual
-supplementary figures. Each has its own `results/` sub-directory and plotting
-script. / 除梯度扫描外，以下针对性分析各自支撑一张补充图，均有独立的 `results/`
-子目录与绘图脚本。
-
-| Fig 图 | Analysis 分析 | Data 数据 | Takeaway 结论 |
-|--------|---------------|-----------|---------------|
-| **S1** | L0 substrate basis / L0 底物来源 | `results/l0_substrates/lac_L0_uptake.tsv` | All 10 *Lactobacillus* are viable at L0 on amino acids + mucin amino sugars (no fatty-acid oxidation). / 10 株在 L0 均可存活，靠氨基酸 + 黏蛋白氨基糖。 |
-| **S5** | Threshold sensitivity / 阈值敏感性 | `results/{akk,lac}_vs_uhgg/` | The pectin peak / glucose crash survives every mutualism-/competition-threshold combination. / 阈值组合下结论不变。 |
-| **S6** | Objective-function sensitivity / 目标函数敏感性 | `results/objective_sensitivity/` | Default **lexicographic max-min** vs **fixed-ratio** give identical mutualism fractions and ≥ 99 % per-pair agreement. / 两种共培养目标结果一致。 |
-| **S7** | Controlled glucose contrast / 受控葡萄糖对照 | `results/glucose_isolation/` | Holding L1–L4 fixed, swapping pectin (L5) → glucose (L5-glc) lowers mutualism in **both** systems (Akk 10.4→6.5 %, Lac 21.7→18.4 %): a shared carbon-**quality** effect. / 同背景下果胶换葡萄糖，两系统互利率都下降，是共有的碳源**质量**效应。 |
-| **S8** | GPR coverage / 基因支持率 | `results/gpr_analysis/gpr_coverage.tsv` | Cross-feeding gene support (~50–60 %) tracks transporter annotation, not a gap-filling artefact. / 交叉喂养基因支持率匹配转运体注释，非补缺假象。 |
-
-**Re-running the benchmark (Fig 1)** / 重跑基准（图1，需 fast-mic 二进制 + COBRApy）：
-
-```bash
-bash benchmark/run_thread_scaling.sh          # fast-mic thread-scaling (timing/memory)
-python3 benchmark/benchmark_cobra.py          # COBRApy reference (accuracy + single-thread baseline)
-# → repopulates benchmark/benchmark_results/{thread_scaling,correctness}/, then re-run plot_fig1_benchmark.R
-```
-
-**Loop-removal validation (Table S5)** / 去环验证（表 S5）：
-`benchmark/cff_biomass_deviation.tsv` (+ `…_summary.txt`) verify that the
-CycleFreeFlux + pFBA step does not reduce the growth rate below the Stage-1 FBA
-optimum. Across all 10,000 single-species (model × medium) evaluations — 7,463
-growing — the post-CFF biomass deviates from the FBA optimum by at most
-**1.0 × 10⁻⁵ h⁻¹ (= ε, the flux-lock tolerance; mean 9.7 × 10⁻⁶)**, i.e. within
-the LP tolerance and biologically negligible. / 验证去环步骤不会把生长率降到
-Stage-1 FBA 最优值以下：在全部 10,000 个单物种(模型×培养基)评估(7,463 个可生长)
-中，去环后生物量与 FBA 最优值的最大偏差仅 **1.0 × 10⁻⁵ h⁻¹(= ε,平均
-9.7 × 10⁻⁶)**,在 LP 容差内、可忽略。Regenerate with the `bench-cff-deviation`
-tool from the engine repo / 用引擎仓库的 `bench-cff-deviation` 重新生成:
+| Directory | Figure / table | Command | Inputs |
+|---|---|---|---|
+| `results/fig1/benchmark/` | 1B–1E | `bash scripts/benchmark/run_thread_scaling.sh` (COBRApy comparison + thread scaling; needs `cobra` and the fast-mic binary) | UHGG model corpora, L0–L9 media |
+| `results/tableS5/` | Table S5 | produced by the CycleFreeFlux validation run (engine) | fast-mic binary |
+| `results/fig1/` | 1F | `python3 scripts/scaling_timing_smetana.py --sys {akk,lac} --sizes 100,500,1000 --reps 3 --solver cplex` | fast-mic binary + SMETANA env |
+| `results/fig1/…_mem.tsv` | 1G | same script with `--out-suffix _mem` — records `peak_rss_mb` (fast-mic per child process via `os.wait4`; SMETANA via `getrusage(RUSAGE_SELF)`) | fast-mic binary + SMETANA env |
+| `results/fig2/` | 2 | `python3 scripts/extract_fig2_traits.py` | `test/{akk,lac}/…_gapseq_wdm_xml`, trees, `{akk,lac}_vs_uhgg/` |
+| `results/fig4/` | 4G | `fast-mic` on L5 / L5-glc / L6 media (§8) | fast-mic binary |
+| `results/fig5/` | 5 | `python3 scripts/extract_fig5_crossfeed.py` | `{akk,lac}_vs_uhgg/*.full.tsv`, ModelSEED `compounds.tsv` (§8) |
+| `results/fig6/` | 6 | `python3 scripts/extract_fig6_enrich.py` | `{akk,lac}_vs_uhgg/`, `test/UHGG/…metadata…gz` (needs `numpy`) |
+| `results/figS2/` | S2B,C | `python3 scripts/run_smetana_batch.py <level> <sys> 300` | `{akk,lac}_vs_uhgg/`, `test/` models, SMETANA env |
+| `results/figS7/` | S7 | `python3 scripts/make_crossfeed_table.py` **and** `python3 scripts/extract_interception.py` | `{akk,lac}_vs_uhgg/*.full.tsv`, `compounds.tsv`, UHGG models |
+| `results/figS9/` | S9 | `fast-mic` at L5/L6, default vs `--fixed-ratio` (§8) | fast-mic binary |
+| `results/figS4/` | S4, Table S9 | `python3 scripts/stats_strain_level.py` (bootstrap CIs, exact Mann-Whitney and Wilcoxon; B = 10,000, seed 0) | `results/{akk,lac}_vs_uhgg/L5_pectin.tsv`, `L6_resistant_starch.tsv` |
+| `results/litvalidation/` | Table S11 columns G–K | `python3 scripts/build_lit_validation_table.py` | `results/fig5/fig5_prevalence_{akk,lac}.tsv` + curated evidence in the script |
+| `results/figS1/`, `figS5/`, `figS10/`–`figS12/` | S1, S5, S10–S12 | focused fast-mic runs / analyses — **provided**; regeneration needs the engine binary | — |
 
 ```bash
-bench-cff-deviation --media-list <gradient_media_list.txt> \
-  --model-list <models.txt> --threads 0 > benchmark/cff_biomass_deviation.tsv
+# Intermediates with a generator in this repository
+python3 scripts/extract_fig2_traits.py        # → results/fig2/
+python3 scripts/extract_fig6_enrich.py        # → results/fig6/   (numpy)
+python3 scripts/extract_fig5_crossfeed.py     # → results/fig5/   (needs compounds.tsv, §8)
+python3 scripts/make_crossfeed_table.py       # → results/figS7/crossfeed_landscape_table.tsv
+python3 scripts/extract_interception.py       # → results/figS7/interception.tsv
+python3 scripts/stats_strain_level.py         # → results/figS4/  (statistics for Fig S4 + Table S9)
+python3 scripts/build_lit_validation_table.py # → results/litvalidation/lit_validation.tsv
 ```
 
-**Re-running the objective-function & glucose analyses** (needs the fast-mic
-binary) / 重跑目标函数与葡萄糖分析（需 fast-mic 二进制）：
-
-```bash
-# Objective sensitivity (Fig S6): L5/L6 under two co-culture objectives
-fast-mic --group1 <probiotic_dir> --group2 test/UHGG/final_gapseq_xml \
-  --medium-file <gradient_L5_pectin.csv> --summary -o results/objective_sensitivity/L5_pectin_lexicographic.tsv
-fast-mic ... --fixed-ratio -o results/objective_sensitivity/L5_pectin_fixed_ratio.tsv   # repeat for L6
-
-# Controlled glucose contrast (Fig S7): same L1–L4 background, pectin vs glucose
-fast-mic --group1 test/akk/... --group2 test/UHGG/final_gapseq_xml \
-  --medium-file <gradient_L5glc.csv> --summary -o results/glucose_isolation/akk_L5glc.tsv   # repeat akk/lac × L5/L5glc/L6
-```
+**Literature cross-check** (`results/litvalidation/lit_validation.tsv`): every
+predicted cross-feeding currency is scored against the experimental literature
+as `supported` / `partial` / `untested` / `contradicted`, with a separate column
+recording whether the published donor taxon matches the one predicted here.
+Of the 27 currencies exported in at least a tenth of mutualistic pairs, 23 are
+documented and one (*Lactobacillus* inosine export) points the other way.
 
 ---
 
-## 7. Data dictionary / 数据字典
+## 7. Reassembling the UHGG model set
+
+`test/UHGG/final_gapseq_xml/` ships the 3,238 gapseq SBML models as a tar
+archive split into 44 × 20 MB parts (GitHub's per-file limit). Scripts that read
+individual models (`extract_interception.py`, `run_smetana_batch.py`,
+`run_gradient.sh`) expect the **extracted** `.xml` files:
+
+```bash
+cd test/UHGG/final_gapseq_xml
+cat final_gapseq_xml.tar.gz.part_* > final_gapseq_xml.tar.gz
+tar -xzf final_gapseq_xml.tar.gz          # → *.xml  (~3,238 models)
+```
+
+The extracted `.xml` files are git-ignored, so re-extracting never dirties the
+working tree.
+
+---
+
+## 8. Not included here
+
+| Item | Where | Why |
+|---|---|---|
+| fast-mic Rust source + binary | engine repo | separate software release |
+| `media/gradient_L*_gapseq.csv` (12 files: L0–L9 + the L5-glc and L6′ controls) | engine repo, `media/` | composition and uptake bounds are tabulated in Table S4 |
+| ModelSEED `compounds.tsv` | engine repo | compound id → name map, only needed to regenerate `results/fig5/` |
+| COBRApy per-model raw logs | `results/fig1/benchmark/thread_scaling/` | 138 log/TSV files are included as-is |
+
+`scripts/run_gradient.sh` is kept for provenance: it documents exactly how
+`results/{akk,lac}_vs_uhgg/` was produced, but it needs the engine binary and
+the medium CSVs, so it cannot run inside this repository as-is.
+
+---
+
+## 9. Data dictionary
 
 Each level produces a summary `L*.tsv` (one row per species pair). With
 `--full-tsv`, a richer `L*.full.tsv` adds per-metabolite cross-feeding columns.
-每一级生成汇总表 `L*.tsv`（每行一个菌对）；加 `--full-tsv` 时额外生成
-`L*.full.tsv`，含逐代谢物交叉喂养信息。（`lac_vs_uhgg/*.full.tsv` 以 `.gz` 压缩。）
+(`lac_vs_uhgg/*.full.tsv` are gzip-compressed and `akk_vs_uhgg/*.full.tsv` are
+not; the readers handle both.)
 
-| Column 列                     | Meaning 含义                                                       |
-|-------------------------------|--------------------------------------------------------------------|
-| `species_a` / `species_b`     | 菌对的两个成员 / the two members of the pair                       |
-| `growth_a_alone` / `_b_alone` | 单培养生长速率 / monoculture growth rate (h⁻¹)                    |
-| `growth_a_co` / `_b_co`       | 共培养生长速率 / co-culture growth rate (h⁻¹)                      |
-| `benefit_a` / `benefit_b`     | 相对收益 / relative benefit (co vs mono)                           |
-| `interaction_type`            | 互作类型 / mutualism, competition, commensalism, parasitism, …     |
-| `competition_intensity`       | 资源重叠强度 / shared-uptake overlap                               |
-| `n_exchanged_metabolites`     | 交换代谢物数 / number of cross-fed metabolites                     |
-| `gene_supported_fraction`     | 有基因证据的交叉喂养通量占比 / gene-supported cross-feeding flux    |
-| `a_to_b_metabolites` ⁺        | a→b 交换的代谢物/通量/供受体基因 / metabolites, fluxes, donor/receiver genes |
-| `competed_metabolites` ⁺      | 双方竞争的代谢物 / metabolites competed for                        |
+| Column                        | Meaning                                                  |
+|-------------------------------|----------------------------------------------------------|
+| `species_a` / `species_b`     | the two members of the pair                              |
+| `growth_a_alone` / `_b_alone` | monoculture growth rate (h⁻¹)                            |
+| `growth_a_co` / `_b_co`       | co-culture growth rate (h⁻¹)                             |
+| `benefit_a` / `benefit_b`     | relative benefit (co-culture vs monoculture)             |
+| `interaction_type`            | mutualism, competition, commensalism, parasitism, …      |
+| `competition_intensity`       | shared-uptake overlap                                    |
+| `n_exchanged_metabolites`     | number of cross-fed metabolites                          |
+| `gene_supported_fraction`     | gene-supported fraction of cross-feeding flux            |
+| `a_to_b_metabolites` ⁺        | metabolites, fluxes and donor/receiver genes exchanged a→b |
+| `competed_metabolites` ⁺      | metabolites competed for                                 |
 
-⁺ `*.full.tsv` only / 仅 `*.full.tsv` 含有。
+⁺ `*.full.tsv` only.
 
 A viable pair = both members grow in monoculture (> 1×10⁻⁴ h⁻¹); mutualism % is
-computed over viable pairs. / 可行菌对 = 两成员单培养均可生长（> 1×10⁻⁴ h⁻¹）；
-互利比例在可行菌对上统计。
+computed over viable pairs.
+
+The timing tables (`results/fig1/scaling_timing_*.tsv`) carry `tool`, `n_pairs`,
+`n_prob`, `n_uhgg`, `threads`, `solver`, `rep`, `wall_s`, `sec_per_pair` and —
+in the `_mem` runs — `peak_rss_mb`. Each size is a complete probiotic × UHGG
+cross-product, so the realized pair counts are 100/500/1,000 for the ten-strain
+*Lactobacillus* panel and 102/498/1,002 for the six-strain *Akkermansia* panel.
 
 ---
 
-## 8. Figure index / 图索引
+## 10. Figure index
 
-| Figure 图 | Script 脚本                              | Topic 主题                                      |
-|-----------|------------------------------------------|-------------------------------------------------|
-| Fig 1     | `plot_fig1_benchmark.R`                  | fast-mic vs COBRApy 性能基准 / benchmark (A accuracy, B runtime, C speedup, D memory) |
-| Fig 2     | `plot_fig2_phylo_trees.R`                | 益生菌系统发育树 / probiotic phylogenies        |
-| Fig 3     | `plot_fig3_gradient_overview.R`          | 梯度上的互作总览 / interactions across gradient |
-| Fig 4     | `plot_fig4_mechanisms.R`                 | 葡萄糖崩溃的机制 / glucose-crash mechanisms     |
-| Fig 5     | `plot_fig5_crossfeed_sankey.R`           | 交叉喂养货币桑基图 / cross-feeding currencies   |
-| Fig 6     | `plot_fig6_strain_heatmap.R`             | 菌株级合作异质性 / strain-level heterogeneity   |
-| Fig S1    | `plot_figS1_l0_substrates.R`             | L0 底物来源 / L0 substrate basis of viability   |
-| Fig S2    | `plot_figS2_interaction_composition.R`   | 六类互作组成 / six-category composition         |
-| Fig S3    | `plot_figS3_benefit_landscape.R`         | 收益分布景观 / benefit landscape (β_A vs β_B)   |
-| Fig S4    | `plot_figS4_crossfeed_landscape.R`       | 交叉喂养代谢物景观 / cross-feeding landscape    |
-| Fig S5    | `plot_figS5_threshold_sensitivity.R`     | 阈值敏感性 / threshold robustness               |
-| Fig S6    | `plot_figS6_objective_sensitivity.R`     | 目标函数敏感性 / objective-function sensitivity |
-| Fig S7    | `plot_figS7_glucose_isolation.R`         | 受控葡萄糖对照 / controlled glucose contrast    |
-| Fig S8    | `plot_figS8_gpr_coverage.R`              | 交叉喂养基因支持率 / cross-feeding GPR coverage |
-
-> Supplementary figures are numbered in order of first citation in the
-> manuscript. / 补充图按正文首次引用顺序编号。
+| Figure | Script | Panels / topic |
+|---|---|---|
+| Fig 1 | `plot_fig1_benchmark.R` (+ `scaling_timing_smetana.py`) | A pipeline · B accuracy vs COBRApy (r = 1.000) · C runtime · D parallel speedup · E memory vs COBRApy · F interaction-typing scalability vs SMETANA · G interaction-typing memory vs SMETANA |
+| Fig 2 | `extract_fig2_traits.py` → `plot_fig2_repertoire.R` | A *Akkermansia* · B *Lactobacillus*: phylogeny + model repertoire + monoculture growth (shared colour scale) |
+| Fig 3 | `plot_fig3_gradient_overview.R` | A viable pairs · B mutualism · C competition · D mean net benefit |
+| Fig 4 | `plot_fig4_mechanisms.R` | A competition intensity · B Δmutualism vs Δcompetition · C/D growth · E cross-fed metabolites · F gene-supported fraction · G controlled pectin→glucose contrast |
+| Fig 5 | `extract_fig5_crossfeed.py` → `plot_fig5_crossfeed.R` | A Sankey of currencies · B condition-resolved prevalence · C metabolite-class composition |
+| Fig 6 | `extract_fig6_enrich.py` → `plot_fig6_heterogeneity.R` | A/B strain heatmaps · C bootstrap CI · D capacity does *not* predict cooperation · E partner phylum |
+| Fig S1 | `plot_figS1_l0_substrates.R` | L0 substrate basis of *Lactobacillus* viability |
+| Fig S2 | `run_smetana_batch.py` → `plot_figS2_smetana_comparison.R` | A projected cost · B potential vs realized (AUROC ≈ 0.5) · C rank scatters |
+| Fig S3 | `plot_figS3_interaction_composition.R` | full six-category interaction composition |
+| Fig S4 | `stats_strain_level.py` → `plot_figS4_strain_bootstrap.R` | A generalist vs specialist at L5 · B paired L5→L6 decline; every statistic is read from `strain_level_tests.tsv`, none is hard-coded |
+| Fig S5 | `plot_figS5_benefit_metric.R` | relative vs absolute benefit metric |
+| Fig S6 | `plot_figS6_benefit_landscape.R` | joint β_A–β_B density |
+| Fig S7 | `make_crossfeed_table.py` + `extract_interception.py` → `plot_figS7_crossfeed_landscape.R` | A currency landscape · B higher-order interception bound |
+| Fig S8 | `plot_figS8_threshold_sensitivity.R` | A viability threshold · B benefit threshold |
+| Fig S9 | `plot_figS9_objective_sensitivity.R` | lexicographic vs fixed-ratio objective |
+| Fig S10 | `plot_figS10_uhgg_sensitivity.R` | genome-set sensitivity (quality, CPR) |
+| Fig S11 | `plot_figS11_gpr_coverage.R` | GPR coverage vs cross-feeding gene support |
+| Fig S12 | `plot_figS12_gapfill_knockout.R` | A overall mutualism · B fate of mutualistic pairs after gap-fill knockout |
 
 ---
 
-## 9. Citation / 引用
+## 11. Citation
 
 If you use these data or scripts, please cite the fast-mic manuscript.
-如使用本数据或脚本，请引用 fast-mic 论文。
-- Engine 引擎: <https://github.com/Zhangjyfree/fast-mic.git>
-- Reproduction 复现: <https://github.com/Zhangjyfree/fast-mic-manuscript.git>
+
+- Engine: <https://github.com/Zhangjyfree/fast-mic.git>
+- Reproduction: <https://github.com/Zhangjyfree/fast-mic-manuscript.git>
