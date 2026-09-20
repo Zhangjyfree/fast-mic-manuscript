@@ -1,0 +1,31 @@
+strain	growth	category	uptake_flux
+L_acidophilus_NCFM	373.109	Amino acids	11.462
+L_acidophilus_NCFM	373.109	Other carbon	3.664
+L_acidophilus_NCFM	373.109	Mucin amino sugars	7.0
+L_casei_ATCC393	634.956	Amino acids	21.839
+L_casei_ATCC393	634.956	Other carbon	3.704
+L_casei_ATCC393	634.956	Mucin amino sugars	9.0
+L_crispatus_M247	342.999	Amino acids	9.615
+L_crispatus_M247	342.999	Other carbon	3.492
+L_crispatus_M247	342.999	Mucin amino sugars	7.0
+L_crispatus_ST1	342.925	Amino acids	9.596
+L_crispatus_ST1	342.925	Other carbon	3.489
+L_crispatus_ST1	342.925	Mucin amino sugars	7.0
+L_delbrueckii_ATCC_BAA365	160.521	Amino acids	6.649
+L_delbrueckii_ATCC_BAA365	160.521	Other carbon	3.242
+L_delbrueckii_ATCC_BAA365	160.521	Mucin amino sugars	2.0
+L_gasseri_ATCC33323	343.002	Amino acids	11.359
+L_gasseri_ATCC33323	343.002	Other carbon	3.491
+L_gasseri_ATCC33323	343.002	Mucin amino sugars	7.0
+L_paracasei_ATCC334	598.056	Amino acids	21.735
+L_paracasei_ATCC334	598.056	Other carbon	4.692
+L_paracasei_ATCC334	598.056	Mucin amino sugars	7.0
+L_plantarum_WCFS1	531.021	Amino acids	19.836
+L_plantarum_WCFS1	531.021	Other carbon	6.198
+L_plantarum_WCFS1	531.021	Mucin amino sugars	9.0
+L_reuteri_DSM20016	355.221	Amino acids	16.613
+L_reuteri_DSM20016	355.221	Other carbon	6.296
+L_reuteri_DSM20016	355.221	Mucin amino sugars	1.616
+L_rhamnosus_GG	653.852	Amino acids	21.881
+L_rhamnosus_GG	653.852	Other carbon	4.708
+L_rhamnosus_GG	653.852	Mucin amino sugars	9.0

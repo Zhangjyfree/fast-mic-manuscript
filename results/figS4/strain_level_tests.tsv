@@ -1,0 +1,6 @@
+quantity	estimate	ci_lo	ci_hi	test	statistic	p_value	n_akkermansia	n_lactobacillus	note
+Lactobacillus/Akkermansia mutualism ratio at L5	2.01	1.31	3.10	percentile bootstrap over strains			6	10	B=10000, seed=0
+Lactobacillus - Akkermansia mutualism difference at L5 (percentage points)	10.9	4.0	17.6	percentile bootstrap over strains			6	10	B=10000, seed=0
+Generalist vs specialist at L5 (rank test across strains)				Mann-Whitney U, two-sided, exact	48	0.056	6	10	marginal: the genera overlap at the strain level
+Akkermansia: paired L5 -> L6 change in mutualism (percentage points)	-3.7	-5.2	-2.2	Wilcoxon signed-rank, two-sided, exact	0	0.0312	6	6	6/6 strains decline; bootstrap B=10000, seed=0
+Lactobacillus: paired L5 -> L6 change in mutualism (percentage points)	-5.1	-7.6	-2.6	Wilcoxon signed-rank, two-sided, exact	1	0.0039	10	10	9/10 strains decline; bootstrap B=10000, seed=0
