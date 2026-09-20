@@ -50,9 +50,18 @@ base_theme <- theme_bw(base_size = 9, base_family = BMC_FONT) +
         axis.text.y = md(size = 6), axis.title = element_text(size = 7),
         plot.title = md(size = 8, face = "bold"), strip.text = md(size = 7))
 
+# ModelSEED ships a few compounds under a terse abbreviation rather than a name
+# (MTTL, PAN, XAN ...). Spell them out so the panels match Table S11, where the
+# reviewer asked for these abbreviations to be defined.
+NAME_FIX <- c("cpd00324" = "Methanethiol",   "cpd00644" = "Pantothenate",
+              "cpd00309" = "Xanthine",       "cpd00208" = "Lactose",
+              "cpd00222" = "D-Gluconate",    "cpd00276" = "D-Glucosamine",
+              "cpd00359" = "Indole")
+
 read_sys <- function(s) read_tsv(sprintf("%s/results/fig5/fig5_prevalence_%s.tsv", FM, s),
                                  show_col_types = FALSE) |>
   mutate(system = SYS_LAB[s], sys = s, prevalence = as.numeric(prevalence),
+         name = ifelse(cpd %in% names(NAME_FIX), NAME_FIX[cpd], name),
          level = factor(level, levels = LEVELS))
 raw <- bind_rows(read_sys("akk"), read_sys("lac"))
 d   <- raw |> filter(!cpd %in% AMBIG)
