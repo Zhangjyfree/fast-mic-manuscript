@@ -12,6 +12,12 @@ gut (or gut-like) communities:
   untested      — no direct experimental report found for this compound as a cross-fed currency
   contradicted  — published experiments point the opposite way to the prediction
 
+The table keeps every curated currency, but the Discussion and Table S11 quote only the subset
+exported in at least a tenth of mutualistic pairs. That cut is on the MEAN export prevalence
+across L0-L9 (DISCUSSION_CUT below), not on the per-level maximum: two currencies
+(Lactobacillus methanethiol and 1,2-propanediol) clear 10% at their best level but not on
+average, so a max-based cut would give 29 rows instead of 27. Both counts are printed.
+
 Output: results/litvalidation/lit_validation.tsv
 Usage:  python3 scripts/build_lit_validation_table.py
 """
@@ -19,6 +25,9 @@ import csv, os, collections
 
 FM = "."
 OUT = f"{FM}/results/litvalidation/lit_validation.tsv"
+# Mean export prevalence (%) above which a currency enters the counts quoted in the
+# Discussion ("exported in at least a tenth of mutualistic pairs") and in Table S11.
+DISCUSSION_CUT = 10.0
 
 # cpd -> (verdict, evidence sentence, organisms/system, method, reference)
 EVIDENCE = {
@@ -173,7 +182,16 @@ def main():
         w.writerows(rows)
     n = collections.Counter(r[6] for r in rows)
     print(f"wrote {len(rows)} rows -> {OUT}")
-    print("  " + ", ".join(f"{k}={v}" for k, v in sorted(n.items())))
+    print("  all curated currencies: " + ", ".join(f"{k}={v}" for k, v in sorted(n.items())))
+
+    # The Results/Discussion numbers come from this subset, not from all rows above.
+    hi = [r for r in rows if float(r[4]) >= DISCUSSION_CUT]
+    m = collections.Counter(r[6] for r in hi)
+    print(f"  mean export prevalence >= {DISCUSSION_CUT:.0f}% (the cut quoted in the manuscript): "
+          f"n={len(hi)}, " + ", ".join(f"{k}={v}" for k, v in sorted(m.items())))
+    print(f"    -> {m['supported'] + m['partial']} of {len(hi)} documented "
+          f"({m['supported']} directly, {m['partial']} partly); "
+          f"{m['untested']} untested, {m['contradicted']} contradicted")
 
 if __name__ == "__main__":
     main()
