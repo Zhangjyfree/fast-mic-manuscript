@@ -67,7 +67,7 @@ fast-mic-manuscript/
 │   ├── figS1/ figS2/ figS4/ figS5/        # supplementary intermediates
 │   ├── figS7/ figS9/ figS10/ figS11/ figS12/
 │   ├── litvalidation/                     # literature cross-check
-│   └── tableS5/                           # post-CycleFreeFlux biomass deviation
+│   └── tableS5/cff_biomass_deviation.tsv  # 1,000 models × 10 media, FBA vs post-CFF biomass
 └── test/
     ├── akk/  lac/                         # genomes, GEMs, IQ-TREE trees
     └── UHGG/                              # split UHGG model archive + GTDB metadata
@@ -193,7 +193,7 @@ figures reproduce without re-running any simulation.
 | Directory | Figure / table | Command | Inputs |
 |---|---|---|---|
 | `results/fig1/benchmark/` | 1B–1E | `bash scripts/benchmark/run_thread_scaling.sh` (COBRApy comparison + thread scaling; needs `cobra` and the fast-mic binary) | UHGG model corpora, L0–L9 media |
-| `results/tableS5/` | Table S5 | produced by the CycleFreeFlux validation run (engine) | fast-mic binary |
+| `results/tableS5/cff_biomass_deviation.tsv` | Table S5 | run from the fast-mic checkout: `cargo build --release --bin bench-cff-deviation` then `./target/release/bench-cff-deviation --media-list media/gradient_media_list.txt --model-list <model list> > cff_biomass_deviation.tsv`. The per-model TSV goes to stdout and the validation summary (max / mean \|deviation\|, worst case) to stderr; Table S5 aggregates the TSV by prebiotic level. Both list files hold absolute paths — rewrite them for your own checkout. | fast-mic binary; the same 1,000 UHGG models as `results/fig1/benchmark/correctness/model_list.txt`, L0–L9 media |
 | `results/fig1/` | 1F | `python3 scripts/scaling_timing_smetana.py --sys {akk,lac} --sizes 100,500,1000 --reps 3 --solver cplex` | fast-mic binary + SMETANA env |
 | `results/fig1/…_mem.tsv` | 1G | same script with `--out-suffix _mem` — records `peak_rss_mb` (fast-mic per child process via `os.wait4`; SMETANA via `getrusage(RUSAGE_SELF)`) | fast-mic binary + SMETANA env |
 | `results/fig2/` | 2 | `python3 scripts/extract_fig2_traits.py` | `test/{akk,lac}/…_gapseq_wdm_xml`, trees, `{akk,lac}_vs_uhgg/` |
