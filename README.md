@@ -5,7 +5,7 @@ pair-resolved metabolic interaction typing between probiotics (*Akkermansia*,
 *Lactobacillus*-group) and the human gut microbiome (UHGG, 3,238 species
 representatives) across a ten-step prebiotic gradient (L0–L9).
 
-> Associated study: *"fast-mic: a scalable tool for exhaustive pairwise
+> Associated study: *"Fast-mic: a scalable tool for exhaustive pairwise
 > interaction typing of genome-scale metabolic models reveals that carbon
 > quality shapes probiotic–microbiome cooperation across a prebiotic gradient."*
 >
