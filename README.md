@@ -222,8 +222,22 @@ python3 scripts/build_lit_validation_table.py # → results/litvalidation/lit_va
 predicted cross-feeding currency is scored against the experimental literature
 as `supported` / `partial` / `untested` / `contradicted`, with a separate column
 recording whether the published donor taxon matches the one predicted here.
-Of the 27 currencies exported in at least a tenth of mutualistic pairs, 23 are
-documented and one (*Lactobacillus* inosine export) points the other way.
+
+The file holds all 33 curated currencies, while the manuscript quotes the 27
+that pass a threshold: **mean** export prevalence across L0–L9 of at least 10%
+("exported in at least a tenth of mutualistic pairs"). The cut is on the mean,
+not on the per-level maximum — *Lactobacillus* methanethiol and 1,2-propanediol
+reach 10% at their best level but not on average, so a max-based cut would give
+29 currencies instead of 27. Of those 27, 23 are documented (17 directly, 6
+partly) and one (*Lactobacillus* inosine export) points the other way. The
+script prints both counts, so the figures quoted in the text can be checked
+without re-deriving the filter:
+
+```
+all curated currencies: contradicted=1, partial=6, supported=22, untested=4
+mean export prevalence >= 10% (the cut quoted in the manuscript): n=27, contradicted=1, partial=6, supported=17, untested=3
+  -> 23 of 27 documented (17 directly, 6 partly); 3 untested, 1 contradicted
+```
 
 ---
 
