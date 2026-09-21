@@ -1,0 +1,10 @@
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000030.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000072.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000078.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000088.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000128.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000175.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000176.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000193.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000257.xml
+/Users/jingyi/fast-mic/test/UHGG_v2/final_gapseq_xml/MGYG000000275.xml
