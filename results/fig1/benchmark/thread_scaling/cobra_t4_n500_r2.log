@@ -1,0 +1,1019 @@
+Read 500 model paths
+Medium: 10 media (per-model loop): gradient_L0_base_gapseq, gradient_L1_inulin_gapseq, gradient_L2_fos_gapseq, gradient_L3_gos_gapseq, gradient_L4_xos_gapseq, gradient_L5_pectin_gapseq, gradient_L6_resistant_starch_gapseq, gradient_L7_bglucan_gapseq, gradient_L8_hmo_gapseq, gradient_L9_mos_gapseq
+Models: 500
+COBRApy: 0.31.1  solver: <module 'optlang.hybrid_interface' from '/opt/homebrew/Caskroom/miniforge/base/lib/python3.13/site-packages/optlang/hybrid_interface.py'>
+Algorithm: FBA → CycleFreeFlux+pFBA (fast-mic style)
+Uptake limits: C=10.0 aa=1.0 nuc=0.5 cof=0.1  (per-compound overrides from CSV)
+Workers: 4  Per-model timeout: 120s
+
+  [1/500] MGYG000000002
+    10 media  mets=1401 rxns=1622 biomass=bio1 growth=0.4282..1.8572  load=1.179s  pfba=52.638s
+  [2/500] MGYG000000014
+    10 media  mets=1784 rxns=2176 biomass=bio1 growth=1.3608..3.2092  load=1.580s  pfba=90.779s
+  [3/500] MGYG000000030
+    10 media  mets=1329 rxns=1501 biomass=bio1 growth=0.0000..1.5540  load=1.097s  pfba=32.396s
+  [4/500] MGYG000000040
+    10 media  mets=1293 rxns=1415 biomass=bio1 growth=0.0000..0.0000  load=1.034s  pfba=0.603s
+  [5/500] MGYG000000045
+    10 media  mets=1295 rxns=1489 biomass=bio1 growth=0.6480..1.7877  load=1.093s  pfba=45.158s
+  [6/500] MGYG000000054
+    10 media  mets=1395 rxns=1680 biomass=bio1 growth=1.4403..2.8440  load=1.259s  pfba=55.979s
+  [7/500] MGYG000000055
+    10 media  mets=1288 rxns=1495 biomass=bio1 growth=0.0000..0.0000  load=1.120s  pfba=0.591s
+  [8/500] MGYG000000059
+    10 media  mets=1359 rxns=1483 biomass=bio1 growth=0.0000..0.9898  load=1.164s  pfba=27.410s
+  [9/500] MGYG000000062
+    10 media  mets=1370 rxns=1580 biomass=bio1 growth=0.7205..1.7730  load=1.263s  pfba=49.500s
+  [10/500] MGYG000000072
+    10 media  mets=1263 rxns=1324 biomass=bio1 growth=0.3796..1.2082  load=0.965s  pfba=37.519s
+  [11/500] MGYG000000077
+    10 media  mets=1443 rxns=1619 biomass=bio1 growth=0.0000..1.2662  load=1.257s  pfba=36.465s
+  [12/500] MGYG000000078
+    10 media  mets=1345 rxns=1481 biomass=bio1 growth=0.0000..1.0721  load=1.133s  pfba=31.600s
+  [13/500] MGYG000000082
+    10 media  mets=1761 rxns=1936 biomass=bio1 growth=0.4219..0.6427  load=1.535s  pfba=74.245s
+  [14/500] MGYG000000088
+    10 media  mets=1472 rxns=1756 biomass=bio1 growth=0.6564..1.6450  load=1.309s  pfba=61.399s
+  [15/500] MGYG000000092
+    10 media  mets=1395 rxns=1626 biomass=bio1 growth=0.0000..2.3345  load=1.212s  pfba=32.316s
+  [16/500] MGYG000000100
+    10 media  mets=1374 rxns=1529 biomass=bio1 growth=0.7993..1.3128  load=1.064s  pfba=46.344s
+  [17/500] MGYG000000109
+    10 media  mets=1405 rxns=1650 biomass=bio1 growth=0.5120..1.3761  load=1.285s  pfba=54.378s
+  [18/500] MGYG000000128
+    10 media  mets=1104 rxns=1181 biomass=bio1 growth=0.2059..0.7571  load=0.931s  pfba=29.870s
+  [19/500] MGYG000000137
+    10 media  mets=1371 rxns=1616 biomass=bio1 growth=0.0000..2.2268  load=1.176s  pfba=36.291s
+  [20/500] MGYG000000143
+    10 media  mets=1288 rxns=1543 biomass=bio1 growth=0.9905..3.0060  load=1.175s  pfba=48.094s
+  [21/500] MGYG000000148
+    10 media  mets=1391 rxns=1624 biomass=bio1 growth=0.0000..2.9903  load=1.207s  pfba=36.985s
+  [22/500] MGYG000000157
+    10 media  mets=1412 rxns=1667 biomass=bio1 growth=1.6210..2.9128  load=1.270s  pfba=55.226s
+  [23/500] MGYG000000161
+    10 media  mets=1236 rxns=1431 biomass=bio1 growth=0.3870..1.1443  load=1.101s  pfba=40.976s
+  [24/500] MGYG000000163
+    10 media  mets=1487 rxns=1779 biomass=bio1 growth=0.7012..1.8547  load=1.325s  pfba=62.463s
+  [25/500] MGYG000000167
+    10 media  mets=1158 rxns=1295 biomass=bio1 growth=0.3824..1.2405  load=0.903s  pfba=34.827s
+  [26/500] MGYG000000171
+    10 media  mets=1416 rxns=1671 biomass=bio1 growth=0.9745..2.4528  load=1.292s  pfba=55.848s
+  [27/500] MGYG000000175
+    10 media  mets=1657 rxns=1946 biomass=bio1 growth=0.0000..0.0000  load=1.509s  pfba=0.903s
+  [28/500] MGYG000000176
+    10 media  mets=1715 rxns=1994 biomass=bio1 growth=1.5303..3.6415  load=1.569s  pfba=78.630s
+  [29/500] MGYG000000187
+    10 media  mets=1332 rxns=1460 biomass=bio1 growth=0.0000..1.5738  load=1.072s  pfba=30.923s
+  [30/500] MGYG000000189
+    10 media  mets=1433 rxns=1605 biomass=bio1 growth=0.0000..1.7288  load=1.167s  pfba=37.373s
+  [31/500] MGYG000000191
+    10 media  mets=1870 rxns=2322 biomass=bio1 growth=1.0661..2.4734  load=1.756s  pfba=108.208s
+  [32/500] MGYG000000193
+    10 media  mets=1362 rxns=1585 biomass=bio1 growth=0.6741..1.8546  load=1.132s  pfba=52.122s
+  [33/500] MGYG000000201
+    10 media  mets=1485 rxns=1742 biomass=bio1 growth=0.0000..2.5244  load=1.348s  pfba=43.859s
+  [34/500] MGYG000000202
+    10 media  mets=1586 rxns=1807 biomass=bio1 growth=0.6755..2.7532  load=1.353s  pfba=65.787s
+  [35/500] MGYG000000213
+    10 media  mets=1429 rxns=1656 biomass=bio1 growth=0.8257..2.4646  load=1.216s  pfba=54.667s
+  [36/500] MGYG000000231
+    10 media  mets=1425 rxns=1587 biomass=bio1 growth=0.0000..1.4539  load=1.275s  pfba=36.456s
+  [37/500] MGYG000000249
+    10 media  mets=1405 rxns=1623 biomass=bio1 growth=0.9965..2.4800  load=1.151s  pfba=53.745s
+  [38/500] MGYG000000257
+    10 media  mets=1165 rxns=1318 biomass=bio1 growth=0.7497..2.0990  load=1.035s  pfba=36.603s
+  [39/500] MGYG000000260
+    10 media  mets=1066 rxns=1179 biomass=bio1 growth=0.4027..1.1689  load=0.808s  pfba=30.066s
+  [40/500] MGYG000000266
+    10 media  mets=1159 rxns=1315 biomass=bio1 growth=0.8002..2.1511  load=1.036s  pfba=36.758s
+  [41/500] MGYG000000275
+    10 media  mets=1167 rxns=1277 biomass=bio1 growth=0.7599..1.9642  load=1.032s  pfba=34.954s
+  [42/500] MGYG000000279
+    10 media  mets=1299 rxns=1421 biomass=bio1 growth=0.4278..0.5575  load=1.023s  pfba=42.781s
+  [43/500] MGYG000000281
+    10 media  mets=1509 rxns=1734 biomass=bio1 growth=0.0000..2.8536  load=1.258s  pfba=42.915s
+  [44/500] MGYG000000288
+    10 media  mets=1137 rxns=1273 biomass=bio1 growth=0.7299..2.1287  load=0.899s  pfba=34.719s
+  [45/500] MGYG000000296
+    10 media  mets=1300 rxns=1444 biomass=bio1 growth=0.0000..1.5626  load=1.079s  pfba=30.590s
+  [46/500] MGYG000000303
+    10 media  mets=1289 rxns=1525 biomass=bio1 growth=0.0000..1.3913  load=1.076s  pfba=32.680s
+  [47/500] MGYG000000319
+    10 media  mets=1140 rxns=1260 biomass=bio1 growth=0.6657..1.4436  load=0.888s  pfba=33.059s
+  [48/500] MGYG000000322
+    10 media  mets=1371 rxns=1580 biomass=bio1 growth=0.0000..2.2761  load=1.164s  pfba=35.554s
+  [49/500] MGYG000000337
+    10 media  mets=1929 rxns=2341 biomass=bio1 growth=0.9388..1.8632  load=1.774s  pfba=110.951s
+  [50/500] MGYG000000363
+    10 media  mets=1240 rxns=1313 biomass=bio1 growth=0.0000..0.7712  load=0.942s  pfba=25.726s
+  [51/500] MGYG000000364
+    10 media  mets=1319 rxns=1487 biomass=bio1 growth=0.0000..1.2499  load=1.139s  pfba=32.576s
+  [52/500] MGYG000000375
+    10 media  mets=975 rxns=924 biomass=bio1 growth=0.0000..0.0000  load=0.660s  pfba=0.294s
+  [53/500] MGYG000000377
+    10 media  mets=1297 rxns=1414 biomass=bio1 growth=0.0000..0.9304  load=1.081s  pfba=25.612s
+  [54/500] MGYG000000398
+    10 media  mets=1515 rxns=1668 biomass=bio1 growth=0.0000..1.7625  load=1.356s  pfba=39.847s
+  [55/500] MGYG000000416
+    10 media  mets=1056 rxns=1090 biomass=bio1 growth=0.0000..0.2299  load=0.782s  pfba=18.324s
+  [56/500] MGYG000000435
+    10 media  mets=912 rxns=974 biomass=bio1 growth=0.0000..1.6603  load=0.758s  pfba=18.661s
+  [57/500] MGYG000000442
+    10 media  mets=1390 rxns=1512 biomass=bio1 growth=0.4849..0.6673  load=1.083s  pfba=48.428s
+  [58/500] MGYG000000462
+    10 media  mets=1126 rxns=1225 biomass=bio1 growth=0.0000..0.0983  load=0.896s  pfba=29.534s
+  [59/500] MGYG000000464
+    10 media  mets=1056 rxns=1069 biomass=bio1 growth=0.0000..0.5341  load=0.766s  pfba=22.077s
+  [60/500] MGYG000000482
+    10 media  mets=692 rxns=652 biomass=bio1 growth=0.0000..0.0000  load=0.548s  pfba=0.175s
+  [61/500] MGYG000000489
+    10 media  mets=1372 rxns=1592 biomass=bio1 growth=0.2503..1.5430  load=1.268s  pfba=51.896s
+  [62/500] MGYG000000515
+    10 media  mets=1359 rxns=1522 biomass=bio1 growth=0.0000..1.4248  load=1.102s  pfba=28.387s
+  [63/500] MGYG000000519
+    10 media  mets=1033 rxns=1050 biomass=bio1 growth=0.0000..1.3306  load=0.806s  pfba=21.495s
+  [64/500] MGYG000000524
+    10 media  mets=1037 rxns=1039 biomass=bio1 growth=0.0000..1.4695  load=0.818s  pfba=13.548s
+  [65/500] MGYG000000542
+    10 media  mets=1207 rxns=1284 biomass=bio1 growth=0.0000..1.5572  load=0.918s  pfba=24.177s
+  [66/500] MGYG000000544
+    10 media  mets=1040 rxns=1077 biomass=bio1 growth=0.0000..0.0000  load=0.860s  pfba=0.356s
+  [67/500] MGYG000000549
+    10 media  mets=1133 rxns=1196 biomass=bio1 growth=0.0000..0.2827  load=0.858s  pfba=27.414s
+  [68/500] MGYG000000563
+    10 media  mets=1109 rxns=1210 biomass=bio1 growth=0.5231..1.4437  load=0.856s  pfba=30.689s
+  [69/500] MGYG000000572
+    10 media  mets=1141 rxns=1197 biomass=bio1 growth=0.0000..0.0000  load=0.929s  pfba=0.471s
+  [70/500] MGYG000000582
+    10 media  mets=1343 rxns=1603 biomass=bio1 growth=0.7762..1.8885  load=1.156s  pfba=50.583s
+  [71/500] MGYG000000604
+    10 media  mets=1263 rxns=1421 biomass=bio1 growth=0.0000..2.1176  load=1.131s  pfba=29.662s
+  [72/500] MGYG000000606
+    10 media  mets=1219 rxns=1363 biomass=bio1 growth=0.7400..1.2191  load=1.018s  pfba=38.117s
+  [73/500] MGYG000000616
+    10 media  mets=1186 rxns=1244 biomass=bio1 growth=0.0000..0.2899  load=0.895s  pfba=16.385s
+  [74/500] MGYG000000620
+    10 media  mets=1140 rxns=1281 biomass=bio1 growth=0.6015..1.1524  load=0.921s  pfba=34.169s
+  [75/500] MGYG000000623
+    10 media  mets=1350 rxns=1551 biomass=bio1 growth=0.3232..1.7337  load=1.147s  pfba=49.007s
+  [76/500] MGYG000000627
+    10 media  mets=1336 rxns=1492 biomass=bio1 growth=0.3500..0.9944  load=1.079s  pfba=45.410s
+  [77/500] MGYG000000630
+    10 media  mets=1233 rxns=1332 biomass=bio1 growth=0.0776..0.1766  load=0.965s  pfba=36.177s
+  [78/500] MGYG000000631
+    10 media  mets=1258 rxns=1439 biomass=bio1 growth=0.7878..1.3044  load=1.092s  pfba=42.462s
+  [79/500] MGYG000000643
+    10 media  mets=1136 rxns=1185 biomass=bio1 growth=0.0000..0.3023  load=0.847s  pfba=15.040s
+  [80/500] MGYG000000644
+    10 media  mets=1343 rxns=1599 biomass=bio1 growth=0.0000..1.6212  load=1.186s  pfba=35.465s
+  [81/500] MGYG000000654
+    10 media  mets=827 rxns=825 biomass=bio1 growth=0.0000..0.0000  load=0.637s  pfba=0.234s
+  [82/500] MGYG000000659
+    10 media  mets=887 rxns=934 biomass=bio1 growth=0.0000..0.0000  load=0.688s  pfba=0.319s
+  [83/500] MGYG000000660
+    10 media  mets=1047 rxns=1167 biomass=bio1 growth=0.5267..1.5754  load=0.824s  pfba=29.124s
+  [84/500] MGYG000000672
+    10 media  mets=1215 rxns=1353 biomass=bio1 growth=0.3351..0.9230  load=0.938s  pfba=37.165s
+  [85/500] MGYG000000676
+    10 media  mets=1051 rxns=1154 biomass=bio1 growth=0.2755..1.9835  load=0.893s  pfba=28.898s
+  [86/500] MGYG000000683
+    10 media  mets=1172 rxns=1264 biomass=bio1 growth=0.3807..1.1756  load=0.980s  pfba=33.546s
+  [87/500] MGYG000000684
+    10 media  mets=1167 rxns=1290 biomass=bio1 growth=0.5557..1.4200  load=0.978s  pfba=35.082s
+  [88/500] MGYG000000693
+    10 media  mets=1164 rxns=1312 biomass=bio1 growth=0.7790..2.1263  load=0.928s  pfba=35.747s
+  [89/500] MGYG000000694
+    10 media  mets=1168 rxns=1302 biomass=bio1 growth=0.0000..0.0000  load=0.988s  pfba=0.450s
+  [90/500] MGYG000000696
+    10 media  mets=1378 rxns=1611 biomass=bio1 growth=0.0000..2.2761  load=1.290s  pfba=47.095s
+  [91/500] MGYG000000719
+    10 media  mets=946 rxns=1014 biomass=bio1 growth=0.0000..1.2768  load=0.698s  pfba=13.157s
+  [92/500] MGYG000000722
+    10 media  mets=1069 rxns=1164 biomass=bio1 growth=0.0000..0.7390  load=0.821s  pfba=19.890s
+  [93/500] MGYG000000773
+    10 media  mets=1055 rxns=1164 biomass=bio1 growth=0.0000..0.0000  load=0.825s  pfba=0.438s
+  [94/500] MGYG000000782
+    10 media  mets=1287 rxns=1390 biomass=bio1 growth=0.3832..0.7145  load=1.019s  pfba=40.160s
+  [95/500] MGYG000000783
+    10 media  mets=1331 rxns=1484 biomass=bio1 growth=0.4876..0.7241  load=1.067s  pfba=44.924s
+  [96/500] MGYG000000821
+    10 media  mets=1282 rxns=1348 biomass=bio1 growth=0.0000..0.0000  load=1.010s  pfba=0.548s
+  [97/500] MGYG000000822
+    10 media  mets=1330 rxns=1584 biomass=bio1 growth=0.5697..1.4347  load=1.274s  pfba=50.440s
+  [98/500] MGYG000000835
+    10 media  mets=1148 rxns=1260 biomass=bio1 growth=0.5960..1.5735  load=0.986s  pfba=33.211s
+  [99/500] MGYG000000847
+    10 media  mets=1428 rxns=1560 biomass=bio1 growth=0.4921..0.7861  load=1.162s  pfba=49.858s
+  [100/500] MGYG000000858
+    10 media  mets=1040 rxns=1147 biomass=bio1 growth=0.2199..0.2569  load=0.790s  pfba=27.662s
+  [101/500] MGYG000000862
+    10 media  mets=1229 rxns=1335 biomass=bio1 growth=0.4037..1.1717  load=0.943s  pfba=37.022s
+  [102/500] MGYG000000863
+    10 media  mets=1180 rxns=1306 biomass=bio1 growth=0.0000..1.0434  load=0.996s  pfba=24.773s
+  [103/500] MGYG000000870
+    10 media  mets=1285 rxns=1439 biomass=bio1 growth=0.0000..1.2332  load=1.004s  pfba=29.813s
+  [104/500] MGYG000000872
+    10 media  mets=1216 rxns=1377 biomass=bio1 growth=0.0000..1.1083  load=0.976s  pfba=23.537s
+  [105/500] MGYG000000877
+    10 media  mets=1115 rxns=1208 biomass=bio1 growth=0.0000..1.1300  load=0.943s  pfba=21.261s
+  [106/500] MGYG000000909
+    10 media  mets=1458 rxns=1697 biomass=bio1 growth=1.2375..2.6356  load=1.362s  pfba=56.101s
+  [107/500] MGYG000000914
+    10 media  mets=1331 rxns=1518 biomass=bio1 growth=1.0221..1.3419  load=1.086s  pfba=46.118s
+  [108/500] MGYG000000919
+    10 media  mets=1469 rxns=1720 biomass=bio1 growth=1.2668..3.4301  load=1.266s  pfba=58.826s
+  [109/500] MGYG000000920
+    10 media  mets=1273 rxns=1434 biomass=bio1 growth=0.0000..2.1544  load=1.099s  pfba=38.355s
+  [110/500] MGYG000000952
+    10 media  mets=981 rxns=977 biomass=bio1 growth=0.0000..0.0000  load=0.672s  pfba=0.344s
+  [111/500] MGYG000000965
+    10 media  mets=1047 rxns=1073 biomass=bio1 growth=0.0000..0.0000  load=0.853s  pfba=0.353s
+  [112/500] MGYG000000968
+    10 media  mets=1324 rxns=1487 biomass=bio1 growth=0.5055..0.8321  load=1.160s  pfba=44.591s
+  [113/500] MGYG000000974
+    10 media  mets=877 rxns=911 biomass=bio1 growth=0.0000..0.0000  load=0.619s  pfba=0.396s
+  [114/500] MGYG000000990
+    10 media  mets=1409 rxns=1635 biomass=bio1 growth=0.0000..2.4680  load=1.169s  pfba=32.506s
+  [115/500] MGYG000000994
+    10 media  mets=1226 rxns=1250 biomass=bio1 growth=0.0193..0.1608  load=0.929s  pfba=32.438s
+  [116/500] MGYG000001004
+    10 media  mets=1333 rxns=1503 biomass=bio1 growth=0.0000..2.2266  load=1.174s  pfba=27.761s
+  [117/500] MGYG000001007
+    10 media  mets=1380 rxns=1599 biomass=bio1 growth=0.7009..1.7506  load=1.127s  pfba=50.968s
+  [118/500] MGYG000001023
+    10 media  mets=1175 rxns=1245 biomass=bio1 growth=0.0000..0.5945  load=0.895s  pfba=19.924s
+  [119/500] MGYG000001027
+    10 media  mets=1298 rxns=1438 biomass=bio1 growth=0.0000..0.0000  load=1.040s  pfba=0.564s
+  [120/500] MGYG000001029
+    10 media  mets=1114 rxns=1243 biomass=bio1 growth=0.0000..1.2552  load=0.884s  pfba=29.583s
+  [121/500] MGYG000001030
+    10 media  mets=1307 rxns=1450 biomass=bio1 growth=0.0000..0.6411  load=1.032s  pfba=25.815s
+  [122/500] MGYG000001062
+    10 media  mets=1120 rxns=1130 biomass=bio1 growth=0.0000..0.0000  load=0.880s  pfba=0.347s
+  [123/500] MGYG000001066
+    10 media  mets=1194 rxns=1316 biomass=bio1 growth=0.2924..0.5827  load=0.939s  pfba=36.416s
+  [124/500] MGYG000001068
+    10 media  mets=1424 rxns=1700 biomass=bio1 growth=0.5043..1.0895  load=1.187s  pfba=57.970s
+  [125/500] MGYG000001093
+    10 media  mets=1512 rxns=1661 biomass=bio1 growth=0.0000..0.2873  load=1.283s  pfba=50.075s
+  [126/500] MGYG000001096
+    10 media  mets=1156 rxns=1299 biomass=bio1 growth=0.7901..2.1248  load=0.932s  pfba=34.775s
+  [127/500] MGYG000001115
+    10 media  mets=1251 rxns=1400 biomass=bio1 growth=0.0000..1.8261  load=1.029s  pfba=28.586s
+  [128/500] MGYG000001141
+    10 media  mets=1304 rxns=1471 biomass=bio1 growth=0.0000..1.3508  load=1.122s  pfba=30.677s
+  [129/500] MGYG000001153
+    10 media  mets=1054 rxns=1071 biomass=bio1 growth=0.0000..0.0949  load=0.886s  pfba=21.986s
+  [130/500] MGYG000001157
+    10 media  mets=1275 rxns=1452 biomass=bio1 growth=0.0000..2.0946  load=1.111s  pfba=30.365s
+  [131/500] MGYG000001175
+    10 media  mets=888 rxns=849 biomass=bio1 growth=0.0000..0.0000  load=0.589s  pfba=0.311s
+  [132/500] MGYG000001179
+    10 media  mets=1173 rxns=1297 biomass=bio1 growth=0.4972..1.5482  load=1.006s  pfba=35.139s
+  [133/500] MGYG000001182
+    10 media  mets=939 rxns=883 biomass=bio1 growth=0.0000..0.0000  load=0.699s  pfba=0.233s
+  [134/500] MGYG000001186
+    10 media  mets=1400 rxns=1626 biomass=bio1 growth=0.4174..1.6882  load=1.221s  pfba=52.542s
+  [135/500] MGYG000001193
+    10 media  mets=1165 rxns=1198 biomass=bio1 growth=0.0987..0.2094  load=0.877s  pfba=31.547s
+  [136/500] MGYG000001203
+    10 media  mets=1170 rxns=1256 biomass=bio1 growth=0.6884..1.7258  load=0.904s  pfba=32.959s
+  [137/500] MGYG000001209
+    10 media  mets=1144 rxns=1230 biomass=bio1 growth=0.0000..0.8134  load=0.913s  pfba=29.760s
+  [138/500] MGYG000001216
+    10 media  mets=899 rxns=869 biomass=bio1 growth=0.0000..0.0000  load=0.622s  pfba=0.345s
+  [139/500] MGYG000001227
+    10 media  mets=1085 rxns=1197 biomass=bio1 growth=0.0000..0.0000  load=0.860s  pfba=0.579s
+  [140/500] MGYG000001238
+    10 media  mets=1282 rxns=1302 biomass=bio1 growth=0.0000..0.7260  load=0.968s  pfba=24.916s
+  [141/500] MGYG000001241
+    10 media  mets=1064 rxns=1171 biomass=bio1 growth=0.0000..0.1221  load=0.811s  pfba=26.219s
+  [142/500] MGYG000001246
+    10 media  mets=1448 rxns=1685 biomass=bio1 growth=0.0000..2.3708  load=1.325s  pfba=40.981s
+  [143/500] MGYG000001277
+    10 media  mets=1454 rxns=1585 biomass=bio1 growth=0.3681..0.7135  load=1.185s  pfba=53.786s
+  [144/500] MGYG000001280
+    10 media  mets=900 rxns=955 biomass=bio1 growth=0.0000..0.0000  load=0.649s  pfba=0.376s
+  [145/500] MGYG000001296
+    10 media  mets=1451 rxns=1675 biomass=bio1 growth=0.5646..1.3958  load=1.781s  pfba=59.892s
+  [146/500] MGYG000001297
+    10 media  mets=1362 rxns=1490 biomass=bio1 growth=0.4214..0.5338  load=1.770s  pfba=48.969s
+  [147/500] MGYG000001303
+    10 media  mets=1459 rxns=1670 biomass=bio1 growth=0.6383..2.0040  load=1.211s  pfba=58.650s
+  [148/500] MGYG000001306
+    10 media  mets=1453 rxns=1727 biomass=bio1 growth=0.0000..0.0000  load=1.231s  pfba=0.806s
+  [149/500] MGYG000001307
+    10 media  mets=2100 rxns=2578 biomass=bio1 growth=1.1734..2.3479  load=1.946s  pfba=135.303s
+  [150/500] MGYG000001316
+    10 media  mets=1555 rxns=1814 biomass=bio1 growth=1.0989..2.2761  load=1.277s  pfba=65.582s
+  [151/500] MGYG000001318
+    10 media  mets=2250 rxns=2839 biomass=bio1 growth=1.5704..3.4738  load=2.291s  pfba=163.678s
+  [152/500] MGYG000001319
+    10 media  mets=1273 rxns=1419 biomass=bio1 growth=0.0000..1.0924  load=1.104s  pfba=29.626s
+  [153/500] MGYG000001323
+    10 media  mets=2212 rxns=2725 biomass=bio1 growth=1.4105..3.0341  load=2.088s  pfba=149.942s
+  [154/500] MGYG000001328
+    10 media  mets=1648 rxns=1956 biomass=bio1 growth=1.2554..3.3335  load=1.519s  pfba=77.304s
+  [155/500] MGYG000001331
+    10 media  mets=1540 rxns=1677 biomass=bio1 growth=0.3889..0.7179  load=1.268s  pfba=59.117s
+  [156/500] MGYG000001357
+    10 media  mets=1239 rxns=1385 biomass=bio1 growth=0.2672..0.4735  load=0.986s  pfba=40.739s
+  [157/500] MGYG000001374
+    10 media  mets=1317 rxns=1511 biomass=bio1 growth=0.0000..2.3765  load=1.109s  pfba=29.200s
+  [158/500] MGYG000001375
+    10 media  mets=1230 rxns=1333 biomass=bio1 growth=0.0000..2.1181  load=1.058s  pfba=27.696s
+  [159/500] MGYG000001378
+    10 media  mets=1559 rxns=1896 biomass=bio1 growth=0.0000..0.0000  load=1.376s  pfba=0.948s
+  [160/500] MGYG000001380
+    10 media  mets=1436 rxns=1699 biomass=bio1 growth=0.7554..1.9533  load=1.429s  pfba=61.224s
+  [161/500] MGYG000001381
+    10 media  mets=1622 rxns=1829 biomass=bio1 growth=0.4102..1.1119  load=1.527s  pfba=73.065s
+  [162/500] MGYG000001390
+    10 media  mets=1889 rxns=2351 biomass=bio1 growth=1.1472..2.4580  load=1.842s  pfba=117.445s
+  [163/500] MGYG000001393
+    10 media  mets=2265 rxns=2842 biomass=bio1 growth=1.8014..3.1958  load=2.297s  pfba=170.608s
+  [164/500] MGYG000001403
+    10 media  mets=1860 rxns=2273 biomass=bio1 growth=0.7216..1.8925  load=1.912s  pfba=109.105s
+  [165/500] MGYG000001404
+    10 media  mets=1655 rxns=1960 biomass=bio1 growth=0.8209..1.8626  load=1.522s  pfba=83.125s
+  [166/500] MGYG000001408
+    10 media  mets=1674 rxns=1948 biomass=bio1 growth=0.2105..0.7106  load=1.507s  pfba=81.054s
+  [167/500] MGYG000001420
+    10 media  mets=1354 rxns=1554 biomass=bio1 growth=0.0000..0.0000  load=1.138s  pfba=0.776s
+  [168/500] MGYG000001430
+    10 media  mets=1233 rxns=1400 biomass=bio1 growth=0.0000..0.0000  load=1.172s  pfba=0.685s
+  [169/500] MGYG000001443
+    TIMEOUT (>120s) — skipped
+  [170/500] MGYG000001444
+    10 media  mets=1312 rxns=1423 biomass=bio1 growth=0.3259..0.4676  load=1.237s  pfba=46.374s
+  [171/500] MGYG000001454
+    10 media  mets=1166 rxns=1314 biomass=bio1 growth=0.0000..1.6023  load=1.337s  pfba=35.748s
+  [172/500] MGYG000001457
+    10 media  mets=2226 rxns=2654 biomass=bio1 growth=0.6663..1.8434  load=2.307s  pfba=146.389s
+  [173/500] MGYG000001488
+    10 media  mets=1782 rxns=2087 biomass=bio1 growth=0.6220..1.5940  load=1.712s  pfba=91.491s
+  [174/500] MGYG000001553
+    10 media  mets=1502 rxns=1712 biomass=bio1 growth=0.9360..2.0785  load=1.229s  pfba=62.512s
+  [175/500] MGYG000001554
+    10 media  mets=1588 rxns=1903 biomass=bio1 growth=0.4879..1.7629  load=1.535s  pfba=74.014s
+  [176/500] MGYG000001555
+    10 media  mets=1428 rxns=1594 biomass=bio1 growth=0.0000..0.0000  load=1.143s  pfba=0.651s
+  [177/500] MGYG000001563
+    10 media  mets=1079 rxns=1150 biomass=bio1 growth=0.4044..0.8578  load=0.948s  pfba=29.520s
+  [178/500] MGYG000001586
+    10 media  mets=1152 rxns=1273 biomass=bio1 growth=0.0000..2.1100  load=0.922s  pfba=24.876s
+  [179/500] MGYG000001589
+    10 media  mets=1312 rxns=1388 biomass=bio1 growth=0.7318..1.0489  load=1.032s  pfba=41.906s
+  [180/500] MGYG000001601
+    10 media  mets=1294 rxns=1411 biomass=bio1 growth=0.2567..0.6963  load=1.011s  pfba=43.847s
+  [181/500] MGYG000001608
+    10 media  mets=1326 rxns=1462 biomass=bio1 growth=0.0000..1.5925  load=1.148s  pfba=33.917s
+  [182/500] MGYG000001626
+    10 media  mets=1419 rxns=1518 biomass=bio1 growth=0.5621..0.9025  load=1.329s  pfba=52.179s
+  [183/500] MGYG000001630
+    10 media  mets=1235 rxns=1418 biomass=bio1 growth=0.8047..1.1105  load=1.050s  pfba=47.416s
+  [184/500] MGYG000001637
+    10 media  mets=1398 rxns=1587 biomass=bio1 growth=0.2176..0.2467  load=1.342s  pfba=57.224s
+  [185/500] MGYG000001653
+    10 media  mets=1110 rxns=1242 biomass=bio1 growth=0.0000..0.0000  load=0.910s  pfba=0.486s
+  [186/500] MGYG000001657
+    10 media  mets=1058 rxns=1175 biomass=bio1 growth=0.0000..0.0000  load=0.924s  pfba=0.449s
+  [187/500] MGYG000001662
+    10 media  mets=729 rxns=666 biomass=bio1 growth=0.0000..0.0000  load=0.515s  pfba=0.191s
+  [188/500] MGYG000001669
+    10 media  mets=816 rxns=844 biomass=bio1 growth=0.0000..1.0164  load=0.582s  pfba=15.232s
+  [189/500] MGYG000001694
+    10 media  mets=1559 rxns=1864 biomass=bio1 growth=0.7888..1.8815  load=1.499s  pfba=72.569s
+  [190/500] MGYG000001695
+    10 media  mets=1569 rxns=1747 biomass=bio1 growth=1.0308..1.8694  load=1.536s  pfba=63.484s
+  [191/500] MGYG000001697
+    10 media  mets=1318 rxns=1539 biomass=bio1 growth=1.0369..2.5366  load=1.257s  pfba=50.835s
+  [192/500] MGYG000001698
+    10 media  mets=1354 rxns=1601 biomass=bio1 growth=0.0000..2.4844  load=1.143s  pfba=32.381s
+  [193/500] MGYG000001700
+    TIMEOUT (>120s) — skipped
+  [194/500] MGYG000001707
+    10 media  mets=1434 rxns=1605 biomass=bio1 growth=0.0000..1.7288  load=1.211s  pfba=37.620s
+  [195/500] MGYG000001725
+    10 media  mets=1343 rxns=1500 biomass=bio1 growth=0.0000..1.4451  load=1.227s  pfba=33.599s
+  [196/500] MGYG000001745
+    10 media  mets=1428 rxns=1579 biomass=bio1 growth=0.0000..1.4559  load=1.128s  pfba=36.353s
+  [197/500] MGYG000001749
+    10 media  mets=1408 rxns=1570 biomass=bio1 growth=0.0000..2.1703  load=1.310s  pfba=31.321s
+  [198/500] MGYG000001757
+    10 media  mets=1155 rxns=1232 biomass=bio1 growth=0.0000..1.0372  load=1.164s  pfba=19.732s
+  [199/500] MGYG000001760
+    10 media  mets=1281 rxns=1399 biomass=bio1 growth=0.0000..1.0208  load=1.115s  pfba=28.602s
+  [200/500] MGYG000001762
+    10 media  mets=1369 rxns=1433 biomass=bio1 growth=0.4029..0.7239  load=1.052s  pfba=43.607s
+  [201/500] MGYG000001767
+    10 media  mets=1045 rxns=1145 biomass=bio1 growth=0.0000..1.1848  load=0.788s  pfba=19.409s
+  [202/500] MGYG000001786
+    10 media  mets=535 rxns=508 biomass=bio1 growth=0.0000..0.0000  load=0.406s  pfba=0.143s
+  [203/500] MGYG000001795
+    10 media  mets=1223 rxns=1376 biomass=bio1 growth=0.0000..0.8316  load=0.963s  pfba=35.760s
+  [204/500] MGYG000001804
+    10 media  mets=1231 rxns=1322 biomass=bio1 growth=0.0000..0.0000  load=0.946s  pfba=0.464s
+  [205/500] MGYG000001821
+    10 media  mets=1101 rxns=1228 biomass=bio1 growth=0.0000..2.4132  load=0.835s  pfba=28.074s
+  [206/500] MGYG000001826
+    10 media  mets=1089 rxns=1179 biomass=bio1 growth=0.0000..0.8921  load=0.845s  pfba=11.911s
+  [207/500] MGYG000001827
+    10 media  mets=1052 rxns=1059 biomass=bio1 growth=0.7256..1.6104  load=0.817s  pfba=23.967s
+  [208/500] MGYG000001834
+    10 media  mets=586 rxns=558 biomass=bio1 growth=0.0000..0.0000  load=0.362s  pfba=0.145s
+  [209/500] MGYG000001846
+    10 media  mets=894 rxns=959 biomass=bio1 growth=0.0000..0.0000  load=0.779s  pfba=0.309s
+  [210/500] MGYG000001871
+    10 media  mets=1325 rxns=1486 biomass=bio1 growth=0.0000..0.0000  load=1.198s  pfba=0.557s
+  [211/500] MGYG000001878
+    10 media  mets=1507 rxns=1707 biomass=bio1 growth=0.8120..1.6103  load=1.273s  pfba=59.492s
+  [212/500] MGYG000001890
+    10 media  mets=1434 rxns=1636 biomass=bio1 growth=0.3275..1.1037  load=1.242s  pfba=53.543s
+  [213/500] MGYG000001896
+    10 media  mets=1019 rxns=1125 biomass=bio1 growth=0.0000..0.0000  load=0.908s  pfba=0.506s
+  [214/500] MGYG000001898
+    10 media  mets=1366 rxns=1547 biomass=bio1 growth=0.0000..2.2806  load=1.129s  pfba=20.353s
+  [215/500] MGYG000001917
+    10 media  mets=660 rxns=631 biomass=bio1 growth=0.0000..0.0000  load=0.428s  pfba=0.177s
+  [216/500] MGYG000001926
+    10 media  mets=637 rxns=616 biomass=bio1 growth=0.0000..0.0000  load=0.403s  pfba=0.162s
+  [217/500] MGYG000001930
+    10 media  mets=889 rxns=995 biomass=bio1 growth=0.0000..0.9944  load=0.675s  pfba=18.892s
+  [218/500] MGYG000001934
+    10 media  mets=980 rxns=1064 biomass=bio1 growth=0.0000..1.9519  load=0.725s  pfba=16.763s
+  [219/500] MGYG000001971
+    10 media  mets=1520 rxns=1753 biomass=bio1 growth=0.7791..1.8490  load=1.264s  pfba=60.303s
+  [220/500] MGYG000001972
+    10 media  mets=1288 rxns=1540 biomass=bio1 growth=0.4438..1.2072  load=1.160s  pfba=48.321s
+  [221/500] MGYG000001988
+    10 media  mets=1281 rxns=1561 biomass=bio1 growth=0.0000..2.2093  load=1.117s  pfba=29.760s
+  [222/500] MGYG000001995
+    10 media  mets=1531 rxns=1808 biomass=bio1 growth=0.0000..2.2761  load=1.257s  pfba=45.485s
+  [223/500] MGYG000002025
+    10 media  mets=1265 rxns=1472 biomass=bio1 growth=0.0000..1.1664  load=1.083s  pfba=30.580s
+  [224/500] MGYG000002040
+    10 media  mets=1304 rxns=1460 biomass=bio1 growth=0.4167..0.9105  load=1.045s  pfba=43.667s
+  [225/500] MGYG000002044
+    10 media  mets=1149 rxns=1233 biomass=bio1 growth=0.0000..0.1698  load=0.879s  pfba=13.452s
+  [226/500] MGYG000002054
+    10 media  mets=1157 rxns=1263 biomass=bio1 growth=0.4047..1.2028  load=0.912s  pfba=33.656s
+  [227/500] MGYG000002058
+    10 media  mets=1158 rxns=1283 biomass=bio1 growth=0.5717..1.5861  load=0.927s  pfba=34.987s
+  [228/500] MGYG000002099
+    10 media  mets=1356 rxns=1525 biomass=bio1 growth=0.0000..2.4465  load=1.171s  pfba=33.030s
+  [229/500] MGYG000002110
+    10 media  mets=1188 rxns=1313 biomass=bio1 growth=0.8057..2.0806  load=0.950s  pfba=36.046s
+  [230/500] MGYG000002129
+    10 media  mets=1036 rxns=1079 biomass=bio1 growth=0.0000..1.2265  load=0.772s  pfba=15.108s
+  [231/500] MGYG000002131
+    10 media  mets=1253 rxns=1402 biomass=bio1 growth=0.1395..1.0415  load=1.076s  pfba=41.310s
+  [232/500] MGYG000002133
+    10 media  mets=1381 rxns=1581 biomass=bio1 growth=0.4406..1.3405  load=1.200s  pfba=50.942s
+  [233/500] MGYG000002139
+    10 media  mets=825 rxns=765 biomass=bio1 growth=0.0000..0.1939  load=0.544s  pfba=11.927s
+  [234/500] MGYG000002146
+    10 media  mets=1156 rxns=1260 biomass=bio1 growth=0.0000..0.6943  load=0.979s  pfba=30.074s
+  [235/500] MGYG000002154
+    10 media  mets=1167 rxns=1282 biomass=bio1 growth=0.4124..1.3337  load=0.903s  pfba=34.313s
+  [236/500] MGYG000002159
+    10 media  mets=1230 rxns=1381 biomass=bio1 growth=0.2779..1.3498  load=1.063s  pfba=40.135s
+  [237/500] MGYG000002162
+    10 media  mets=933 rxns=940 biomass=bio1 growth=0.1320..0.1320  load=0.731s  pfba=20.352s
+  [238/500] MGYG000002166
+    10 media  mets=649 rxns=604 biomass=bio1 growth=0.0000..0.0000  load=0.402s  pfba=0.143s
+  [239/500] MGYG000002173
+    10 media  mets=1026 rxns=1065 biomass=bio1 growth=0.0000..0.9944  load=0.828s  pfba=21.872s
+  [240/500] MGYG000002187
+    10 media  mets=1166 rxns=1324 biomass=bio1 growth=0.7307..2.0761  load=0.934s  pfba=36.866s
+  [241/500] MGYG000002197
+    10 media  mets=931 rxns=986 biomass=bio1 growth=0.1444..0.3022  load=0.687s  pfba=20.804s
+  [242/500] MGYG000002227
+    10 media  mets=1246 rxns=1375 biomass=bio1 growth=0.0000..1.6118  load=0.967s  pfba=35.826s
+  [243/500] MGYG000002244
+    10 media  mets=675 rxns=638 biomass=bio1 growth=0.0000..0.0000  load=0.424s  pfba=0.162s
+  [244/500] MGYG000002248
+    10 media  mets=603 rxns=551 biomass=bio1 growth=0.0000..0.0599  load=0.373s  pfba=6.822s
+  [245/500] MGYG000002258
+    10 media  mets=1191 rxns=1286 biomass=bio1 growth=0.0000..0.8688  load=0.917s  pfba=30.839s
+  [246/500] MGYG000002278
+    10 media  mets=1561 rxns=1815 biomass=bio1 growth=1.2972..2.9760  load=1.395s  pfba=67.336s
+  [247/500] MGYG000002298
+    10 media  mets=1471 rxns=1730 biomass=bio1 growth=1.0039..2.5964  load=1.387s  pfba=60.433s
+  [248/500] MGYG000002308
+    10 media  mets=1223 rxns=1296 biomass=bio1 growth=0.1995..0.2572  load=1.040s  pfba=35.706s
+  [249/500] MGYG000002309
+    10 media  mets=1716 rxns=2014 biomass=bio1 growth=0.0000..0.0000  load=1.487s  pfba=1.063s
+  [250/500] MGYG000002321
+    10 media  mets=1343 rxns=1501 biomass=bio1 growth=0.0000..1.8954  load=1.080s  pfba=27.869s
+  [251/500] MGYG000002322
+    TIMEOUT (>120s) — skipped
+  [252/500] MGYG000002333
+    10 media  mets=1218 rxns=1332 biomass=bio1 growth=0.2826..0.2826  load=1.037s  pfba=37.918s
+  [253/500] MGYG000002335
+    10 media  mets=2155 rxns=2649 biomass=bio1 growth=1.5751..3.1958  load=2.046s  pfba=138.107s
+  [254/500] MGYG000002337
+    10 media  mets=1818 rxns=2218 biomass=bio1 growth=1.2576..2.6896  load=1.696s  pfba=95.890s
+  [255/500] MGYG000002340
+    10 media  mets=1547 rxns=1737 biomass=bio1 growth=0.6560..1.6499  load=1.291s  pfba=60.777s
+  [256/500] MGYG000002341
+    10 media  mets=1829 rxns=2050 biomass=bio1 growth=0.5254..0.6396  load=1.541s  pfba=83.639s
+  [257/500] MGYG000002346
+    10 media  mets=2033 rxns=2281 biomass=bio1 growth=0.5640..0.7816  load=1.853s  pfba=102.409s
+  [258/500] MGYG000002353
+    10 media  mets=1416 rxns=1759 biomass=bio1 growth=0.9336..2.3041  load=1.249s  pfba=60.942s
+  [259/500] MGYG000002364
+    10 media  mets=1343 rxns=1439 biomass=bio1 growth=0.2001..0.3275  load=1.016s  pfba=42.417s
+  [260/500] MGYG000002383
+    10 media  mets=1528 rxns=1844 biomass=bio1 growth=0.8745..2.2964  load=1.361s  pfba=67.423s
+  [261/500] MGYG000002385
+    10 media  mets=2051 rxns=2431 biomass=bio1 growth=1.4228..2.2761  load=1.868s  pfba=117.406s
+  [262/500] MGYG000002387
+    10 media  mets=1191 rxns=1387 biomass=bio1 growth=0.3875..1.1023  load=1.006s  pfba=39.071s
+  [263/500] MGYG000002389
+    10 media  mets=1385 rxns=1663 biomass=bio1 growth=0.6712..1.5782  load=1.256s  pfba=55.587s
+  [264/500] MGYG000002395
+    10 media  mets=1233 rxns=1517 biomass=bio1 growth=0.0000..1.5598  load=1.094s  pfba=33.180s
+  [265/500] MGYG000002399
+    10 media  mets=1705 rxns=2049 biomass=bio1 growth=1.1070..2.5527  load=1.541s  pfba=84.434s
+  [266/500] MGYG000002406
+    10 media  mets=1656 rxns=1954 biomass=bio1 growth=0.3781..1.3568  load=1.447s  pfba=75.183s
+  [267/500] MGYG000002420
+    10 media  mets=1403 rxns=1575 biomass=bio1 growth=0.3938..1.1271  load=1.269s  pfba=51.551s
+  [268/500] MGYG000002423
+    TIMEOUT (>120s) — skipped
+  [269/500] MGYG000002426
+    10 media  mets=1280 rxns=1362 biomass=bio1 growth=0.2874..0.4354  load=1.054s  pfba=39.702s
+  [270/500] MGYG000002431
+    10 media  mets=1285 rxns=1374 biomass=bio1 growth=0.2874..0.4354  load=1.002s  pfba=40.639s
+  [271/500] MGYG000002435
+    10 media  mets=1265 rxns=1369 biomass=bio1 growth=0.2680..0.4053  load=1.054s  pfba=39.669s
+  [272/500] MGYG000002447
+    10 media  mets=1319 rxns=1385 biomass=bio1 growth=0.2293..0.3248  load=1.126s  pfba=40.260s
+  [273/500] MGYG000002448
+    10 media  mets=1379 rxns=1488 biomass=bio1 growth=0.0000..0.6749  load=1.097s  pfba=27.545s
+  [274/500] MGYG000002456
+    10 media  mets=821 rxns=787 biomass=bio1 growth=0.0000..0.0000  load=0.537s  pfba=0.218s
+  [275/500] MGYG000002461
+    10 media  mets=2187 rxns=2689 biomass=bio1 growth=1.6358..3.1958  load=2.071s  pfba=138.727s
+  [276/500] MGYG000002463
+    10 media  mets=2307 rxns=2788 biomass=bio1 growth=1.1611..2.2108  load=2.222s  pfba=150.478s
+  [277/500] MGYG000002475
+    10 media  mets=1673 rxns=1947 biomass=bio1 growth=0.0000..2.2285  load=1.548s  pfba=52.639s
+  [278/500] MGYG000002476
+    10 media  mets=2163 rxns=2648 biomass=bio1 growth=1.3856..2.9443  load=1.933s  pfba=135.470s
+  [279/500] MGYG000002479
+    10 media  mets=1256 rxns=1333 biomass=bio1 growth=0.2261..0.2261  load=0.978s  pfba=38.160s
+  [280/500] MGYG000002480
+    10 media  mets=1199 rxns=1243 biomass=bio1 growth=0.0000..0.5179  load=0.996s  pfba=16.684s
+  [281/500] MGYG000002482
+    10 media  mets=1112 rxns=1230 biomass=bio1 growth=0.1202..0.7696  load=0.888s  pfba=31.868s
+  [282/500] MGYG000002489
+    10 media  mets=1519 rxns=1651 biomass=bio1 growth=0.2278..0.3702  load=1.299s  pfba=55.664s
+  [283/500] MGYG000002505
+    10 media  mets=1542 rxns=1662 biomass=bio1 growth=0.2198..0.6937  load=1.200s  pfba=56.765s
+  [284/500] MGYG000002506
+    10 media  mets=2344 rxns=2930 biomass=bio1 growth=1.7886..3.7097  load=2.248s  pfba=163.074s
+  [285/500] MGYG000002507
+    10 media  mets=2237 rxns=2777 biomass=bio1 growth=1.7405..3.5056  load=2.138s  pfba=147.933s
+  [286/500] MGYG000002516
+    10 media  mets=2073 rxns=2534 biomass=bio1 growth=1.3407..2.2761  load=1.924s  pfba=124.510s
+  [287/500] MGYG000002517
+    10 media  mets=1501 rxns=1740 biomass=bio1 growth=0.0000..2.1765  load=1.312s  pfba=42.213s
+  [288/500] MGYG000002526
+    10 media  mets=1963 rxns=2464 biomass=bio1 growth=1.3598..3.2265  load=1.895s  pfba=118.007s
+  [289/500] MGYG000002530
+    10 media  mets=1207 rxns=1352 biomass=bio1 growth=0.0000..2.0030  load=0.968s  pfba=34.209s
+  [290/500] MGYG000002532
+    10 media  mets=1886 rxns=2279 biomass=bio1 growth=1.2465..2.6944  load=1.682s  pfba=101.394s
+  [291/500] MGYG000002535
+    10 media  mets=2354 rxns=2900 biomass=bio1 growth=1.8566..3.8595  load=2.266s  pfba=161.231s
+  [292/500] MGYG000002542
+    10 media  mets=1525 rxns=1823 biomass=bio1 growth=0.4711..1.3063  load=1.446s  pfba=65.082s
+  [293/500] MGYG000002544
+    10 media  mets=1424 rxns=1507 biomass=bio1 growth=0.0000..0.9196  load=1.201s  pfba=41.999s
+  [294/500] MGYG000002558
+    10 media  mets=1461 rxns=1636 biomass=bio1 growth=0.2971..1.1002  load=1.254s  pfba=53.915s
+  [295/500] MGYG000002581
+    10 media  mets=892 rxns=847 biomass=bio1 growth=0.0000..0.0000  load=0.597s  pfba=0.234s
+  [296/500] MGYG000002584
+    10 media  mets=1313 rxns=1466 biomass=bio1 growth=0.3667..0.9470  load=1.046s  pfba=44.135s
+  [297/500] MGYG000002591
+    10 media  mets=1274 rxns=1327 biomass=bio1 growth=0.1979..0.2678  load=0.973s  pfba=36.398s
+  [298/500] MGYG000002623
+    10 media  mets=1425 rxns=1649 biomass=bio1 growth=0.4891..1.5302  load=1.274s  pfba=55.502s
+  [299/500] MGYG000002634
+    10 media  mets=1527 rxns=1822 biomass=bio1 growth=1.0488..2.0492  load=1.382s  pfba=65.608s
+  [300/500] MGYG000002648
+    10 media  mets=1106 rxns=1189 biomass=bio1 growth=0.2085..0.7818  load=0.844s  pfba=29.645s
+  [301/500] MGYG000002653
+    10 media  mets=1354 rxns=1565 biomass=bio1 growth=0.4085..1.5230  load=1.117s  pfba=48.863s
+  [302/500] MGYG000002664
+    10 media  mets=1127 rxns=1176 biomass=bio1 growth=0.3006..0.4920  load=0.935s  pfba=30.139s
+  [303/500] MGYG000002689
+    10 media  mets=986 rxns=995 biomass=bio1 growth=0.0000..0.0000  load=0.719s  pfba=0.385s
+  [304/500] MGYG000002715
+    10 media  mets=1167 rxns=1248 biomass=bio1 growth=0.0000..0.0000  load=0.910s  pfba=0.654s
+  [305/500] MGYG000002722
+    10 media  mets=1216 rxns=1324 biomass=bio1 growth=0.4644..0.7162  load=1.029s  pfba=37.107s
+  [306/500] MGYG000002723
+    10 media  mets=1065 rxns=1117 biomass=bio1 growth=0.0000..0.7173  load=0.886s  pfba=10.750s
+  [307/500] MGYG000002734
+    10 media  mets=1121 rxns=1257 biomass=bio1 growth=0.7924..1.9463  load=0.870s  pfba=33.262s
+  [308/500] MGYG000002741
+    10 media  mets=1030 rxns=1155 biomass=bio1 growth=0.8072..2.0533  load=0.811s  pfba=28.121s
+  [309/500] MGYG000002747
+    10 media  mets=1135 rxns=1274 biomass=bio1 growth=0.7200..2.0536  load=0.898s  pfba=33.668s
+  [310/500] MGYG000002748
+    10 media  mets=1165 rxns=1233 biomass=bio1 growth=0.1796..0.7647  load=0.885s  pfba=31.579s
+  [311/500] MGYG000002754
+    10 media  mets=1159 rxns=1290 biomass=bio1 growth=0.7274..2.0873  load=0.903s  pfba=34.648s
+  [312/500] MGYG000002755
+    10 media  mets=1145 rxns=1247 biomass=bio1 growth=0.7486..1.8203  load=0.904s  pfba=32.685s
+  [313/500] MGYG000002770
+    10 media  mets=1333 rxns=1495 biomass=bio1 growth=0.6948..1.8466  load=1.088s  pfba=45.256s
+  [314/500] MGYG000002782
+    10 media  mets=1229 rxns=1321 biomass=bio1 growth=0.5589..1.3441  load=0.955s  pfba=35.650s
+  [315/500] MGYG000002783
+    10 media  mets=1192 rxns=1294 biomass=bio1 growth=0.0000..0.1311  load=0.993s  pfba=24.924s
+  [316/500] MGYG000002798
+    10 media  mets=922 rxns=863 biomass=bio1 growth=0.0000..0.0000  load=0.617s  pfba=0.237s
+  [317/500] MGYG000002803
+    10 media  mets=1131 rxns=1199 biomass=bio1 growth=0.0000..0.0000  load=0.843s  pfba=0.486s
+  [318/500] MGYG000002831
+    10 media  mets=1035 rxns=1119 biomass=bio1 growth=0.0000..0.9944  load=0.789s  pfba=23.735s
+  [319/500] MGYG000002840
+    10 media  mets=1189 rxns=1321 biomass=bio1 growth=0.3366..0.3366  load=1.044s  pfba=36.221s
+  [320/500] MGYG000002848
+    10 media  mets=1064 rxns=1212 biomass=bio1 growth=0.0000..1.1217  load=0.849s  pfba=28.200s
+  [321/500] MGYG000002852
+    10 media  mets=1137 rxns=1284 biomass=bio1 growth=0.0000..0.0000  load=0.969s  pfba=0.516s
+  [322/500] MGYG000002858
+    10 media  mets=1183 rxns=1290 biomass=bio1 growth=0.7045..2.2438  load=0.932s  pfba=34.624s
+  [323/500] MGYG000002870
+    10 media  mets=727 rxns=665 biomass=bio1 growth=0.0000..0.0000  load=0.461s  pfba=0.166s
+  [324/500] MGYG000002875
+    10 media  mets=1142 rxns=1251 biomass=bio1 growth=0.0000..0.7311  load=0.883s  pfba=19.630s
+  [325/500] MGYG000002883
+    10 media  mets=1126 rxns=1183 biomass=bio1 growth=0.0000..0.0481  load=0.862s  pfba=26.848s
+  [326/500] MGYG000002884
+    10 media  mets=1214 rxns=1310 biomass=bio1 growth=0.0000..1.1794  load=0.957s  pfba=25.080s
+  [327/500] MGYG000002888
+    10 media  mets=1695 rxns=1969 biomass=bio1 growth=0.8650..1.6970  load=1.418s  pfba=75.729s
+  [328/500] MGYG000002898
+    10 media  mets=1534 rxns=1873 biomass=bio1 growth=1.0185..2.1092  load=1.397s  pfba=69.416s
+  [329/500] MGYG000002903
+    10 media  mets=1219 rxns=1223 biomass=bio1 growth=0.0367..0.2043  load=0.888s  pfba=32.048s
+  [330/500] MGYG000002918
+    10 media  mets=1135 rxns=1279 biomass=bio1 growth=0.7307..2.0761  load=0.878s  pfba=33.959s
+  [331/500] MGYG000002926
+    10 media  mets=1048 rxns=1146 biomass=bio1 growth=0.0000..0.0000  load=0.887s  pfba=0.438s
+  [332/500] MGYG000002959
+    10 media  mets=1102 rxns=1212 biomass=bio1 growth=0.3476..0.4999  load=0.854s  pfba=31.531s
+  [333/500] MGYG000002969
+    10 media  mets=1338 rxns=1407 biomass=bio1 growth=0.0750..0.4915  load=1.089s  pfba=40.347s
+  [334/500] MGYG000002986
+    10 media  mets=1269 rxns=1406 biomass=bio1 growth=0.7924..1.1245  load=1.049s  pfba=40.755s
+  [335/500] MGYG000003012
+    10 media  mets=1406 rxns=1610 biomass=bio1 growth=0.0000..0.0000  load=1.265s  pfba=0.720s
+  [336/500] MGYG000003022
+    10 media  mets=1193 rxns=1277 biomass=bio1 growth=0.2408..0.3447  load=0.918s  pfba=33.967s
+  [337/500] MGYG000003046
+    10 media  mets=1162 rxns=1315 biomass=bio1 growth=0.7544..2.1540  load=0.928s  pfba=35.743s
+  [338/500] MGYG000003058
+    10 media  mets=935 rxns=915 biomass=bio1 growth=0.0000..0.0000  load=0.653s  pfba=0.268s
+  [339/500] MGYG000003065
+    10 media  mets=1400 rxns=1642 biomass=bio1 growth=0.7440..1.9688  load=1.154s  pfba=54.151s
+  [340/500] MGYG000003125
+    10 media  mets=1622 rxns=1897 biomass=bio1 growth=0.4964..1.5974  load=1.457s  pfba=69.048s
+  [341/500] MGYG000003135
+    10 media  mets=1414 rxns=1636 biomass=bio1 growth=0.0000..1.5388  load=1.259s  pfba=37.596s
+  [342/500] MGYG000003138
+    10 media  mets=1374 rxns=1610 biomass=bio1 growth=0.0000..0.0000  load=1.205s  pfba=0.653s
+  [343/500] MGYG000003180
+    10 media  mets=1149 rxns=1278 biomass=bio1 growth=0.7012..2.0291  load=0.894s  pfba=33.832s
+  [344/500] MGYG000003188
+    10 media  mets=1366 rxns=1491 biomass=bio1 growth=0.3752..0.5253  load=1.054s  pfba=46.434s
+  [345/500] MGYG000003197
+    10 media  mets=1177 rxns=1309 biomass=bio1 growth=0.2888..0.5779  load=0.969s  pfba=35.579s
+  [346/500] MGYG000003217
+    10 media  mets=968 rxns=981 biomass=bio1 growth=0.2528..0.5527  load=0.691s  pfba=20.766s
+  [347/500] MGYG000003218
+    10 media  mets=996 rxns=1000 biomass=bio1 growth=0.0000..0.0000  load=0.719s  pfba=0.312s
+  [348/500] MGYG000003222
+    10 media  mets=583 rxns=538 biomass=bio1 growth=0.0000..0.2877  load=0.353s  pfba=6.496s
+  [349/500] MGYG000003226
+    10 media  mets=1037 rxns=1134 biomass=bio1 growth=0.0000..0.7588  load=0.840s  pfba=18.839s
+  [350/500] MGYG000003243
+    10 media  mets=1080 rxns=1170 biomass=bio1 growth=0.0000..0.9762  load=0.823s  pfba=25.991s
+  [351/500] MGYG000003309
+    10 media  mets=1199 rxns=1258 biomass=bio1 growth=0.0000..0.0000  load=0.985s  pfba=0.479s
+  [352/500] MGYG000003312
+    10 media  mets=1521 rxns=1813 biomass=bio1 growth=0.0000..2.2761  load=1.370s  pfba=39.592s
+  [353/500] MGYG000003339
+    10 media  mets=1144 rxns=1283 biomass=bio1 growth=0.4035..1.2652  load=0.981s  pfba=34.516s
+  [354/500] MGYG000003343
+    10 media  mets=1434 rxns=1625 biomass=bio1 growth=0.0000..0.8322  load=1.262s  pfba=32.228s
+  [355/500] MGYG000003344
+    10 media  mets=1311 rxns=1405 biomass=bio1 growth=0.1187..0.2582  load=1.109s  pfba=40.035s
+  [356/500] MGYG000003355
+    10 media  mets=1623 rxns=1862 biomass=bio1 growth=0.9758..3.0906  load=1.322s  pfba=68.735s
+  [357/500] MGYG000003358
+    10 media  mets=2319 rxns=2886 biomass=bio1 growth=1.5367..3.4254  load=2.240s  pfba=160.078s
+  [358/500] MGYG000003360
+    10 media  mets=2243 rxns=2805 biomass=bio1 growth=1.4767..3.3824  load=2.143s  pfba=151.124s
+  [359/500] MGYG000003366
+    10 media  mets=1315 rxns=1478 biomass=bio1 growth=0.0000..1.4546  load=1.131s  pfba=31.015s
+  [360/500] MGYG000003368
+    10 media  mets=1035 rxns=1151 biomass=bio1 growth=0.3179..0.4922  load=0.798s  pfba=27.692s
+  [361/500] MGYG000003370
+    10 media  mets=1458 rxns=1711 biomass=bio1 growth=0.4968..1.2120  load=1.356s  pfba=58.618s
+  [362/500] MGYG000003383
+    10 media  mets=1296 rxns=1575 biomass=bio1 growth=0.0000..2.0021  load=1.216s  pfba=34.564s
+  [363/500] MGYG000003391
+    10 media  mets=1221 rxns=1338 biomass=bio1 growth=0.8377..1.2537  load=0.967s  pfba=37.301s
+  [364/500] MGYG000003399
+    TIMEOUT (>120s) — skipped
+  [365/500] MGYG000003409
+    10 media  mets=1026 rxns=1203 biomass=bio1 growth=0.4134..2.0415  load=0.848s  pfba=30.629s
+  [366/500] MGYG000003457
+    10 media  mets=1068 rxns=1130 biomass=bio1 growth=0.0000..0.0000  load=0.795s  pfba=0.315s
+  [367/500] MGYG000003476
+    10 media  mets=847 rxns=851 biomass=bio1 growth=0.2430..0.7924  load=0.689s  pfba=15.410s
+  [368/500] MGYG000003481
+    10 media  mets=867 rxns=808 biomass=bio1 growth=0.0000..0.0000  load=0.598s  pfba=0.415s
+  [369/500] MGYG000003496
+    10 media  mets=1171 rxns=1225 biomass=bio1 growth=0.0000..0.8137  load=0.880s  pfba=22.392s
+  [370/500] MGYG000003500
+    10 media  mets=1331 rxns=1466 biomass=bio1 growth=0.0000..1.0478  load=1.120s  pfba=31.194s
+  [371/500] MGYG000003529
+    10 media  mets=1051 rxns=1142 biomass=bio1 growth=0.1928..0.2025  load=0.817s  pfba=26.439s
+  [372/500] MGYG000003552
+    10 media  mets=1370 rxns=1521 biomass=bio1 growth=0.0000..1.3737  load=1.173s  pfba=33.028s
+  [373/500] MGYG000003567
+    10 media  mets=1054 rxns=1179 biomass=bio1 growth=0.3816..0.8312  load=0.805s  pfba=28.956s
+  [374/500] MGYG000003619
+    10 media  mets=1331 rxns=1492 biomass=bio1 growth=0.0000..1.7513  load=1.109s  pfba=31.707s
+  [375/500] MGYG000003662
+    10 media  mets=1268 rxns=1451 biomass=bio1 growth=0.3489..0.9577  load=1.119s  pfba=43.447s
+  [376/500] MGYG000003667
+    10 media  mets=725 rxns=699 biomass=bio1 growth=0.0052..0.0838  load=0.538s  pfba=11.041s
+  [377/500] MGYG000003669
+    10 media  mets=754 rxns=750 biomass=bio1 growth=0.0000..0.3064  load=0.615s  pfba=11.836s
+  [378/500] MGYG000003679
+    10 media  mets=1052 rxns=1163 biomass=bio1 growth=0.0000..0.8451  load=0.886s  pfba=20.216s
+  [379/500] MGYG000003685
+    10 media  mets=1174 rxns=1321 biomass=bio1 growth=0.7954..2.3454  load=0.934s  pfba=35.624s
+  [380/500] MGYG000003686
+    10 media  mets=1209 rxns=1282 biomass=bio1 growth=0.0000..0.0000  load=0.924s  pfba=0.619s
+  [381/500] MGYG000003687
+    10 media  mets=1915 rxns=2293 biomass=bio1 growth=0.8332..2.2063  load=1.744s  pfba=102.430s
+  [382/500] MGYG000003688
+    10 media  mets=1184 rxns=1322 biomass=bio1 growth=0.4003..1.2555  load=0.933s  pfba=36.764s
+  [383/500] MGYG000003696
+    10 media  mets=1173 rxns=1321 biomass=bio1 growth=0.7950..2.1376  load=0.953s  pfba=35.964s
+  [384/500] MGYG000003702
+    10 media  mets=1339 rxns=1510 biomass=bio1 growth=0.0000..2.1459  load=1.109s  pfba=41.512s
+  [385/500] MGYG000003703
+    10 media  mets=1031 rxns=1180 biomass=bio1 growth=0.3995..1.2529  load=0.917s  pfba=29.410s
+  [386/500] MGYG000003713
+    10 media  mets=1237 rxns=1337 biomass=bio1 growth=0.3654..0.5178  load=0.959s  pfba=38.106s
+  [387/500] MGYG000003739
+    10 media  mets=1457 rxns=1748 biomass=bio1 growth=0.4901..1.1944  load=1.315s  pfba=60.655s
+  [388/500] MGYG000003742
+    10 media  mets=1235 rxns=1394 biomass=bio1 growth=0.0000..0.0000  load=1.041s  pfba=0.495s
+  [389/500] MGYG000003773
+    10 media  mets=1025 rxns=1160 biomass=bio1 growth=0.0000..2.0225  load=0.818s  pfba=19.838s
+  [390/500] MGYG000003788
+    10 media  mets=1045 rxns=1094 biomass=bio1 growth=0.4156..0.4882  load=0.783s  pfba=24.561s
+  [391/500] MGYG000003802
+    10 media  mets=1098 rxns=1106 biomass=bio1 growth=0.0000..0.0000  load=0.856s  pfba=0.356s
+  [392/500] MGYG000003829
+    10 media  mets=1201 rxns=1279 biomass=bio1 growth=0.0000..1.5470  load=0.907s  pfba=24.325s
+  [393/500] MGYG000003836
+    10 media  mets=1231 rxns=1278 biomass=bio1 growth=0.2151..0.3031  load=1.001s  pfba=34.366s
+  [394/500] MGYG000003842
+    10 media  mets=1218 rxns=1323 biomass=bio1 growth=0.0000..0.0000  load=0.933s  pfba=0.562s
+  [395/500] MGYG000003852
+    10 media  mets=1286 rxns=1354 biomass=bio1 growth=0.1932..0.3909  load=1.070s  pfba=37.352s
+  [396/500] MGYG000003858
+    10 media  mets=1251 rxns=1411 biomass=bio1 growth=0.0000..1.2580  load=1.029s  pfba=24.634s
+  [397/500] MGYG000003859
+    10 media  mets=973 rxns=982 biomass=bio1 growth=0.0984..0.5722  load=0.681s  pfba=21.090s
+  [398/500] MGYG000003876
+    10 media  mets=1441 rxns=1576 biomass=bio1 growth=1.3053..2.4227  load=1.279s  pfba=50.150s
+  [399/500] MGYG000003878
+    10 media  mets=1236 rxns=1402 biomass=bio1 growth=0.0000..0.0000  load=1.000s  pfba=0.535s
+  [400/500] MGYG000003883
+    10 media  mets=2232 rxns=2773 biomass=bio1 growth=0.0000..3.1958  load=2.125s  pfba=60.263s
+  [401/500] MGYG000003899
+    10 media  mets=1307 rxns=1463 biomass=bio1 growth=0.0000..0.0000  load=1.132s  pfba=0.673s
+  [402/500] MGYG000003906
+    10 media  mets=1161 rxns=1246 biomass=bio1 growth=0.3999..1.2497  load=0.877s  pfba=33.118s
+  [403/500] MGYG000003937
+    10 media  mets=1248 rxns=1428 biomass=bio1 growth=0.0000..0.0000  load=1.027s  pfba=0.559s
+  [404/500] MGYG000003938
+    10 media  mets=1072 rxns=1202 biomass=bio1 growth=0.2260..0.2260  load=0.834s  pfba=30.308s
+  [405/500] MGYG000003957
+    10 media  mets=1586 rxns=1866 biomass=bio1 growth=0.0000..3.2953  load=1.318s  pfba=48.354s
+  [406/500] MGYG000003961
+    10 media  mets=1045 rxns=1106 biomass=bio1 growth=0.0000..0.0000  load=0.812s  pfba=0.465s
+  [407/500] MGYG000004022
+    10 media  mets=1208 rxns=1356 biomass=bio1 growth=0.0000..2.0720  load=0.991s  pfba=23.254s
+  [408/500] MGYG000004029
+    10 media  mets=961 rxns=997 biomass=bio1 growth=0.0000..2.2793  load=0.714s  pfba=18.519s
+  [409/500] MGYG000004033
+    10 media  mets=1104 rxns=1164 biomass=bio1 growth=0.0000..1.0048  load=0.829s  pfba=26.563s
+  [410/500] MGYG000004038
+    10 media  mets=658 rxns=625 biomass=bio1 growth=0.0000..0.0000  load=0.418s  pfba=0.170s
+  [411/500] MGYG000004071
+    10 media  mets=1178 rxns=1336 biomass=bio1 growth=0.0000..1.3263  load=1.074s  pfba=26.050s
+  [412/500] MGYG000004078
+    10 media  mets=945 rxns=882 biomass=bio1 growth=0.0000..0.0000  load=0.643s  pfba=0.346s
+  [413/500] MGYG000004090
+    10 media  mets=1212 rxns=1357 biomass=bio1 growth=0.2932..0.6839  load=0.990s  pfba=38.639s
+  [414/500] MGYG000004093
+    10 media  mets=1327 rxns=1411 biomass=bio1 growth=0.0000..0.4411  load=1.138s  pfba=38.055s
+  [415/500] MGYG000004097
+    10 media  mets=1211 rxns=1352 biomass=bio1 growth=0.7218..2.0401  load=1.027s  pfba=38.168s
+  [416/500] MGYG000004103
+    10 media  mets=861 rxns=813 biomass=bio1 growth=0.0000..0.0000  load=0.655s  pfba=0.238s
+  [417/500] MGYG000004115
+    10 media  mets=1180 rxns=1216 biomass=bio1 growth=0.0000..0.4165  load=0.911s  pfba=29.874s
+  [418/500] MGYG000004133
+    10 media  mets=1272 rxns=1373 biomass=bio1 growth=0.0000..1.5590  load=1.079s  pfba=23.842s
+  [419/500] MGYG000004134
+    10 media  mets=1169 rxns=1245 biomass=bio1 growth=0.0000..0.2496  load=0.948s  pfba=30.137s
+  [420/500] MGYG000004137
+    10 media  mets=1165 rxns=1244 biomass=bio1 growth=0.0000..0.8277  load=0.880s  pfba=28.887s
+  [421/500] MGYG000004138
+    10 media  mets=1153 rxns=1163 biomass=bio1 growth=0.0000..0.0000  load=0.846s  pfba=0.344s
+  [422/500] MGYG000004142
+    10 media  mets=1288 rxns=1387 biomass=bio1 growth=0.3820..0.6749  load=1.033s  pfba=40.284s
+  [423/500] MGYG000004153
+    10 media  mets=1258 rxns=1378 biomass=bio1 growth=0.0000..1.0208  load=1.096s  pfba=27.575s
+  [424/500] MGYG000004165
+    10 media  mets=1090 rxns=1201 biomass=bio1 growth=0.0000..0.3034  load=0.866s  pfba=18.352s
+  [425/500] MGYG000004175
+    10 media  mets=710 rxns=669 biomass=bio1 growth=0.0000..0.0000  load=0.465s  pfba=0.242s
+  [426/500] MGYG000004192
+    10 media  mets=800 rxns=760 biomass=bio1 growth=0.0000..0.0000  load=0.530s  pfba=0.184s
+  [427/500] MGYG000004208
+    10 media  mets=1209 rxns=1384 biomass=bio1 growth=0.0000..0.5111  load=0.961s  pfba=23.694s
+  [428/500] MGYG000004216
+    10 media  mets=693 rxns=665 biomass=bio1 growth=0.0000..0.0834  load=0.447s  pfba=9.656s
+  [429/500] MGYG000004219
+    10 media  mets=1238 rxns=1379 biomass=bio1 growth=0.0000..0.0000  load=1.048s  pfba=0.645s
+  [430/500] MGYG000004221
+    10 media  mets=869 rxns=969 biomass=bio1 growth=0.2622..1.0208  load=0.658s  pfba=20.352s
+  [431/500] MGYG000004222
+    10 media  mets=905 rxns=850 biomass=bio1 growth=0.0000..0.0000  load=0.617s  pfba=0.244s
+  [432/500] MGYG000004223
+    10 media  mets=1185 rxns=1277 biomass=bio1 growth=0.0000..1.8051  load=0.927s  pfba=24.006s
+  [433/500] MGYG000004232
+    10 media  mets=1257 rxns=1431 biomass=bio1 growth=1.3339..2.6529  load=1.151s  pfba=41.975s
+  [434/500] MGYG000004253
+    10 media  mets=1260 rxns=1375 biomass=bio1 growth=0.5589..0.9052  load=0.982s  pfba=39.680s
+  [435/500] MGYG000004255
+    10 media  mets=1102 rxns=1210 biomass=bio1 growth=0.3143..0.8790  load=0.846s  pfba=30.981s
+  [436/500] MGYG000004258
+    10 media  mets=1134 rxns=1251 biomass=bio1 growth=0.4038..1.2945  load=0.936s  pfba=32.699s
+  [437/500] MGYG000004271
+    10 media  mets=1550 rxns=1794 biomass=bio1 growth=0.0000..2.1970  load=1.344s  pfba=45.476s
+  [438/500] MGYG000004274
+    10 media  mets=1157 rxns=1300 biomass=bio1 growth=0.5636..1.6086  load=0.920s  pfba=35.356s
+  [439/500] MGYG000004284
+    10 media  mets=1192 rxns=1327 biomass=bio1 growth=0.3516..1.1885  load=0.947s  pfba=36.718s
+  [440/500] MGYG000004289
+    10 media  mets=1310 rxns=1383 biomass=bio1 growth=0.0000..0.6358  load=1.082s  pfba=36.912s
+  [441/500] MGYG000004295
+    TIMEOUT (>120s) — skipped
+  [442/500] MGYG000004298
+    10 media  mets=1180 rxns=1297 biomass=bio1 growth=0.3500..1.1463  load=1.012s  pfba=34.883s
+  [443/500] MGYG000004308
+    10 media  mets=1102 rxns=1178 biomass=bio1 growth=0.0000..0.0000  load=0.932s  pfba=0.497s
+  [444/500] MGYG000004323
+    10 media  mets=1274 rxns=1406 biomass=bio1 growth=0.0000..2.1829  load=1.077s  pfba=24.641s
+  [445/500] MGYG000004337
+    10 media  mets=1327 rxns=1398 biomass=bio1 growth=0.4180..0.6836  load=1.147s  pfba=41.099s
+  [446/500] MGYG000004370
+    10 media  mets=1134 rxns=1198 biomass=bio1 growth=0.0000..0.0000  load=0.878s  pfba=0.490s
+  [447/500] MGYG000004380
+    10 media  mets=1388 rxns=1526 biomass=bio1 growth=0.0000..1.3932  load=1.161s  pfba=32.946s
+  [448/500] MGYG000004382
+    10 media  mets=1348 rxns=1473 biomass=bio1 growth=0.0000..1.2248  load=1.053s  pfba=31.599s
+  [449/500] MGYG000004393
+    10 media  mets=648 rxns=633 biomass=bio1 growth=0.0000..0.0000  load=0.423s  pfba=0.150s
+  [450/500] MGYG000004425
+    10 media  mets=874 rxns=960 biomass=bio1 growth=0.0000..1.1863  load=0.698s  pfba=13.986s
+  [451/500] MGYG000004435
+    10 media  mets=840 rxns=876 biomass=bio1 growth=0.0000..0.0476  load=0.597s  pfba=11.769s
+  [452/500] MGYG000004456
+    10 media  mets=1360 rxns=1612 biomass=bio1 growth=0.0000..1.7132  load=1.249s  pfba=37.252s
+  [453/500] MGYG000004476
+    10 media  mets=1005 rxns=1057 biomass=bio1 growth=0.0000..1.5655  load=0.784s  pfba=21.432s
+  [454/500] MGYG000004478
+    10 media  mets=1162 rxns=1252 biomass=bio1 growth=0.2784..1.0439  load=0.892s  pfba=33.756s
+  [455/500] MGYG000004487
+    10 media  mets=1133 rxns=1250 biomass=bio1 growth=0.0000..0.0000  load=0.897s  pfba=0.489s
+  [456/500] MGYG000004490
+    10 media  mets=1337 rxns=1532 biomass=bio1 growth=0.2566..1.0758  load=1.107s  pfba=48.725s
+  [457/500] MGYG000004495
+    10 media  mets=1441 rxns=1693 biomass=bio1 growth=0.0000..1.3988  load=1.236s  pfba=23.898s
+  [458/500] MGYG000004498
+    10 media  mets=821 rxns=866 biomass=bio1 growth=0.0425..0.2201  load=0.736s  pfba=16.404s
+  [459/500] MGYG000004501
+    10 media  mets=1161 rxns=1280 biomass=bio1 growth=0.0000..0.5946  load=0.879s  pfba=24.194s
+  [460/500] MGYG000004509
+    10 media  mets=789 rxns=743 biomass=bio1 growth=0.0000..0.1522  load=0.542s  pfba=11.389s
+  [461/500] MGYG000004525
+    10 media  mets=1160 rxns=1314 biomass=bio1 growth=0.0000..1.4046  load=1.018s  pfba=21.447s
+  [462/500] MGYG000004527
+    10 media  mets=728 rxns=672 biomass=bio1 growth=0.0000..0.0000  load=0.535s  pfba=0.167s
+  [463/500] MGYG000004529
+    10 media  mets=1120 rxns=1197 biomass=bio1 growth=0.0000..0.2142  load=0.836s  pfba=28.044s
+  [464/500] MGYG000004532
+    10 media  mets=1273 rxns=1359 biomass=bio1 growth=0.0000..0.7127  load=1.058s  pfba=27.790s
+  [465/500] MGYG000004533
+    10 media  mets=1086 rxns=1107 biomass=bio1 growth=0.0000..0.7333  load=0.790s  pfba=23.770s
+  [466/500] MGYG000004535
+    10 media  mets=933 rxns=1015 biomass=bio1 growth=0.3826..0.9944  load=0.705s  pfba=22.289s
+  [467/500] MGYG000004537
+    10 media  mets=956 rxns=953 biomass=bio1 growth=0.0000..0.0000  load=0.674s  pfba=0.323s
+  [468/500] MGYG000004542
+    10 media  mets=1177 rxns=1318 biomass=bio1 growth=0.8309..2.1851  load=1.013s  pfba=37.392s
+  [469/500] MGYG000004553
+    10 media  mets=1149 rxns=1299 biomass=bio1 growth=0.3976..1.2093  load=0.897s  pfba=35.802s
+  [470/500] MGYG000004557
+    10 media  mets=1193 rxns=1332 biomass=bio1 growth=0.0000..0.2889  load=0.954s  pfba=22.695s
+  [471/500] MGYG000004559
+    10 media  mets=1251 rxns=1376 biomass=bio1 growth=0.7867..1.6767  load=1.007s  pfba=39.817s
+  [472/500] MGYG000004563
+    10 media  mets=982 rxns=910 biomass=bio1 growth=0.0000..0.0000  load=0.894s  pfba=0.229s
+  [473/500] MGYG000004565
+    10 media  mets=1105 rxns=1213 biomass=bio1 growth=0.2473..0.6850  load=0.941s  pfba=31.314s
+  [474/500] MGYG000004569
+    10 media  mets=1093 rxns=1191 biomass=bio1 growth=0.0000..0.6793  load=0.843s  pfba=21.354s
+  [475/500] MGYG000004576
+    10 media  mets=1047 rxns=1178 biomass=bio1 growth=0.0000..0.9944  load=0.881s  pfba=17.550s
+  [476/500] MGYG000004589
+    10 media  mets=1180 rxns=1358 biomass=bio1 growth=0.0000..1.3854  load=1.052s  pfba=23.082s
+  [477/500] MGYG000004592
+    10 media  mets=1229 rxns=1256 biomass=bio1 growth=0.0000..0.5483  load=0.912s  pfba=13.911s
+  [478/500] MGYG000004612
+    10 media  mets=1308 rxns=1467 biomass=bio1 growth=0.0000..2.1723  load=1.045s  pfba=27.579s
+  [479/500] MGYG000004616
+    10 media  mets=1201 rxns=1336 biomass=bio1 growth=0.0000..0.3497  load=1.049s  pfba=26.814s
+  [480/500] MGYG000004633
+    10 media  mets=1263 rxns=1434 biomass=bio1 growth=0.6524..1.9183  load=1.137s  pfba=44.066s
+  [481/500] MGYG000004637
+    10 media  mets=1072 rxns=1117 biomass=bio1 growth=0.0433..0.0839  load=0.784s  pfba=26.435s
+  [482/500] MGYG000004652
+    10 media  mets=1396 rxns=1665 biomass=bio1 growth=0.2394..1.4311  load=1.250s  pfba=56.647s
+  [483/500] MGYG000004655
+    10 media  mets=1273 rxns=1414 biomass=bio1 growth=0.3018..0.8489  load=1.050s  pfba=42.056s
+  [484/500] MGYG000004663
+    10 media  mets=1293 rxns=1389 biomass=bio1 growth=0.0000..0.0000  load=1.108s  pfba=0.669s
+  [485/500] MGYG000004733
+    10 media  mets=1460 rxns=1699 biomass=bio1 growth=0.9853..2.7061  load=1.261s  pfba=59.317s
+  [486/500] MGYG000004736
+    10 media  mets=1321 rxns=1439 biomass=bio1 growth=0.0000..1.5649  load=1.149s  pfba=30.437s
+  [487/500] MGYG000004739
+    10 media  mets=1337 rxns=1596 biomass=bio1 growth=0.0000..1.6104  load=1.191s  pfba=36.390s
+  [488/500] MGYG000004744
+    10 media  mets=1298 rxns=1476 biomass=bio1 growth=0.5602..1.6491  load=1.084s  pfba=45.564s
+  [489/500] MGYG000004770
+    10 media  mets=1486 rxns=1724 biomass=bio1 growth=0.4481..0.7744  load=1.301s  pfba=61.206s
+  [490/500] MGYG000004781
+    10 media  mets=1669 rxns=1967 biomass=bio1 growth=0.0000..3.0214  load=1.469s  pfba=47.429s
+  [491/500] MGYG000004783
+    10 media  mets=1172 rxns=1285 biomass=bio1 growth=0.0000..0.9944  load=0.916s  pfba=31.852s
+  [492/500] MGYG000004786
+    10 media  mets=1129 rxns=1253 biomass=bio1 growth=0.0000..1.9241  load=1.020s  pfba=23.367s
+  [493/500] MGYG000004797
+    10 media  mets=1513 rxns=1809 biomass=bio1 growth=0.9582..1.9882  load=1.301s  pfba=65.653s
+  [494/500] MGYG000004798
+    10 media  mets=1526 rxns=1820 biomass=bio1 growth=0.9986..2.2616  load=1.352s  pfba=65.465s
+  [495/500] MGYG000004819
+    10 media  mets=1426 rxns=1681 biomass=bio1 growth=0.3904..1.2770  load=1.232s  pfba=57.351s
+  [496/500] MGYG000004834
+    10 media  mets=1224 rxns=1381 biomass=bio1 growth=0.4253..2.0750  load=1.069s  pfba=39.465s
+  [497/500] MGYG000004846
+    10 media  mets=1183 rxns=1319 biomass=bio1 growth=0.8261..2.1730  load=1.016s  pfba=36.258s
+  [498/500] MGYG000004852
+    10 media  mets=1367 rxns=1559 biomass=bio1 growth=0.6666..1.7746  load=1.248s  pfba=48.933s
+  [499/500] MGYG000004855
+    10 media  mets=1388 rxns=1630 biomass=bio1 growth=0.0000..2.7873  load=1.326s  pfba=36.982s
+  [500/500] MGYG000004864
+    10 media  mets=1346 rxns=1467 biomass=bio1 growth=0.5332..0.7225  load=1.209s  pfba=43.979s
+
+============================================
+  COBRApy CycleFreeFlux+pFBA Benchmark
+============================================
+Models:          500
+Completed:       4940
+Timed out:       6  (>120s each)
+Total load:      5272.9 s  (1.067 s/model)
+Total CFF+pFBA:  17983.4 s  (3.640 s/model)
+Total wall time: 6101.4 s
+Peak memory:     223.9 MB
