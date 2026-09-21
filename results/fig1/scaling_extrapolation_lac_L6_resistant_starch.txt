@@ -1,0 +1,22 @@
+# Scaling timing — lac × UHGG, L6_resistant_starch, threads=1, reps=3
+# solvers: fast-mic=HiGHS (native, free) | SMETANA=CPLEX (reframed has no native HiGHS)
+# machine: Apple M3 Pro
+
+tool        n_pairs   median_s     min_s     max_s  s/pair(median)
+SMETANA         100      88.60     87.93     88.88         0.88597
+SMETANA         500     432.38    425.69    436.87         0.86475
+SMETANA        1000     791.15    789.18    792.48         0.79115
+fast-mic        100      10.96     10.75     11.22         0.10956
+fast-mic        500      56.69     56.36     56.73         0.11338
+fast-mic       1000     108.73    106.54    109.18         0.10873
+
+## Extrapolation (median s/pair × full pair count)
+  this study (lac 10×UHGG 3238×10 media): 323,800 pairs
+      SMETANA  : 3.0 days  (0.79115 s/pair)
+      fast-mic : 9.8 hours  (0.10873 s/pair)
+
+  full UHGG all-vs-all (3238 genomes, 1 medium): 5,240,703 pairs
+      SMETANA  : 48.0 days  (0.79115 s/pair)
+      fast-mic : 6.6 days  (0.10873 s/pair)
+
+## Single-thread speedup (s/pair): 7×

@@ -1,0 +1,7 @@
+tool	n_pairs	n_prob	n_uhgg	threads	solver	rep	wall_s	sec_per_pair	peak_rss_mb
+fast-mic	100	10	10	1	highs	1	10.868	0.10868	181.9
+SMETANA	100	10	10	1	cplex	1	88.401	0.88401	695.6
+fast-mic	500	10	50	1	highs	1	55.525	0.11105	285.1
+SMETANA	500	10	50	1	cplex	1	405.796	0.81159	1095.6
+fast-mic	1000	10	100	1	highs	1	105.647	0.10565	346.3
+SMETANA	1000	10	100	1	cplex	1	788.499	0.78850	1571.3
