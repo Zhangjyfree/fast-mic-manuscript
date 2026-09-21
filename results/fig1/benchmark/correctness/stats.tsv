@@ -1,0 +1,12 @@
+metric	value
+n_models	9950
+pearson_r	1.00000000
+r_squared	1.00000000
+mae	3.11658291e-07
+rmse	1.36595357e-06
+n_both_positive	7413
+pct_agree_1pct	100.0000
+pct_agree_5pct	100.0000
+n_both_zero	2537
+n_fastmic_only_positive	0
+n_cobra_only_positive	0
