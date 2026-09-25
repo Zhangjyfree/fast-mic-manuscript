@@ -54,6 +54,7 @@ fast-mic-manuscript/
 │   ├── make_crossfeed_table.py            # pooled cross-feeding currency table (Fig S7A)
 │   ├── stats_strain_level.py              # strain-level statistics: bootstrap CIs, Mann-Whitney, Wilcoxon (Fig S4 + Table S9)
 │   ├── build_lit_validation_table.py      # predicted currencies vs published experimental evidence
+│   ├── gapfill_knockout.py                # gap-fill-candidate knockout (Fig S12; needs the engine repo)
 │   ├── run_gradient.sh                    # how the raw per-pair results were produced (needs the engine repo)
 │   └── benchmark/
 │       ├── benchmark_cobra.py             # COBRApy comparison
@@ -72,6 +73,12 @@ fast-mic-manuscript/
     ├── akk/  lac/                         # genomes, GEMs, IQ-TREE trees
     └── UHGG/                              # split UHGG model archive + GTDB metadata
 ```
+
+**Which probiotic models were used.** Every analysis in the paper uses
+`test/akk/akk_gapseq_xml/` (*Akkermansia*, gap-filled on the *Akkermansia*
+minimal medium) and `test/lac/lac_genomes_faa_gapseq_wdm_xml/`
+(*Lactobacillus*-group, gap-filled on Western diet + mucin), as stated in the
+Methods.
 
 ---
 
@@ -155,7 +162,7 @@ so that `scripts/figure_theme.R` resolves.
 
 Every figure is drawn at its final printed size: 170 mm wide (BMC full page),
 at most 225 mm tall, 300 dpi, Arial throughout. Heights by figure: Fig 1 225,
-Fig 2 210, Fig 3 160, Fig 4 205, Fig 5 200, Fig 6 225, S1 105, S2 195, S3 70,
+Fig 2 210, Fig 3 160, Fig 4 225, Fig 5 200, Fig 6 225, S1 105, S2 195, S3 70,
 S4 82, S5 88, S6 150, S7 190, S8 80, S9 95, S10 84, S11 80, S12 85 mm.
 
 ```bash
@@ -194,10 +201,10 @@ figures reproduce without re-running any simulation.
 |---|---|---|---|
 | `results/fig1/benchmark/` | 1B–1E | `bash scripts/benchmark/run_thread_scaling.sh` (COBRApy comparison + thread scaling; needs `cobra` and the fast-mic binary) | UHGG model corpora, L0–L9 media |
 | `results/tableS5/cff_biomass_deviation.tsv` | Table S5 | run from the fast-mic checkout: `cargo build --release --bin bench-cff-deviation` then `./target/release/bench-cff-deviation --media-list media/gradient_media_list.txt --model-list <model list> > cff_biomass_deviation.tsv`. The per-model TSV goes to stdout and the validation summary (max / mean \|deviation\|, worst case) to stderr; Table S5 aggregates the TSV by prebiotic level. Both list files hold absolute paths — rewrite them for your own checkout. | fast-mic binary; the same 1,000 UHGG models as `results/fig1/benchmark/correctness/model_list.txt`, L0–L9 media |
-| `results/fig1/` | 1F | `python3 scripts/scaling_timing_smetana.py --sys {akk,lac} --sizes 100,500,1000 --reps 3 --solver cplex` | fast-mic binary + SMETANA env |
+| `results/fig1/` | 1F | `python3 scripts/scaling_timing_smetana.py --sys {akk,lac} --sizes 100,500,1000 --reps 3 --solver cplex --smetana-cap-pairs 2000` (the cap must exceed 1,002, the largest *Akkermansia* size: 6 strains × 167 UHGG genomes) | fast-mic binary + SMETANA env |
 | `results/fig1/…_mem.tsv` | 1G | same script with `--out-suffix _mem` — records `peak_rss_mb` (fast-mic per child process via `os.wait4`; SMETANA via `getrusage(RUSAGE_SELF)`) | fast-mic binary + SMETANA env |
-| `results/fig2/` | 2 | `python3 scripts/extract_fig2_traits.py` | `test/{akk,lac}/…_gapseq_wdm_xml`, trees, `{akk,lac}_vs_uhgg/` |
-| `results/fig4/` | 4G | `fast-mic` on L5 / L5-glc / L6 media (§8) | fast-mic binary |
+| `results/fig2/` | 2, 6D | `python3 scripts/extract_fig2_traits.py` | `test/akk/akk_gapseq_xml`, `test/lac/lac_genomes_faa_gapseq_wdm_xml`, trees, `{akk,lac}_vs_uhgg/` |
+| `results/fig4/` | 4G, Table S10 | from the engine checkout, for each of `L5_pectin`, `L5glc`, `L6_resistant_starch`: `./target/release/fast-mic --group1 test/akk/akk_gapseq_xml --group2 test/UHGG/final_gapseq_xml --medium-file media/gradient_<level>_gapseq.csv --threads 12 -o akk_<level>.tsv` (and the same with `test/lac/lac_genomes_faa_gapseq_wdm_xml` → `lac_<level>.tsv`) | fast-mic binary, media (§8) |
 | `results/fig5/` | 5 | `python3 scripts/extract_fig5_crossfeed.py` | `{akk,lac}_vs_uhgg/*.full.tsv`, ModelSEED `compounds.tsv` (§8) |
 | `results/fig6/` | 6 | `python3 scripts/extract_fig6_enrich.py` | `{akk,lac}_vs_uhgg/`, `test/UHGG/…metadata…gz` (needs `numpy`) |
 | `results/figS2/` | S2B,C | `python3 scripts/run_smetana_batch.py <level> <sys> 300` | `{akk,lac}_vs_uhgg/`, `test/` models, SMETANA env |
@@ -205,7 +212,8 @@ figures reproduce without re-running any simulation.
 | `results/figS9/` | S9 | `fast-mic` at L5/L6, default vs `--fixed-ratio` (§8) | fast-mic binary |
 | `results/figS4/` | S4, Table S9 | `python3 scripts/stats_strain_level.py` (bootstrap CIs, exact Mann-Whitney and Wilcoxon; B = 10,000, seed 0) | `results/{akk,lac}_vs_uhgg/L5_pectin.tsv`, `L6_resistant_starch.tsv` |
 | `results/litvalidation/` | Table S11 columns G–K | `python3 scripts/build_lit_validation_table.py` | `results/fig5/fig5_prevalence_{akk,lac}.tsv` + curated evidence in the script |
-| `results/figS1/`, `figS5/`, `figS10/`–`figS12/` | S1, S5, S10–S12 | focused fast-mic runs / analyses — **provided**; regeneration needs the engine binary | — |
+| `results/figS12/R15_summary.tsv` | S12 | `python3 scripts/gapfill_knockout.py --engine <engine checkout> --system Akkermansia --models test/akk/akk_gapseq_xml --partners test/UHGG/final_gapseq_xml --control results/akk_vs_uhgg/L5_pectin.tsv --threads 12 --workdir <tmp> --append`, then the same with `--system Lactobacillus --models test/lac/lac_genomes_faa_gapseq_wdm_xml --control results/lac_vs_uhgg/L5_pectin.tsv` | fast-mic binary, media (§8) |
+| `results/figS1/`, `figS5/`, `figS10/`, `figS11/` | S1, S5, S10, S11 | focused fast-mic runs / analyses — **provided**; regeneration needs the engine binary | — |
 
 ```bash
 # Intermediates with a generator in this repository

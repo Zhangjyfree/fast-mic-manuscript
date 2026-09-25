@@ -19,7 +19,8 @@ N=int(sys.argv[3]) if len(sys.argv)>3 else 60
 MEDCSV={"L5_pectin":"gradient_L5_pectin_gapseq.csv","L6_resistant_starch":"gradient_L6_resistant_starch_gapseq.csv"}[LEVEL]
 med=[(r["compounds"], float(r["maxFlux"])) for r in csv.DictReader(open(f"{FM}/media/{MEDCSV}"))]
 cpds=[c for c,_ in med]
-probdir={"akk":f"{FM}/test/akk/akk_genomes_faa_gapseq_wdm_xml","lac":f"{FM}/test/lac/lac_genomes_faa_gapseq_wdm_xml"}[SYS]
+# same probiotic models as the gradient screen (results/{akk,lac}_vs_uhgg/)
+probdir={"akk":f"{FM}/test/akk/akk_gapseq_xml","lac":f"{FM}/test/lac/lac_genomes_faa_gapseq_wdm_xml"}[SYS]
 uhggdir=f"{FM}/test/UHGG/final_gapseq_xml"
 
 # sample pairs stratified by interaction_type from fast-mic

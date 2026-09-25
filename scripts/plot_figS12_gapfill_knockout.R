@@ -67,8 +67,11 @@ pB <- ggplot(pb_df, aes(system, pct, fill=fate)) +
   scale_x_discrete(labels=sp_md) +
   scale_y_continuous(expand=expansion(mult=c(0,0.02))) +
   labs(x=NULL, y="Fate of control-mutualistic pairs (%)",
-       title="B. ≥90% of mutualistic pairs keep their classification",
-       subtitle=sp_md("Akkermansia n=1,655; Lactobacillus n=5,753<br>control-mutualistic viable pairs")) +
+       title=sprintf("B. \u2265%d%% of mutualistic pairs keep their classification",
+                     floor(min(d$retention_pct))),
+       subtitle=sp_md(sprintf("Akkermansia n=%s; Lactobacillus n=%s<br>control-mutualistic viable pairs",
+                              format(d$n_ctrl_mut[d$system=="Akkermansia"], big.mark=","),
+                              format(d$n_ctrl_mut[d$system=="Lactobacillus"], big.mark=",")))) +
   theme_classic(base_size=8, base_family = BMC_FONT) +
   theme(legend.position="top", legend.text=element_text(size=6.5),
         legend.key.size=unit(0.32,"cm"),

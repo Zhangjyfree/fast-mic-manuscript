@@ -30,7 +30,7 @@ BIN = f"{FM}/target/release/fast-mic"
 
 PROBDIR = {
     "lac": f"{FM}/test/lac/lac_genomes_faa_gapseq_wdm_xml",
-    "akk": f"{FM}/test/akk/akk_genomes_faa_gapseq_wdm_xml",
+    "akk": f"{FM}/test/akk/akk_gapseq_xml",   # same models as the gradient screen
 }
 UHGGDIR = f"{FM}/test/UHGG/final_gapseq_xml"
 MEDCSV = {

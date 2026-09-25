@@ -25,9 +25,11 @@ import sys, os, csv, glob
 import xml.etree.ElementTree as ET
 
 FM = "."   # repo root
+# Models used for the gradient screen: Lactobacillus gap-filled on Western diet +
+# mucin, Akkermansia gap-filled on the Akkermansia minimal medium (Methods).
 SYS_DIRS = {
     "lac": (f"{FM}/test/lac/lac_genomes_faa_gapseq_wdm_xml", f"{FM}/results/lac_vs_uhgg"),
-    "akk": (f"{FM}/test/akk/akk_genomes_faa_gapseq_wdm_xml", f"{FM}/results/akk_vs_uhgg"),
+    "akk": (f"{FM}/test/akk/akk_gapseq_xml", f"{FM}/results/akk_vs_uhgg"),
 }
 LEVELS = [("L0_base","L0"),("L1_inulin","L1"),("L2_fos","L2"),("L3_gos","L3"),
           ("L4_xos","L4"),("L5_pectin","L5"),("L6_resistant_starch","L6"),

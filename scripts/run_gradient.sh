@@ -9,11 +9,13 @@
 # Supplementary Table S4). It is kept for provenance.
 #
 # Usage:
+#   # Akkermansia: models gap-filled on the Akkermansia minimal medium
 #   bash scripts/run_gradient.sh \
-#        --group1 test/akk/akk_genomes_faa_gapseq_wdm_xml \
+#        --group1 test/akk/akk_gapseq_xml \
 #        --group2 test/UHGG/final_gapseq_xml \
 #        --threads 12 --full-tsv
 #
+#   # Lactobacillus-group: models gap-filled on Western diet + mucin
 #   bash scripts/run_gradient.sh \
 #        --group1 test/lac/lac_genomes_faa_gapseq_wdm_xml \
 #        --group2 test/UHGG/final_gapseq_xml \
@@ -68,7 +70,7 @@ done
 
 # ── derive a short label from a model directory ──────
 # If the leaf directory name is generic (contains gapseq / xml / bacteria / final), use its parent.
-#   test/akk/akk_genomes_faa_gapseq_wdm_xml -> akk
+#   test/akk/akk_gapseq_xml                 -> akk
 #   test/UHGG/final_gapseq_xml              -> UHGG
 #   test/lac/lac_genomes_faa_gapseq_wdm_xml -> lac
 group_label() {

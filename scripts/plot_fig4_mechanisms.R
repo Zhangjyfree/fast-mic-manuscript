@@ -30,7 +30,7 @@ dir.create(OUTDIR, showWarnings = FALSE, recursive = TRUE)
 
 THRESHOLD <- 1e-4
 FIG_W <- 170 / 25.4
-FIG_H <- 205 / 25.4
+FIG_H <- 225 / 25.4
 FIG_DPI <- 300
 
 LEVELS <- tibble::tribble(
@@ -157,36 +157,49 @@ pD <- ggplot(ratio_df, aes(level_idx, ratio, colour = system, linetype = sp_lab)
   geom_hline(yintercept = 1, colour = "grey50", linewidth = 0.25) +
   glucose_vline +
   geom_line(linewidth = 0.5) + geom_point(size = 0.9) +
-  scale_colour_manual(values = sys_colours, labels = sp_md) +
+  scale_colour_manual(values = sys_colours, labels = sp_md, name = NULL) +
   scale_linetype_manual(values = c("Probiotic" = "solid", "Commensal" = "dashed"),
                         name = NULL) + x_sc + x_lab +
   labs(title = "**Growth ratio** μ<sub>co</sub>/μ<sub>alone</sub>",
        y = "μ<sub>co</sub>/μ<sub>alone</sub>") +
   theme_gm() +
-  theme(legend.position = c(0.74, 0.74),
+  theme(legend.position = c(0.80, 0.64), legend.spacing.y = unit(0.02, "cm"),
         legend.text = md(size = 5.5),
         legend.key.size = unit(0.25, "cm"),
         legend.background = element_rect(fill = alpha("white", 0.85), colour = NA))
 
 # ── E: Monoculture growth ───────────────────────────────────────────────────
 gr_df <- cont |>
-  select(level_idx, short, system, ga_mean, gb_mean) |>
-  pivot_longer(c(ga_mean, gb_mean), names_to = "sp", values_to = "growth") |>
-  mutate(sp_lab = if_else(sp == "ga_mean", "Probiotic", "Commensal"))
+  select(level_idx, short, system, ga_mean, gb_mean)
+# The partner curve is the same in both systems: every probiotic strain is viable at
+# every level, so both systems average the same set of viable UHGG partners (each
+# weighted equally). Draw it once, in grey, instead of hiding one line under the other.
+gb_wide <- tidyr::pivot_wider(gr_df |> select(level_idx, system, gb_mean),
+                              names_from = system, values_from = gb_mean)
+stopifnot(max(abs(gb_wide[[2]] - gb_wide[[3]])) < 1e-9)
+PARTNER <- "Gut partners (both systems)"
+gr_long <- bind_rows(
+  gr_df |> transmute(level_idx, growth = ga_mean,
+                     series = paste0(sub(" × Gut", "", system), " (probiotic)")),
+  gr_df |> filter(system == SYSTEMS$label[1]) |>
+    transmute(level_idx, growth = gb_mean, series = PARTNER)) |>
+  mutate(series = factor(series, levels = c("Akkermansia (probiotic)",
+                                            "Lactobacillus (probiotic)", PARTNER)))
+ser_col <- setNames(c(SYSTEMS$colour, "grey45"), levels(gr_long$series))
+ser_lt  <- setNames(c("solid", "solid", "dashed"), levels(gr_long$series))
 
-pE <- ggplot(gr_df, aes(level_idx, growth, colour = system, linetype = sp_lab)) +
+pE <- ggplot(gr_long, aes(level_idx, growth, colour = series, linetype = series)) +
   glucose_vline +
   geom_line(linewidth = 0.5) + geom_point(size = 0.9) +
-  scale_colour_manual(values = sys_colours, labels = sp_md) +
-  scale_linetype_manual(values = c("Probiotic" = "solid", "Commensal" = "dashed"),
-                        name = NULL) + x_sc + x_lab +
+  scale_colour_manual(values = ser_col, labels = sp_md, name = NULL) +
+  scale_linetype_manual(values = ser_lt, labels = sp_md, name = NULL) + x_sc + x_lab +
   labs(title = "Monoculture growth rates",
        y = "μ<sub>alone</sub> (h<sup>−1</sup>)") +
   theme_gm() +
-  theme(legend.position = c(0.26, 0.74),
+  theme(legend.position = c(1, 0.02), legend.justification = c(1, 0),
         legend.text = md(size = 5.5),
         legend.key.size = unit(0.25, "cm"),
-        legend.background = element_rect(fill = alpha("white", 0.85), colour = NA))
+        legend.background = element_blank(), legend.key = element_blank())
 
 # ── F: Δ Mutualism vs Δ Competition ─────────────────────────────────────────
 has_ggrepel <- requireNamespace("ggrepel", quietly = TRUE)
@@ -223,7 +236,7 @@ pF <- ggplot(trans_df, aes(dc, dm, colour = system)) +
                                 size = 2, fontface = "bold",
                                 colour = "#CC3311", family = BMC_FONT,
                                 nudge_x = 0.0015, nudge_y = -0.004,
-                                min.segment.length = 0)
+                                min.segment.length = 0, seed = 1)
     else
       geom_text(data = crash, aes(label = "L5→L6"),
                 size = 2, fontface = "bold", vjust = -1, colour = "#CC3311")
@@ -281,11 +294,34 @@ pG <- ggplot(gi, aes(lvl, mut, fill = cls)) +
 #   A Competition intensity · B Δ Mutualism vs Δ Competition (glucose crash) ·
 #   C Monoculture growth rates · D Growth ratio μco/μalone ·
 #   E Cross-fed metabolites · F Gene-supported fraction · G controlled pectin→glucose contrast.
-#   tag_levels auto-labels in this composition order.
-fig4 <- (pA + pF + pE) / (pD + pB + pC) / pG +
-  plot_layout(heights = c(1, 1, 0.95)) +
-  plot_annotation(tag_levels = "A") &
+#   Layout: colour key on top, then two panels per row (A B / C D / E F / G).
+
+# Figure-level colour key: panels A, E and F carry no legend of their own.
+# Drawn as a small plot with fixed positions (swatch = ribbon + line + point),
+# so no legend text has to be measured.
+key_df <- tibble::tibble(x0 = c(0.15, 2.55), lab_x = c(0.75, 3.15),
+                         colour = unname(sys_colours),
+                         lab = c("*Akkermansia* \u00d7 Gut", "*Lactobacillus* \u00d7 Gut"))
+key_row <- ggplot(key_df) +
+  geom_rect(aes(xmin = x0, xmax = x0 + 0.5, ymin = 0.3, ymax = 0.7, fill = colour), alpha = 0.25) +
+  geom_segment(aes(x = x0, xend = x0 + 0.5, y = 0.5, yend = 0.5, colour = colour), linewidth = 0.5) +
+  geom_point(aes(x = x0 + 0.25, y = 0.5, colour = colour), size = 1.0) +
+  ggtext::geom_richtext(aes(x = lab_x, y = 0.5, label = lab), hjust = 0, size = 6.5 / .pt,
+                        family = BMC_FONT, fill = NA, label.colour = NA,
+                        label.padding = unit(0, "pt")) +
+  annotate("text", x = 10, y = 0.5, hjust = 1, size = 5.5 / .pt, colour = "grey35",
+           family = BMC_FONT,
+           label = "line = mean across viable pairs; shading (A, E, F) = \u00b1 SD") +
+  scale_colour_identity() + scale_fill_identity() +
+  coord_cartesian(xlim = c(0, 10), ylim = c(0, 1), expand = FALSE, clip = "off") +
+  theme_void(base_family = BMC_FONT)
+
+# Tags are set by hand so that the colour key is not lettered.
+tagged <- function(p, t) p + labs(tag = t) +
   theme(plot.tag = element_text(face = "bold", size = 9, family = BMC_FONT))
+fig4 <- key_row / (tagged(pA, "A") + tagged(pF, "B")) / (tagged(pE, "C") + tagged(pD, "D")) /
+  (tagged(pB, "E") + tagged(pC, "F")) / tagged(pG, "G") +
+  plot_layout(heights = c(0.07, 1, 1, 1, 0.85))
 
 ggsave(file.path(OUTDIR, "fig4_mechanisms.tiff"), fig4,
        width = FIG_W, height = FIG_H, dpi = FIG_DPI,

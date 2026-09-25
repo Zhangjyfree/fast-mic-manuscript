@@ -1,22 +1,23 @@
 # Scaling timing — akk × UHGG, L6_resistant_starch, threads=1, reps=3
 # solvers: fast-mic=HiGHS (native, free) | SMETANA=CPLEX (reframed has no native HiGHS)
+# models: test/akk/akk_gapseq_xml (Akkermansia minimal-medium gap-fill)
 # machine: Apple M3 Pro
 
-tool        n_pairs   median_s     min_s     max_s  s/pair(median)
-SMETANA         102      84.23     84.19     84.46         0.82581
-SMETANA         498     382.41    379.84    383.46         0.76790
-SMETANA        1002     757.25    756.99    760.18         0.75573
-fast-mic        102      11.56     11.56     11.67         0.11337
-fast-mic        498      52.11     52.05     52.37         0.10465
-fast-mic       1002     102.00    101.95    102.08         0.10180
+tool       n_pairs   median_s     min_s     max_s  s/pair(median)
+SMETANA        102      84.42     83.77     84.45         0.82765
+SMETANA        498     378.20    376.00    380.09         0.75944
+SMETANA       1002     757.03    748.25    757.29         0.75552
+fast-mic       102      11.24     10.80     11.28         0.11018
+fast-mic       498      51.13     51.00     51.20         0.10268
+fast-mic      1002     100.14     99.66    100.39         0.09994
 
 ## Extrapolation (median s/pair × full pair count)
   this study (akk 6×UHGG 3238×10 media): 194,280 pairs
-      SMETANA  : 1.7 days  (0.75573 s/pair)
-      fast-mic : 5.5 hours  (0.10180 s/pair)
+      SMETANA  : 1.7 days  (0.75552 s/pair)
+      fast-mic : 5.4 hours  (0.09994 s/pair)
 
   full UHGG all-vs-all (3238 genomes, 1 medium): 5,240,703 pairs
-      SMETANA  : 45.8 days  (0.75573 s/pair)
-      fast-mic : 6.2 days  (0.10180 s/pair)
+      SMETANA  : 45.8 days  (0.75552 s/pair)
+      fast-mic : 6.1 days  (0.09994 s/pair)
 
-## Single-thread speedup (s/pair): 7×
+## Single-thread speedup (s/pair): 7.6×
