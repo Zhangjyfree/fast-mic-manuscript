@@ -68,6 +68,7 @@ fast-mic-manuscript/
 │   ├── gapfill_knockout.py                # gap-fill-candidate knockout (Fig S12; engine)
 │   ├── tableS5_summary.py                 # loop-removal validation by level (Table S5)
 │   ├── run_fig4_contrast.sh               # controlled pectin/glucose contrast (Fig 4G, Table S10; engine)
+│   ├── akk_sugar_block.py                 # Akkermansia free-sugar uptake blocked (Table S10, Discussion; engine)
 │   ├── run_gradient.sh                    # the L0–L9 screen behind results/{akk,lac}_vs_uhgg/ (engine)
 │   └── benchmark/
 │       ├── benchmark_cobra.py             # COBRApy comparison
@@ -232,6 +233,7 @@ individual UHGG models need the extracted model set (§7).
 | `results/fig1/…_mem.tsv` | 1G | same script with `--reps 1 --out-suffix _mem` — records `peak_rss_mb` (fast-mic per child process via `os.wait4`; SMETANA via `getrusage(RUSAGE_SELF)`) | engine + SMETANA env |
 | `results/fig2/` | 2, 6D | `python3 scripts/extract_fig2_traits.py` | `test/akk/akk_gapseq_xml`, `test/lac/lac_genomes_faa_gapseq_wdm_xml`, trees, `{akk,lac}_vs_uhgg/` |
 | `results/fig4/` | 4G, Table S10 | `bash scripts/run_fig4_contrast.sh 12` | engine (media incl. L5-glc) |
+| `results/fig4/akk_sugarblock_*` | Table S10 (last three rows), Discussion | `python3 scripts/akk_sugar_block.py --threads 12` — blocks the *Akkermansia* glucose/maltose transporters (no gene association in any strain), checks that its monoculture growth is then identical on L5, L5-glc and L6, and re-screens the three media | engine |
 | `results/fig5/` | 5 | `python3 scripts/extract_fig5_crossfeed.py` | `{akk,lac}_vs_uhgg/*.full.tsv[.gz]`, engine `media/compounds.tsv` |
 | `results/fig6/` | 6 | `python3 scripts/extract_fig6_enrich.py` | `{akk,lac}_vs_uhgg/`, `test/UHGG/…metadata…gz` (needs `numpy`) |
 | `results/figS1/` | S1, Table S3 | `python3 scripts/figS1_l0_uptake.py` | engine, `test/lac/…` |
@@ -366,7 +368,7 @@ cross-product, so the realized pair counts are 100/500/1,000 for the ten-strain
 | Fig 1 | `plot_fig1_benchmark.R` (+ `scaling_timing_smetana.py`) | A pipeline · B accuracy vs COBRApy (r = 1.000) · C runtime · D parallel speedup · E memory vs COBRApy · F interaction-typing scalability vs SMETANA · G interaction-typing memory vs SMETANA |
 | Fig 2 | `extract_fig2_traits.py` → `plot_fig2_repertoire.R` | A *Akkermansia* · B *Lactobacillus*: phylogeny + model repertoire + monoculture growth (shared colour scale) |
 | Fig 3 | `plot_fig3_gradient_overview.R` | A viable pairs · B mutualism · C competition · D mean net benefit |
-| Fig 4 | `run_fig4_contrast.sh` (G) → `plot_fig4_mechanisms.R` | A competition intensity · B Δmutualism vs Δcompetition · C/D growth · E cross-fed metabolites · F gene-supported fraction · G controlled pectin→glucose contrast |
+| Fig 4 | `run_fig4_contrast.sh` (G; `akk_sugar_block.py` for the Table S10 control) → `plot_fig4_mechanisms.R` | A competition intensity · B Δmutualism vs Δcompetition · C/D growth · E cross-fed metabolites · F gene-supported fraction · G controlled pectin→glucose contrast |
 | Fig 5 | `extract_fig5_crossfeed.py` → `plot_fig5_crossfeed.R` | A Sankey of currencies · B condition-resolved prevalence · C metabolite-class composition |
 | Fig 6 | `extract_fig6_enrich.py` → `plot_fig6_heterogeneity.R` | A/B strain heatmaps · C bootstrap CI · D capacity does *not* predict cooperation · E partner phylum |
 | Fig S1 | `figS1_l0_uptake.py` → `plot_figS1_l0_substrates.R` | L0 substrate basis of *Lactobacillus* viability |
