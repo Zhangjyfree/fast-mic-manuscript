@@ -381,7 +381,7 @@ cross-product, so the realized pair counts are 100/500/1,000 for the ten-strain
 | Fig S7 | `make_crossfeed_table.py` + `extract_interception.py` → `plot_figS7_crossfeed_landscape.R` | A currency landscape · B higher-order interception bound |
 | Fig S8 | `plot_figS8_threshold_sensitivity.R` | A viability threshold · B benefit threshold |
 | Fig S9 | `figS9_objective_sensitivity.py` → `plot_figS9_objective_sensitivity.R` | lexicographic vs fixed-ratio objective |
-| Fig S10 | `figS10_uhgg_sensitivity.py` → `plot_figS10_uhgg_sensitivity.R` | genome-set sensitivity (quality, CPR) |
+| Fig S10 | `figS10_uhgg_sensitivity.py` → `plot_figS10_uhgg_sensitivity.R` | genome-quality sensitivity (stricter UHGG CheckM filter) |
 | Fig S11 | `figS11_gpr_coverage.py` → `plot_figS11_gpr_coverage.R` | GPR coverage vs cross-feeding gene support |
 | Fig S12 | `gapfill_knockout.py` → `plot_figS12_gapfill_knockout.R` | A overall mutualism · B fate of mutualistic pairs after gap-fill knockout |
 
