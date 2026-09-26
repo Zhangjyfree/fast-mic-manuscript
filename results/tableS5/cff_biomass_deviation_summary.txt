@@ -1,13 +1,13 @@
-  Medium CSV: 81 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L0_base_gapseq.csv'
-  Medium CSV: 83 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L1_inulin_gapseq.csv'
-  Medium CSV: 84 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L2_fos_gapseq.csv'
-  Medium CSV: 87 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L3_gos_gapseq.csv'
-  Medium CSV: 89 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L4_xos_gapseq.csv'
-  Medium CSV: 91 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L5_pectin_gapseq.csv'
-  Medium CSV: 94 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L6_resistant_starch_gapseq.csv'
-  Medium CSV: 95 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L7_bglucan_gapseq.csv'
-  Medium CSV: 96 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L8_hmo_gapseq.csv'
-  Medium CSV: 98 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L9_mos_gapseq.csv'
+  Medium CSV: 81 compounds loaded from '../fast-mic/media/gradient_L0_base_gapseq.csv'
+  Medium CSV: 83 compounds loaded from '../fast-mic/media/gradient_L1_inulin_gapseq.csv'
+  Medium CSV: 84 compounds loaded from '../fast-mic/media/gradient_L2_fos_gapseq.csv'
+  Medium CSV: 87 compounds loaded from '../fast-mic/media/gradient_L3_gos_gapseq.csv'
+  Medium CSV: 89 compounds loaded from '../fast-mic/media/gradient_L4_xos_gapseq.csv'
+  Medium CSV: 91 compounds loaded from '../fast-mic/media/gradient_L5_pectin_gapseq.csv'
+  Medium CSV: 94 compounds loaded from '../fast-mic/media/gradient_L6_resistant_starch_gapseq.csv'
+  Medium CSV: 95 compounds loaded from '../fast-mic/media/gradient_L7_bglucan_gapseq.csv'
+  Medium CSV: 96 compounds loaded from '../fast-mic/media/gradient_L8_hmo_gapseq.csv'
+  Medium CSV: 98 compounds loaded from '../fast-mic/media/gradient_L9_mos_gapseq.csv'
 Models: 1000 × 10 media = 10000 evaluations
   SBML: 71 parameters, 170 genes, 1 objectives, 824 metabolites (0 boundary, 0 EX added), 872 reactions (128 exchange, 500 with genes), biomass: Some("R_EX_cpd11416_c0")
   Medium: 127 exchanges found, 59 opened, 68 closed (81 compounds → 486 expanded IDs)

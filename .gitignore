@@ -1,0 +1,21 @@
+# macOS / editor junk
+.DS_Store
+__MACOSX/
+._*
+.Rhistory
+.Rproj.user/
+
+# Extracted archives (the UHGG model archive itself is tracked as split parts)
+test/UHGG/final_gapseq_xml/*.xml
+test/*/*_xml_extracted/
+
+# Local test runs of the timing harness (--out-suffix)
+results/**/*_memtest*.tsv
+results/**/*_memtest*.txt
+
+# R default graphics device output
+Rplots.pdf
+
+# Python bytecode
+__pycache__/
+*.pyc

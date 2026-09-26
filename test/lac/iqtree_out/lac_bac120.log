@@ -4,7 +4,7 @@ Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
 Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
 
 Host:    GPA-4-8 (AVX512, FMA3, 755 GB RAM)
-Command: /home/u3012028/software/iqtree-3.1.2-Linux/bin/iqtree3_intel -s tree_out_gtdbtk_denovo/align/gtdbtk.bac120.user_msa.fasta -m MFP -B 1000 -bnni -alrt 1000 -T 8 -o lac_GCF_000014445.1 --seed 12345 --prefix lac_bac120 --redo
+Command: iqtree3 -s tree_out_gtdbtk_denovo/align/gtdbtk.bac120.user_msa.fasta -m MFP -B 1000 -bnni -alrt 1000 -T 8 -o lac_GCF_000014445.1 --seed 12345 --prefix lac_bac120 --redo
 Seed:    12345 (Using SPRNG - Scalable Parallel Random Number Generator)
 Time:    Tue Jun  2 19:43:42 2026
 Kernel:  AVX+FMA - 8 threads (8 CPU cores detected)

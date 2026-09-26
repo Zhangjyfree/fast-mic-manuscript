@@ -5,13 +5,17 @@
 #  Part 1: Correctness  — fast-mic vs COBRApy growth rates (Pearson r, R², MAE)
 #  Part 2: Speed / thread scaling — wall time, memory, load/FBA breakdown
 #
-#  Usage:
-#    ./run_benchmark.sh
-#    MODEL_DIR=./models MEDIUM=WesternDiet N_LIST=100,1000 ./run_benchmark.sh
+#  Usage (paths are relative to the repository root; the script cds there):
+#    N_LIST=100,500,1000 CORRECTNESS_N=1000 bash scripts/benchmark/run_thread_scaling.sh
+#  Settings used for Figure 1B–E: the defaults below plus the line above.
+#  Requires the extracted UHGG models (README) and the fast-mic engine checkout
+#  ($FASTMIC_ENGINE, default ../fast-mic), where bench-single-fba is built.
 #
 #  Environment variables:
-#    MODEL_DIR        directory with .xml models        (default: test/benchmark_uhgg/benchmark_9)
-#    MEDIA_DB         media database TSV (BiGG-style)   (default: media/media_db.tsv)
+#    MODEL_DIR        directory with .xml models        (default: test/UHGG/final_gapseq_xml)
+#    MEDIA_LIST       file listing medium CSVs          (default: the L0–L9 media of the engine,
+#                     written to $OUTDIR/media_list.txt with paths relative to this repository)
+#    MEDIA_DB         media database TSV (BiGG-style)   (default: <engine>/media/media_db.tsv)
 #    MEDIUM           medium name in MEDIA_DB           (default: WesternDiet)
 #    MEDIUM_FILE      gapseq SEED-format CSV (compounds,name,maxFlux) — when set,
 #                     overrides MEDIA_DB+MEDIUM; required for ModelSEED/gapseq models.
@@ -29,21 +33,22 @@
 set -euo pipefail
 trap 'echo "ERROR: script exited at line $LINENO (exit code $?)" >&2' ERR
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# Script lives in <repo>/scripts/benchmark/ — two levels up is the repository root.
-# NOTE: MODEL_DIR/MEDIA_DB below point into the fast-mic ENGINE repo layout; set them
-#       explicitly when running from this reproduction repository.
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"   # <repo> root (scripts/benchmark/ -> ../..)
+# Work from the repository root so that every path written to the model lists
+# and logs is relative to it.
+cd "$(dirname "${BASH_SOURCE[0]}")/../.."
+ENGINE="${FASTMIC_ENGINE:-../fast-mic}"         # fast-mic engine checkout
 
-MODEL_DIR="${MODEL_DIR:-${PROJECT_ROOT}/test/benchmark_uhgg/benchmark_9}"
-MEDIA_DB="${MEDIA_DB:-${PROJECT_ROOT}/media/media_db.tsv}"
+MODEL_DIR="${MODEL_DIR:-test/UHGG/final_gapseq_xml}"
+MEDIA_DB="${MEDIA_DB:-${ENGINE}/media/media_db.tsv}"
 MEDIUM="${MEDIUM:-WesternDiet}"
 MEDIUM_FILE="${MEDIUM_FILE:-}"            # gapseq-style CSV; overrides MEDIA_DB+MEDIUM
-MEDIA_LIST="${MEDIA_LIST:-}"             # file listing several medium CSV paths (one per
+MEDIA_LIST="${MEDIA_LIST-default}"
+                                        # file listing several medium CSV paths (one per
                                         # line); each model is loaded once and evaluated
-                                        # under EVERY medium (e.g. L0-L9 gradient).
+                                        # under EVERY medium (the L0–L9 gradient).
                                         # Overrides MEDIUM_FILE / MEDIA_DB+MEDIUM.
-OUTDIR="${OUTDIR:-${PROJECT_ROOT}/results/fig1/benchmark}"
+                                        # Set MEDIA_LIST= (empty) to use MEDIUM_FILE instead.
+OUTDIR="${OUTDIR:-results/fig1/benchmark}"
 REPEATS="${REPEATS:-3}"
 N_LIST="${N_LIST:-}"
 MAX_MODELS="${MAX_MODELS:-0}"
@@ -52,18 +57,24 @@ COBRA_WORKERS="${COBRA_WORKERS:-4}"   # parallel COBRApy workers for correctness
 SKIP_COBRA="${SKIP_COBRA:-0}"
 SKIP_CORRECTNESS="${SKIP_CORRECTNESS:-0}"
 
-RUST_BIN="${PROJECT_ROOT}/target/release/bench-single-fba"
-COBRA_SCRIPT="${SCRIPT_DIR}/benchmark_cobra.py"
-ACCURACY_SCRIPT="${PROJECT_ROOT}/scripts/accuracy_check.py"
+RUST_BIN="${ENGINE}/target/release/bench-single-fba"
+COBRA_SCRIPT="scripts/benchmark/benchmark_cobra.py"
+ACCURACY_SCRIPT="scripts/benchmark/accuracy_check.py"
 SCALING_DIR="${OUTDIR}/thread_scaling"
 CORRECTNESS_DIR="${OUTDIR}/correctness"
 
 # ── Build ──
 echo "Building bench-single-fba ..."
-(cd "$PROJECT_ROOT" && cargo build --release --bin bench-single-fba 2>&1 | tail -3)
+(cd "$ENGINE" && cargo build --release --bin bench-single-fba 2>&1 | tail -3)
 echo ""
 
 mkdir -p "$SCALING_DIR" "$CORRECTNESS_DIR"
+
+# Default media: the engine's L0–L9 list, re-rooted so it resolves from here.
+if [ "$MEDIA_LIST" = "default" ]; then
+    MEDIA_LIST="$OUTDIR/media_list.txt"
+    sed "s#^#${ENGINE}/#" "$ENGINE/media/gradient_media_list.txt" > "$MEDIA_LIST"
+fi
 
 # ── Build invocation argument arrays for fast-mic / COBRApy ──
 # When MEDIUM_FILE is set, the gapseq CSV defines the medium directly
@@ -98,7 +109,7 @@ fi
 
 # ── Collect full model list ──
 FULL_LIST="$SCALING_DIR/full_model_list.txt"
-find "$MODEL_DIR" -maxdepth 1 -name '*.xml' -type f | sort > "$FULL_LIST"
+find "$MODEL_DIR" -maxdepth 1 -name '*.xml' \( -type f -o -type l \) | sort > "$FULL_LIST"
 N_TOTAL=$(wc -l < "$FULL_LIST" | tr -d ' ')
 
 if [ "$N_TOTAL" -eq 0 ]; then
@@ -336,7 +347,7 @@ if [ "$SKIP_CORRECTNESS" -eq 0 ]; then
 fi
 echo ""
 echo "  Generate figure:"
-echo "    Rscript ${PROJECT_ROOT}/scripts/plot_fig1_benchmark.R \\"
+echo "    Rscript scripts/plot_fig1_benchmark.R \\"
 echo "      $RESULTS_TSV \\"
 echo "      $CORRECTNESS_DIR/scatter.tsv \\"
 echo "      $CORRECTNESS_DIR/stats.tsv"

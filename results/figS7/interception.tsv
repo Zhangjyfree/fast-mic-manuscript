@@ -1,41 +1,41 @@
 cpd	name	class	system	prevalence	n_uptakers	interception_frac
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	Akkermansia	29.65	3238	1.0000
-cpd00118	Putrescine	other	Akkermansia	27.34	2965	0.9157
 cpd00363	Ethanol	alcohol/diol	Akkermansia	50.09	3238	1.0000
+cpd00082	D-Fructose	sugar	Akkermansia	36.39	2768	0.8548
 cpd00116	Methanol	alcohol/diol	Akkermansia	46.30	3238	1.0000
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	Akkermansia	29.65	3238	1.0000
+cpd00130	L-Malate	organic acid	Akkermansia	20.94	1822	0.5627
+cpd00324	MTTL	other	Akkermansia	33.49	3238	1.0000
+cpd00047	Formate	organic acid	Akkermansia	25.18	2044	0.6313
+cpd00118	Putrescine	other	Akkermansia	27.34	2965	0.9157
+cpd00029	Acetate	organic acid	Akkermansia	11.81	3238	1.0000
 cpd00105	D-Ribose	sugar	Akkermansia	23.26	2763	0.8533
 cpd00453	1,2-Propanediol	alcohol/diol	Akkermansia	23.00	3238	1.0000
-cpd00047	Formate	organic acid	Akkermansia	25.18	2044	0.6313
-cpd00130	L-Malate	organic acid	Akkermansia	20.94	1822	0.5627
-cpd00082	D-Fructose	sugar	Akkermansia	36.39	2768	0.8548
-cpd00106	Fumarate	organic acid	Akkermansia	10.52	2269	0.7007
-cpd00644	PAN	other	Akkermansia	26.05	3201	0.9886
 cpd00359	indol	other	Akkermansia	17.28	3238	1.0000
-cpd00029	Acetate	organic acid	Akkermansia	11.81	3238	1.0000
-cpd00367	Cytidine	nucleoside	Akkermansia	10.48	2553	0.7884
-cpd00324	MTTL	other	Akkermansia	33.49	3238	1.0000
+cpd00644	PAN	other	Akkermansia	26.05	3201	0.9886
+cpd00020	Pyruvate	organic acid	Akkermansia	20.13	2713	0.8379
 cpd00141	Propionate	organic acid	Akkermansia	12.34	3238	1.0000
-cpd00281	GABA	other	Akkermansia	4.45	2433	0.7514
-cpd00036	Succinate	organic acid	Akkermansia	13.93	2244	0.6930
+cpd00367	Cytidine	nucleoside	Akkermansia	10.48	2553	0.7884
+cpd00106	Fumarate	organic acid	Akkermansia	10.52	2269	0.7007
+cpd00024	2-Oxoglutarate	organic acid	Akkermansia	5.92	720	0.2224
 cpd00221	D-Lactate	organic acid	Akkermansia	10.14	1808	0.5584
 cpd00159	L-Lactate	organic acid	Akkermansia	5.49	1505	0.4648
-cpd00024	2-Oxoglutarate	organic acid	Akkermansia	5.92	720	0.2224
-cpd00065	L-Tryptophan	amino acid	Akkermansia	1.81	3202	0.9889
+cpd00036	Succinate	organic acid	Akkermansia	13.93	2244	0.6930
+cpd00281	GABA	other	Akkermansia	4.45	2433	0.7514
 cpd00588	Sorbitol	alcohol/diol	Akkermansia	5.60	726	0.2242
-cpd00080	Glycerol-3-phosphate	alcohol/diol	Akkermansia	0.95	2702	0.8345
-cpd00129	L-Proline	amino acid	Akkermansia	1.22	3120	0.9636
+cpd00065	L-Tryptophan	amino acid	Akkermansia	1.81	3202	0.9889
+cpd00092	Uracil	other	Akkermansia	1.23	2810	0.8678
 cpd00107	L-Leucine	amino acid	Akkermansia	1.24	2708	0.8363
-cpd00028	Heme	other	Akkermansia	1.18	3229	0.9972
+cpd00129	L-Proline	amino acid	Akkermansia	1.22	3120	0.9636
 cpd00393	Folate	other	Akkermansia	1.25	3222	0.9951
 cpd01080	ocdca	other	Akkermansia	1.25	3236	0.9994
-cpd00182	Adenosine	nucleoside	Akkermansia	0.46	3148	0.9722
-cpd00092	Uracil	other	Akkermansia	1.23	2810	0.8678
-cpd00322	L-Isoleucine	amino acid	Akkermansia	1.22	2761	0.8527
 cpd00218	Niacin	other	Akkermansia	1.06	1690	0.5219
-cpd00154	Xylose	sugar	Akkermansia	0.46	2739	0.8459
-cpd00020	Pyruvate	organic acid	Akkermansia	20.13	2713	0.8379
-cpd00306	Xylitol	other	Akkermansia	2.15	633	0.1955
+cpd00322	L-Isoleucine	amino acid	Akkermansia	1.22	2761	0.8527
+cpd00028	Heme	other	Akkermansia	1.18	3229	0.9972
 cpd00066	L-Phenylalanine	amino acid	Akkermansia	0.88	3063	0.9460
+cpd00080	Glycerol-3-phosphate	alcohol/diol	Akkermansia	0.95	2702	0.8345
+cpd00154	Xylose	sugar	Akkermansia	0.46	2739	0.8459
+cpd00182	Adenosine	nucleoside	Akkermansia	0.46	3148	0.9722
+cpd00306	Xylitol	other	Akkermansia	2.15	633	0.1955
 cpd00035	L-Alanine	amino acid	Akkermansia	0.15	3215	0.9929
 cpd00060	L-Methionine	amino acid	Akkermansia	0.10	3223	0.9954
 cpd00263	Pyridoxol	other	Akkermansia	0.59	272	0.0840
@@ -44,67 +44,67 @@ cpd00076	Sucrose	other	Akkermansia	0.13	1719	0.5309
 cpd00276	GLUM	other	Akkermansia	0.08	1694	0.5232
 cpd00137	Citrate	organic acid	Akkermansia	0.10	866	0.2674
 cpd00224	L-Arabinose	sugar	Akkermansia	0.12	2852	0.8808
-cpd00208	LACT	other	Akkermansia	0.11	2443	0.7545
 cpd00128	Adenine	other	Akkermansia	0.06	75	0.0232
+cpd00208	LACT	other	Akkermansia	0.11	2443	0.7545
 cpd00121	L-Inositol	other	Akkermansia	0.36	1977	0.6106
 cpd11976	Maltodextrin	other	Akkermansia	0.11	2426	0.7492
-cpd00108	Galactose	sugar	Akkermansia	0.16	2736	0.8450
 cpd03808	Lacto-N-biose	other	Akkermansia	0.23	2287	0.7063
-cpd00020	Pyruvate	organic acid	Lactobacillus	41.54	2713	0.8379
+cpd00108	Galactose	sugar	Akkermansia	0.16	2736	0.8450
 cpd00363	Ethanol	alcohol/diol	Lactobacillus	65.32	3238	1.0000
 cpd00130	L-Malate	organic acid	Lactobacillus	40.49	1822	0.5627
 cpd00246	Inosine	nucleoside	Lactobacillus	42.84	2301	0.7106
-cpd00367	Cytidine	nucleoside	Lactobacillus	8.84	2553	0.7884
-cpd00221	D-Lactate	organic acid	Lactobacillus	15.13	1808	0.5584
+cpd00020	Pyruvate	organic acid	Lactobacillus	41.54	2713	0.8379
 cpd00159	L-Lactate	organic acid	Lactobacillus	26.15	1505	0.4648
+cpd00221	D-Lactate	organic acid	Lactobacillus	15.13	1808	0.5584
 cpd00105	D-Ribose	sugar	Lactobacillus	22.77	2763	0.8533
+cpd00036	Succinate	organic acid	Lactobacillus	16.68	2244	0.6930
+cpd00116	Methanol	alcohol/diol	Lactobacillus	14.52	3238	1.0000
+cpd00118	Putrescine	other	Lactobacillus	14.59	2965	0.9157
+cpd00367	Cytidine	nucleoside	Lactobacillus	8.84	2553	0.7884
+cpd00033	Glycine	amino acid	Lactobacillus	11.92	3098	0.9568
 cpd00053	L-Glutamine	amino acid	Lactobacillus	11.79	3226	0.9963
 cpd01217	Xanthosine	nucleoside	Lactobacillus	6.68	2077	0.6414
-cpd00118	Putrescine	other	Lactobacillus	14.59	2965	0.9157
-cpd00108	Galactose	sugar	Lactobacillus	1.99	2736	0.8450
-cpd00036	Succinate	organic acid	Lactobacillus	16.68	2244	0.6930
-cpd00033	Glycine	amino acid	Lactobacillus	11.92	3098	0.9568
-cpd00084	L-Cysteine	amino acid	Lactobacillus	0.22	3238	1.0000
-cpd00116	Methanol	alcohol/diol	Lactobacillus	14.52	3238	1.0000
-cpd00023	L-Glutamate	amino acid	Lactobacillus	2.32	3124	0.9648
-cpd00139	Glycolate	organic acid	Lactobacillus	0.90	717	0.2214
-cpd00019	S-Adenosyl-homocysteine	amino acid	Lactobacillus	0.24	362	0.1118
-cpd00039	L-Lysine	amino acid	Lactobacillus	0.77	3103	0.9583
-cpd00311	Guanosine	nucleoside	Lactobacillus	4.83	2792	0.8623
-cpd00029	Acetate	organic acid	Lactobacillus	7.03	3238	1.0000
-cpd00309	XAN	other	Lactobacillus	4.27	1165	0.3598
-cpd00117	D-Alanine	amino acid	Lactobacillus	0.58	582	0.1797
-cpd00453	1,2-Propanediol	alcohol/diol	Lactobacillus	7.00	3238	1.0000
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	Lactobacillus	4.21	3238	1.0000
-cpd00047	Formate	organic acid	Lactobacillus	6.42	2044	0.6313
-cpd00141	Propionate	organic acid	Lactobacillus	6.88	3238	1.0000
 cpd00324	MTTL	other	Lactobacillus	9.04	3238	1.0000
-cpd00129	L-Proline	amino acid	Lactobacillus	2.43	3120	0.9636
-cpd00137	Citrate	organic acid	Lactobacillus	0.04	866	0.2674
-cpd00024	2-Oxoglutarate	organic acid	Lactobacillus	2.46	720	0.2224
-cpd00092	Uracil	other	Lactobacillus	0.91	2810	0.8678
-cpd00054	L-Serine	amino acid	Lactobacillus	0.08	3180	0.9821
-cpd00100	Glycerol	alcohol/diol	Lactobacillus	0.04	1597	0.4932
-cpd00371	Propanal	other	Lactobacillus	0.28	3238	1.0000
-cpd00122	N-Acetyl-D-glucosamine	other	Lactobacillus	0.04	2144	0.6621
+cpd00029	Acetate	organic acid	Lactobacillus	7.03	3238	1.0000
+cpd00108	Galactose	sugar	Lactobacillus	1.99	2736	0.8450
+cpd00311	Guanosine	nucleoside	Lactobacillus	4.83	2792	0.8623
+cpd00141	Propionate	organic acid	Lactobacillus	6.88	3238	1.0000
+cpd00047	Formate	organic acid	Lactobacillus	6.42	2044	0.6313
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	Lactobacillus	4.21	3238	1.0000
+cpd00309	XAN	other	Lactobacillus	4.27	1165	0.3598
 cpd00106	Fumarate	organic acid	Lactobacillus	3.04	2269	0.7007
-cpd00263	Pyridoxol	other	Lactobacillus	0.02	272	0.0840
-cpd00065	L-Tryptophan	amino acid	Lactobacillus	0.38	3202	0.9889
-cpd00359	indol	other	Lactobacillus	0.64	3238	1.0000
-cpd00281	GABA	other	Lactobacillus	0.52	2433	0.7514
-cpd00064	Ornithine	other	Lactobacillus	0.17	2853	0.8811
-cpd00588	Sorbitol	alcohol/diol	Lactobacillus	3.83	726	0.2242
-cpd00306	Xylitol	other	Lactobacillus	1.02	633	0.1955
-cpd00035	L-Alanine	amino acid	Lactobacillus	0.39	3215	0.9929
+cpd00023	L-Glutamate	amino acid	Lactobacillus	2.32	3124	0.9648
+cpd00453	1,2-Propanediol	alcohol/diol	Lactobacillus	7.00	3238	1.0000
+cpd00129	L-Proline	amino acid	Lactobacillus	2.43	3120	0.9636
+cpd00024	2-Oxoglutarate	organic acid	Lactobacillus	2.46	720	0.2224
+cpd00139	Glycolate	organic acid	Lactobacillus	0.90	717	0.2214
+cpd00039	L-Lysine	amino acid	Lactobacillus	0.77	3103	0.9583
 cpd00017	S-Adenosyl-L-methionine	amino acid	Lactobacillus	0.61	363	0.1121
-cpd00082	D-Fructose	sugar	Lactobacillus	0.03	2768	0.8548
+cpd00117	D-Alanine	amino acid	Lactobacillus	0.58	582	0.1797
+cpd00359	indol	other	Lactobacillus	0.64	3238	1.0000
+cpd00065	L-Tryptophan	amino acid	Lactobacillus	0.38	3202	0.9889
+cpd00281	GABA	other	Lactobacillus	0.52	2433	0.7514
+cpd00019	S-Adenosyl-homocysteine	amino acid	Lactobacillus	0.24	362	0.1118
+cpd00035	L-Alanine	amino acid	Lactobacillus	0.39	3215	0.9929
+cpd00084	L-Cysteine	amino acid	Lactobacillus	0.22	3238	1.0000
+cpd00092	Uracil	other	Lactobacillus	0.91	2810	0.8678
+cpd00306	Xylitol	other	Lactobacillus	1.02	633	0.1955
+cpd00064	Ornithine	other	Lactobacillus	0.17	2853	0.8811
 cpd00307	Cytosine	other	Lactobacillus	0.28	406	0.1254
-cpd00220	Riboflavin	other	Lactobacillus	0.10	3076	0.9500
+cpd00054	L-Serine	amino acid	Lactobacillus	0.08	3180	0.9821
+cpd00137	Citrate	organic acid	Lactobacillus	0.04	866	0.2674
+cpd00371	Propanal	other	Lactobacillus	0.28	3238	1.0000
+cpd00588	Sorbitol	alcohol/diol	Lactobacillus	3.83	726	0.2242
+cpd00100	Glycerol	alcohol/diol	Lactobacillus	0.04	1597	0.4932
+cpd00082	D-Fructose	sugar	Lactobacillus	0.03	2768	0.8548
+cpd00122	N-Acetyl-D-glucosamine	other	Lactobacillus	0.04	2144	0.6621
+cpd00263	Pyridoxol	other	Lactobacillus	0.02	272	0.0840
+cpd00222	GLCN	other	Lactobacillus	0.46	1452	0.4484
 cpd00041	L-Aspartate	amino acid	Lactobacillus	0.11	3200	0.9883
 cpd00182	Adenosine	nucleoside	Lactobacillus	0.04	3148	0.9722
-cpd00222	GLCN	other	Lactobacillus	0.46	1452	0.4484
-cpd00218	Niacin	other	Lactobacillus	0.06	1690	0.5219
 cpd00154	Xylose	sugar	Lactobacillus	0.03	2739	0.8459
+cpd00218	Niacin	other	Lactobacillus	0.06	1690	0.5219
+cpd00220	Riboflavin	other	Lactobacillus	0.10	3076	0.9500
 cpd00121	L-Inositol	other	Lactobacillus	0.12	1977	0.6106
 cpd00644	PAN	other	Lactobacillus	0.04	3201	0.9886
 cpd03846	octanoate	other	Lactobacillus	0.03	2180	0.6733

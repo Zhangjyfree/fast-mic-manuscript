@@ -17,16 +17,22 @@ Design (apples-to-apples, identical inputs):
     in Fig 1B. SMETANA is single-threaded per pair regardless.
 
 Run in the conda env `smetana` (needs reframed + smetana + CPLEX/Gurobi):
-    python scripts/scaling_timing_smetana.py --sys lac --sizes 100,500,1000 --reps 3
+    python scripts/scaling_timing_smetana.py --sys akk --sizes 100,500,1000 --reps 3 \
+        --solver cplex --smetana-cap-pairs 2000
+  (the cap must exceed 1,002, the largest Akkermansia size: 6 strains x 167 UHGG)
+  Memory runs: add --reps 1 --out-suffix _mem.
 Output:
-    results/smetana_comparison/scaling_timing_{sys}_{level}.tsv   (raw per-run rows)
-    results/smetana_comparison/scaling_extrapolation_{sys}_{level}.txt  (headline numbers)
+    results/fig1/scaling_timing_{sys}_{level}{suffix}.tsv   (raw per-run rows)
+    results/fig1/scaling_extrapolation_{sys}_{level}{suffix}.txt  (headline numbers)
 """
 import sys, os, csv, time, random, argparse, subprocess, tempfile, statistics, warnings, resource
 warnings.filterwarnings("ignore")
 
-FM = "/Users/jingyi/fast-mic"
-BIN = f"{FM}/target/release/fast-mic"
+# Run from the repository root; every path below is relative to it. The fast-mic
+# binary and the media come from the engine checkout: $FASTMIC_ENGINE, default ../fast-mic.
+FM = "."
+ENGINE = os.environ.get("FASTMIC_ENGINE", "../fast-mic")
+BIN = f"{ENGINE}/target/release/fast-mic"
 
 PROBDIR = {
     "lac": f"{FM}/test/lac/lac_genomes_faa_gapseq_wdm_xml",
@@ -60,7 +66,7 @@ args = ap.parse_args()
 
 SIZES = [int(x) for x in args.sizes.split(",")]
 probdir = PROBDIR[args.sys]
-med_path = f"{FM}/media/{MEDCSV[args.level]}"
+med_path = f"{ENGINE}/media/{MEDCSV[args.level]}"
 med = [(r["compounds"], float(r["maxFlux"])) for r in csv.DictReader(open(med_path))]
 
 prob_ids = sorted(os.path.splitext(f)[0] for f in os.listdir(probdir) if f.endswith(".xml"))
@@ -69,7 +75,7 @@ uhgg_ids = sorted(os.path.splitext(f)[0] for f in os.listdir(UHGGDIR) if f.endsw
 random.seed(args.seed)
 random.shuffle(uhgg_ids)
 
-outdir = f"{FM}/results/smetana_comparison"
+outdir = f"{FM}/results/fig1"
 os.makedirs(outdir, exist_ok=True)
 raw_path = f"{outdir}/scaling_timing_{args.sys}_{args.level}{args.out_suffix}.tsv"
 raw = csv.writer(open(raw_path, "w"), delimiter="\t")

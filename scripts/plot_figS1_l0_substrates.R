@@ -38,12 +38,6 @@ FIG_W <- 170 / 25.4      # BMC full-page width
 FIG_H <- 105 / 25.4
 
 
-# fast-mic L0 monoculture growth (h^-1) per strain
-fm_growth <- c(
-  "L. rhamnosus"=0.80, "L. casei"=0.79, "L. paracasei"=0.74, "L. plantarum"=0.73,
-  "L. acidophilus"=0.42, "L. crispatus M247"=0.39, "L. gasseri"=0.39,
-  "L. crispatus ST1"=0.39, "L. reuteri"=0.26, "L. delbrueckii"=0.14)
-
 pretty <- function(s) {
   s <- sub("^L_", "L. ", s)
   s <- gsub("_GCF.*$", "", s)
@@ -56,6 +50,9 @@ d <- suppressMessages(read_tsv(INFILE, show_col_types = FALSE)) |>
   mutate(strain = pretty(strain),
          category = factor(category,
            levels = c("Amino acids","Mucin amino sugars","Other carbon")))
+# fast-mic L0 monoculture growth (h^-1) per strain, from the same table
+gr <- dplyr::distinct(d, strain, growth)
+fm_growth <- setNames(round(gr$growth, 2), gr$strain)
 # order strains by fast-mic growth (desc)
 ord <- names(sort(fm_growth, decreasing = TRUE))
 d <- d |> mutate(strain = factor(strain, levels = ord))

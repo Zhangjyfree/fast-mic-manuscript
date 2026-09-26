@@ -6,13 +6,16 @@ probiotic-exported metabolite (a_to_b, probiotic = species_a) appears.
 Outputs results/fig5/fig5_prevalence_{sys}.tsv with columns:
   cpd, name, class, level, n_mut_pairs, n_export, prevalence(%)
 
-Metabolite name from ModelSEED compounds.tsv; class by keyword on the name
+Metabolite name from ModelSEED compounds.tsv (engine media/); class by keyword on the name
 (organic acid / nucleoside / sugar / amino acid / alcohol-diol / other).
 """
 import sys, os, csv, gzip, glob
 csv.field_size_limit(1 << 24)
 
 FM = "."   # repo root
+# ModelSEED compounds.tsv ships with the fast-mic engine (media/compounds.tsv);
+# the engine checkout is $FASTMIC_ENGINE, default ../fast-mic.
+COMPOUNDS = os.path.join(os.environ.get("FASTMIC_ENGINE", "../fast-mic"), "media", "compounds.tsv")
 SYS_RES = {"lac": f"{FM}/results/lac_vs_uhgg", "akk": f"{FM}/results/akk_vs_uhgg"}
 LEVELS = [("L0_base","L0"),("L1_inulin","L1"),("L2_fos","L2"),("L3_gos","L3"),
           ("L4_xos","L4"),("L5_pectin","L5"),("L6_resistant_starch","L6"),
@@ -20,7 +23,7 @@ LEVELS = [("L0_base","L0"),("L1_inulin","L1"),("L2_fos","L2"),("L3_gos","L3"),
 
 def load_cpd_names():
     m = {}
-    with open(f"{FM}/compounds.tsv") as fh:
+    with open(COMPOUNDS) as fh:
         r = csv.DictReader(fh, delimiter="\t")
         for row in r:
             m[row["id"]] = row["name"]
@@ -62,7 +65,7 @@ def run(sys_key, names):
         elif os.path.exists(plainp):
             opener = lambda: open(plainp)
         else:
-            continue
+            sys.exit(f"missing {plainp} (or .gz)")
         n_mut = 0
         counts = {}
         with opener() as fh:
@@ -81,7 +84,8 @@ def run(sys_key, names):
                     seen.add(cpd)
                 for cpd in seen:
                     counts[cpd] = counts.get(cpd, 0) + 1
-        for cpd, c in counts.items():
+        # deterministic order: most frequent first, ties by compound id
+        for cpd, c in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])):
             nm = names.get(cpd, cpd)
             w.writerow([cpd, nm, classify(nm), lab, n_mut, c,
                         f"{100.0*c/n_mut:.2f}" if n_mut else "0"])

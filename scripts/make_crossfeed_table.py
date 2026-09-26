@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate results/figS4/crossfeed_landscape_table.tsv from the per-pair
+"""Regenerate results/figS7/crossfeed_landscape_table.tsv from the per-pair
 *.full.tsv outputs.
 
 For each system (gut only: Akkermansia x UHGG, Lactobacillus x UHGG) this pools all
@@ -8,16 +8,18 @@ reports the number of mutualistic pairs that exchange it in EITHER direction
 (a->b union b->a, de-duplicated per pair). This matches the prevalence figures
 used in the manuscript (e.g. Akkermansia methanol 49%, succinate 30%).
 
-Inputs : results/<system>/<level>.full.tsv  (columns a_to_b_metabolites,
+Inputs : results/<system>/<level>.full.tsv[.gz]  (columns a_to_b_metabolites,
          b_to_a_metabolites, interaction_type, growth_a_alone, growth_b_alone)
-         compounds.tsv  (cpd id -> name)
-Output : results/figS4/crossfeed_landscape_table.tsv
+         media/compounds.tsv of the engine checkout ($FASTMIC_ENGINE, default ../fast-mic)
+Output : results/figS7/crossfeed_landscape_table.tsv
          columns: sys_label, metabolite, cpd, n_pairs, n_mut, frac
 
 Usage  : python3 scripts/make_crossfeed_table.py
 """
 import csv
+import gzip
 import os
+import sys
 from collections import defaultdict
 
 THRESH = 1e-4
@@ -25,7 +27,8 @@ LEVELS = ["L0_base", "L1_inulin", "L2_fos", "L3_gos", "L4_xos", "L5_pectin",
           "L6_resistant_starch", "L7_bglucan", "L8_hmo", "L9_mos"]
 SYSTEMS = [("akk_vs_uhgg", "Akkermansia × UHGG (gut)"),
            ("lac_vs_uhgg", "Lactobacillus × UHGG (gut)")]
-OUT = "results/figS4/crossfeed_landscape_table.tsv"
+OUT = "results/figS7/crossfeed_landscape_table.tsv"
+COMPOUNDS = os.path.join(os.environ.get("FASTMIC_ENGINE", "../fast-mic"), "media", "compounds.tsv")
 
 
 def strip(tok):
@@ -34,7 +37,7 @@ def strip(tok):
 
 def cpd_names():
     name = {}
-    with open("compounds.tsv") as f:
+    with open(COMPOUNDS) as f:
         for row in csv.DictReader(f, delimiter="\t"):
             if row.get("id") and row.get("name"):
                 name[row["id"]] = row["name"]
@@ -47,9 +50,13 @@ def tally(sysdir):
     cnt = defaultdict(int)
     for lv in LEVELS:
         path = f"results/{sysdir}/{lv}.full.tsv"
-        if not os.path.exists(path):
-            continue
-        with open(path) as f:
+        if os.path.exists(path + ".gz"):          # lac_vs_uhgg ships compressed
+            opener = lambda: gzip.open(path + ".gz", "rt")
+        elif os.path.exists(path):
+            opener = lambda: open(path)
+        else:
+            sys.exit(f"missing {path} (or .gz)")
+        with opener() as f:
             for r in csv.DictReader(f, delimiter="\t"):
                 if (float(r["growth_a_alone"]) > THRESH and
                         float(r["growth_b_alone"]) > THRESH and
@@ -70,7 +77,7 @@ def main():
     rows = []
     for sysdir, label in SYSTEMS:
         n_mut, cnt = tally(sysdir)
-        for cpd, n in sorted(cnt.items(), key=lambda kv: kv[1], reverse=True):
+        for cpd, n in sorted(cnt.items(), key=lambda kv: (-kv[1], kv[0])):
             rows.append({
                 "sys_label": label,
                 "metabolite": names.get(cpd, cpd),

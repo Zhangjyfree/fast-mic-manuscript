@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 """fast-mic vs SMETANA head-to-head (run in conda env `smetana`).
 For a sampled set of probiotic×UHGG pairs, compute SMETANA MIP/MRO on the fast-mic
-medium and join with fast-mic C / interaction_type. Compatibility fixes:
+medium and join with fast-mic C / interaction_type. Run from the repository root
+(test/UHGG/final_gapseq_xml must be extracted first; see README). Usage:
+    python scripts/run_smetana_batch.py <L5_pectin|L6_resistant_starch> <akk|lac> 300
+Compatibility fixes:
  objective->R_bio1; biomass-drain R_EX_cpd11416_c0 -> SINK; medium fmt e0_pool."""
 import sys, os, csv, time, random, warnings
 warnings.filterwarnings("ignore")
@@ -12,12 +15,15 @@ from smetana.legacy import Community
 set_default_solver("cplex")   # else reframed auto-picks gurobi>cplex>scip
 from smetana.smetana import mip_score, mro_score
 
-FM="/Users/jingyi/fast-mic"
+# Run from the repository root; every path below is relative to it. Media come
+# from the fast-mic engine checkout: $FASTMIC_ENGINE, default ../fast-mic.
+FM="."
+ENGINE=os.environ.get("FASTMIC_ENGINE","../fast-mic")
 LEVEL=sys.argv[1] if len(sys.argv)>1 else "L5_pectin"
 SYS=sys.argv[2] if len(sys.argv)>2 else "lac"
 N=int(sys.argv[3]) if len(sys.argv)>3 else 60
 MEDCSV={"L5_pectin":"gradient_L5_pectin_gapseq.csv","L6_resistant_starch":"gradient_L6_resistant_starch_gapseq.csv"}[LEVEL]
-med=[(r["compounds"], float(r["maxFlux"])) for r in csv.DictReader(open(f"{FM}/media/{MEDCSV}"))]
+med=[(r["compounds"], float(r["maxFlux"])) for r in csv.DictReader(open(f"{ENGINE}/media/{MEDCSV}"))]
 cpds=[c for c,_ in med]
 # same probiotic models as the gradient screen (results/{akk,lac}_vs_uhgg/)
 probdir={"akk":f"{FM}/test/akk/akk_gapseq_xml","lac":f"{FM}/test/lac/lac_genomes_faa_gapseq_wdm_xml"}[SYS]
@@ -40,7 +46,8 @@ def prep(path,mid):
     if "R_EX_cpd11416_c0" in m.reactions: m.reactions["R_EX_cpd11416_c0"].reaction_type=ReactionType.SINK
     _cache[mid]=m; return m
 
-out=open(f"{FM}/results/smetana_comparison/smetana_{SYS}_{LEVEL}.tsv","w")
+os.makedirs(f"{FM}/results/figS2", exist_ok=True)
+out=open(f"{FM}/results/figS2/smetana_{SYS}_{LEVEL}.tsv","w")
 w=csv.writer(out,delimiter="\t")
 w.writerow(["species_a","species_b","fm_type","fm_C","fm_benefit_a","fm_benefit_b","fm_xfeed","smetana_MIP","smetana_MRO","sec"])
 maxup=10.0
@@ -66,4 +73,4 @@ for r in sample:
                 r["n_exchanged_metabolites"],MIP,MRO,f"{time.time()-t0:.1f}"]); out.flush()
     done+=1
 out.close()
-print(f"done {done} pairs -> results/smetana_comparison/smetana_{SYS}_{LEVEL}.tsv")
+print(f"done {done} pairs -> results/figS2/smetana_{SYS}_{LEVEL}.tsv")

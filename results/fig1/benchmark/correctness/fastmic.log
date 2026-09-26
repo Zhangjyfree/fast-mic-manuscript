@@ -1,14 +1,14 @@
-Read 1000 model paths from /Users/jingyi/fast-mic/benchmark/benchmark_results/correctness/model_list.txt
-  Medium CSV: 81 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L0_base_gapseq.csv'
-  Medium CSV: 83 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L1_inulin_gapseq.csv'
-  Medium CSV: 84 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L2_fos_gapseq.csv'
-  Medium CSV: 87 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L3_gos_gapseq.csv'
-  Medium CSV: 89 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L4_xos_gapseq.csv'
-  Medium CSV: 91 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L5_pectin_gapseq.csv'
-  Medium CSV: 94 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L6_resistant_starch_gapseq.csv'
-  Medium CSV: 95 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L7_bglucan_gapseq.csv'
-  Medium CSV: 96 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L8_hmo_gapseq.csv'
-  Medium CSV: 98 compounds loaded from '/Users/jingyi/fast-mic/media/gradient_L9_mos_gapseq.csv'
+Read 1000 model paths from results/fig1/benchmark/correctness/model_list.txt
+  Medium CSV: 81 compounds loaded from '../fast-mic/media/gradient_L0_base_gapseq.csv'
+  Medium CSV: 83 compounds loaded from '../fast-mic/media/gradient_L1_inulin_gapseq.csv'
+  Medium CSV: 84 compounds loaded from '../fast-mic/media/gradient_L2_fos_gapseq.csv'
+  Medium CSV: 87 compounds loaded from '../fast-mic/media/gradient_L3_gos_gapseq.csv'
+  Medium CSV: 89 compounds loaded from '../fast-mic/media/gradient_L4_xos_gapseq.csv'
+  Medium CSV: 91 compounds loaded from '../fast-mic/media/gradient_L5_pectin_gapseq.csv'
+  Medium CSV: 94 compounds loaded from '../fast-mic/media/gradient_L6_resistant_starch_gapseq.csv'
+  Medium CSV: 95 compounds loaded from '../fast-mic/media/gradient_L7_bglucan_gapseq.csv'
+  Medium CSV: 96 compounds loaded from '../fast-mic/media/gradient_L8_hmo_gapseq.csv'
+  Medium CSV: 98 compounds loaded from '../fast-mic/media/gradient_L9_mos_gapseq.csv'
 Media: 10 (per-model loop): gradient_L0_base_gapseq, gradient_L1_inulin_gapseq, gradient_L2_fos_gapseq, gradient_L3_gos_gapseq, gradient_L4_xos_gapseq, gradient_L5_pectin_gapseq, gradient_L6_resistant_starch_gapseq, gradient_L7_bglucan_gapseq, gradient_L8_hmo_gapseq, gradient_L9_mos_gapseq
 Uptake limits: carbon=10.00  aa=1.00  nucleobase=0.50  cofactor=0.10
 Models: 1000  ×  10 media

@@ -58,7 +58,9 @@ cols <- c("Akkermansia"="#762A83","Lactobacillus"="#1B7837")
 ciA <- ci |> filter(level=="L5") |> mutate(system=factor(system,levels=c("Akkermansia","Lactobacillus")))
 psA <- ps |> mutate(system=factor(system,levels=c("Akkermansia","Lactobacillus")))
 pA <- ggplot(ciA, aes(system, mean, colour=system)) +
-  geom_jitter(data=psA, aes(system, L5_mut_pct, colour=system), width=0.12, size=1.4, alpha=0.55) +
+  # horizontal jitter only (height = 0 keeps each strain at its true value), fixed seed
+  geom_point(data=psA, aes(system, L5_mut_pct, colour=system), size=1.4, alpha=0.55,
+             position=position_jitter(width=0.12, height=0, seed=1)) +
   geom_errorbar(aes(ymin=lo, ymax=hi), width=0.16, linewidth=0.8) +
   geom_point(size=2.2) +
   annotate("text", x=1.5, y=36, label=lab_A, size=2, colour="grey25", lineheight=0.95) +

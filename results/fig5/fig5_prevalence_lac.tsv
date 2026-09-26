@@ -1,542 +1,542 @@
 cpd	name	class	level	n_mut_pairs	n_export	prevalence
-cpd00020	Pyruvate	organic acid	L0	3213	1178	36.66
 cpd00363	Ethanol	alcohol/diol	L0	3213	1815	56.49
 cpd00130	L-Malate	organic acid	L0	3213	1531	47.65
 cpd00246	Inosine	nucleoside	L0	3213	1289	40.12
-cpd00367	Cytidine	nucleoside	L0	3213	391	12.17
-cpd00221	D-Lactate	organic acid	L0	3213	542	16.87
+cpd00020	Pyruvate	organic acid	L0	3213	1178	36.66
 cpd00159	L-Lactate	organic acid	L0	3213	1086	33.80
+cpd00221	D-Lactate	organic acid	L0	3213	542	16.87
 cpd00105	D-Ribose	sugar	L0	3213	535	16.65
+cpd00036	Succinate	organic acid	L0	3213	490	15.25
+cpd00116	Methanol	alcohol/diol	L0	3213	405	12.61
+cpd00118	Putrescine	other	L0	3213	396	12.32
+cpd00367	Cytidine	nucleoside	L0	3213	391	12.17
+cpd00033	Glycine	amino acid	L0	3213	340	10.58
 cpd00053	L-Glutamine	amino acid	L0	3213	311	9.68
 cpd01217	Xanthosine	nucleoside	L0	3213	294	9.15
-cpd00118	Putrescine	other	L0	3213	396	12.32
-cpd00108	Galactose	sugar	L0	3213	234	7.28
-cpd00036	Succinate	organic acid	L0	3213	490	15.25
-cpd00033	Glycine	amino acid	L0	3213	340	10.58
-cpd00084	L-Cysteine	amino acid	L0	3213	8	0.25
-cpd00116	Methanol	alcohol/diol	L0	3213	405	12.61
-cpd00023	L-Glutamate	amino acid	L0	3213	90	2.80
-cpd00139	Glycolate	organic acid	L0	3213	45	1.40
-cpd00019	S-Adenosyl-homocysteine	amino acid	L0	3213	9	0.28
-cpd00039	L-Lysine	amino acid	L0	3213	41	1.28
-cpd00311	Guanosine	nucleoside	L0	3213	207	6.44
-cpd00029	Acetate	organic acid	L0	3213	248	7.72
-cpd00309	XAN	other	L0	3213	95	2.96
-cpd00117	D-Alanine	amino acid	L0	3213	23	0.72
-cpd00453	1,2-Propanediol	alcohol/diol	L0	3213	87	2.71
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L0	3213	98	3.05
-cpd00047	Formate	organic acid	L0	3213	156	4.86
-cpd00141	Propionate	organic acid	L0	3213	188	5.85
 cpd00324	MTTL	other	L0	3213	249	7.75
-cpd00129	L-Proline	amino acid	L0	3213	73	2.27
-cpd00137	Citrate	organic acid	L0	3213	3	0.09
-cpd00024	2-Oxoglutarate	organic acid	L0	3213	57	1.77
-cpd00092	Uracil	other	L0	3213	7	0.22
-cpd00054	L-Serine	amino acid	L0	3213	5	0.16
-cpd00100	Glycerol	alcohol/diol	L0	3213	2	0.06
-cpd00371	Propanal	other	L0	3213	3	0.09
-cpd00122	N-Acetyl-D-glucosamine	other	L0	3213	1	0.03
+cpd00029	Acetate	organic acid	L0	3213	248	7.72
+cpd00108	Galactose	sugar	L0	3213	234	7.28
+cpd00311	Guanosine	nucleoside	L0	3213	207	6.44
+cpd00141	Propionate	organic acid	L0	3213	188	5.85
+cpd00047	Formate	organic acid	L0	3213	156	4.86
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L0	3213	98	3.05
+cpd00309	XAN	other	L0	3213	95	2.96
 cpd00106	Fumarate	organic acid	L0	3213	93	2.89
-cpd00263	Pyridoxol	other	L0	3213	1	0.03
-cpd00065	L-Tryptophan	amino acid	L0	3213	17	0.53
-cpd00359	indol	other	L0	3213	21	0.65
-cpd00281	GABA	other	L0	3213	12	0.37
-cpd00064	Ornithine	other	L0	3213	6	0.19
-cpd00588	Sorbitol	alcohol/diol	L0	3213	3	0.09
-cpd00306	Xylitol	other	L0	3213	7	0.22
-cpd00035	L-Alanine	amino acid	L0	3213	8	0.25
+cpd00023	L-Glutamate	amino acid	L0	3213	90	2.80
+cpd00453	1,2-Propanediol	alcohol/diol	L0	3213	87	2.71
+cpd00129	L-Proline	amino acid	L0	3213	73	2.27
+cpd00024	2-Oxoglutarate	organic acid	L0	3213	57	1.77
+cpd00139	Glycolate	organic acid	L0	3213	45	1.40
+cpd00039	L-Lysine	amino acid	L0	3213	41	1.28
 cpd00017	S-Adenosyl-L-methionine	amino acid	L0	3213	23	0.72
-cpd00082	D-Fructose	sugar	L0	3213	1	0.03
+cpd00117	D-Alanine	amino acid	L0	3213	23	0.72
+cpd00359	indol	other	L0	3213	21	0.65
+cpd00065	L-Tryptophan	amino acid	L0	3213	17	0.53
+cpd00281	GABA	other	L0	3213	12	0.37
+cpd00019	S-Adenosyl-homocysteine	amino acid	L0	3213	9	0.28
+cpd00035	L-Alanine	amino acid	L0	3213	8	0.25
+cpd00084	L-Cysteine	amino acid	L0	3213	8	0.25
+cpd00092	Uracil	other	L0	3213	7	0.22
+cpd00306	Xylitol	other	L0	3213	7	0.22
+cpd00064	Ornithine	other	L0	3213	6	0.19
 cpd00307	Cytosine	other	L0	3213	6	0.19
-cpd00020	Pyruvate	organic acid	L1	3851	1664	43.21
+cpd00054	L-Serine	amino acid	L0	3213	5	0.16
+cpd00137	Citrate	organic acid	L0	3213	3	0.09
+cpd00371	Propanal	other	L0	3213	3	0.09
+cpd00588	Sorbitol	alcohol/diol	L0	3213	3	0.09
+cpd00100	Glycerol	alcohol/diol	L0	3213	2	0.06
+cpd00082	D-Fructose	sugar	L0	3213	1	0.03
+cpd00122	N-Acetyl-D-glucosamine	other	L0	3213	1	0.03
+cpd00263	Pyridoxol	other	L0	3213	1	0.03
 cpd00363	Ethanol	alcohol/diol	L1	3851	2608	67.72
-cpd00130	L-Malate	organic acid	L1	3851	1389	36.07
+cpd00020	Pyruvate	organic acid	L1	3851	1664	43.21
 cpd00246	Inosine	nucleoside	L1	3851	1505	39.08
-cpd00053	L-Glutamine	amino acid	L1	3851	469	12.18
-cpd00105	D-Ribose	sugar	L1	3851	920	23.89
+cpd00130	L-Malate	organic acid	L1	3851	1389	36.07
 cpd00159	L-Lactate	organic acid	L1	3851	967	25.11
-cpd00367	Cytidine	nucleoside	L1	3851	404	10.49
+cpd00105	D-Ribose	sugar	L1	3851	920	23.89
 cpd00036	Succinate	organic acid	L1	3851	605	15.71
-cpd00221	D-Lactate	organic acid	L1	3851	529	13.74
 cpd00118	Putrescine	other	L1	3851	576	14.96
 cpd00116	Methanol	alcohol/diol	L1	3851	571	14.83
-cpd00108	Galactose	sugar	L1	3851	210	5.45
-cpd01217	Xanthosine	nucleoside	L1	3851	254	6.60
-cpd00084	L-Cysteine	amino acid	L1	3851	6	0.16
-cpd00023	L-Glutamate	amino acid	L1	3851	91	2.36
-cpd00139	Glycolate	organic acid	L1	3851	34	0.88
-cpd00019	S-Adenosyl-homocysteine	amino acid	L1	3851	9	0.23
-cpd00039	L-Lysine	amino acid	L1	3851	28	0.73
-cpd00311	Guanosine	nucleoside	L1	3851	169	4.39
+cpd00221	D-Lactate	organic acid	L1	3851	529	13.74
+cpd00053	L-Glutamine	amino acid	L1	3851	469	12.18
 cpd00033	Glycine	amino acid	L1	3851	433	11.24
+cpd00367	Cytidine	nucleoside	L1	3851	404	10.49
+cpd00324	MTTL	other	L1	3851	311	8.08
 cpd00029	Acetate	organic acid	L1	3851	293	7.61
-cpd00054	L-Serine	amino acid	L1	3851	4	0.10
-cpd00309	XAN	other	L1	3851	98	2.54
-cpd00024	2-Oxoglutarate	organic acid	L1	3851	45	1.17
-cpd00092	Uracil	other	L1	3851	28	0.73
-cpd00117	D-Alanine	amino acid	L1	3851	14	0.36
-cpd00453	1,2-Propanediol	alcohol/diol	L1	3851	117	3.04
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L1	3851	156	4.05
+cpd01217	Xanthosine	nucleoside	L1	3851	254	6.60
 cpd00047	Formate	organic acid	L1	3851	217	5.63
 cpd00141	Propionate	organic acid	L1	3851	213	5.53
-cpd00324	MTTL	other	L1	3851	311	8.08
-cpd00137	Citrate	organic acid	L1	3851	2	0.05
+cpd00108	Galactose	sugar	L1	3851	210	5.45
+cpd00311	Guanosine	nucleoside	L1	3851	169	4.39
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L1	3851	156	4.05
+cpd00453	1,2-Propanediol	alcohol/diol	L1	3851	117	3.04
+cpd00309	XAN	other	L1	3851	98	2.54
+cpd00106	Fumarate	organic acid	L1	3851	94	2.44
+cpd00023	L-Glutamate	amino acid	L1	3851	91	2.36
+cpd00588	Sorbitol	alcohol/diol	L1	3851	61	1.58
 cpd00129	L-Proline	amino acid	L1	3851	56	1.45
-cpd00220	Riboflavin	other	L1	3851	1	0.03
-cpd00041	L-Aspartate	amino acid	L1	3851	4	0.10
-cpd00100	Glycerol	alcohol/diol	L1	3851	2	0.05
-cpd00371	Propanal	other	L1	3851	13	0.34
-cpd00122	N-Acetyl-D-glucosamine	other	L1	3851	1	0.03
-cpd00263	Pyridoxol	other	L1	3851	1	0.03
-cpd00065	L-Tryptophan	amino acid	L1	3851	13	0.34
+cpd00024	2-Oxoglutarate	organic acid	L1	3851	45	1.17
+cpd00139	Glycolate	organic acid	L1	3851	34	0.88
+cpd00039	L-Lysine	amino acid	L1	3851	28	0.73
+cpd00092	Uracil	other	L1	3851	28	0.73
 cpd00359	indol	other	L1	3851	28	0.73
-cpd00182	Adenosine	nucleoside	L1	3851	2	0.05
 cpd00306	Xylitol	other	L1	3851	22	0.57
 cpd00017	S-Adenosyl-L-methionine	amino acid	L1	3851	20	0.52
 cpd00281	GABA	other	L1	3851	20	0.52
-cpd00106	Fumarate	organic acid	L1	3851	94	2.44
-cpd00035	L-Alanine	amino acid	L1	3851	10	0.26
-cpd00588	Sorbitol	alcohol/diol	L1	3851	61	1.58
+cpd00117	D-Alanine	amino acid	L1	3851	14	0.36
+cpd00065	L-Tryptophan	amino acid	L1	3851	13	0.34
+cpd00371	Propanal	other	L1	3851	13	0.34
 cpd00222	GLCN	other	L1	3851	12	0.31
-cpd00064	Ornithine	other	L1	3851	7	0.18
-cpd00218	Niacin	other	L1	3851	1	0.03
-cpd00154	Xylose	sugar	L1	3851	1	0.03
+cpd00035	L-Alanine	amino acid	L1	3851	10	0.26
 cpd00307	Cytosine	other	L1	3851	10	0.26
-cpd00020	Pyruvate	organic acid	L2	3851	1664	43.21
+cpd00019	S-Adenosyl-homocysteine	amino acid	L1	3851	9	0.23
+cpd00064	Ornithine	other	L1	3851	7	0.18
+cpd00084	L-Cysteine	amino acid	L1	3851	6	0.16
+cpd00041	L-Aspartate	amino acid	L1	3851	4	0.10
+cpd00054	L-Serine	amino acid	L1	3851	4	0.10
+cpd00100	Glycerol	alcohol/diol	L1	3851	2	0.05
+cpd00137	Citrate	organic acid	L1	3851	2	0.05
+cpd00182	Adenosine	nucleoside	L1	3851	2	0.05
+cpd00122	N-Acetyl-D-glucosamine	other	L1	3851	1	0.03
+cpd00154	Xylose	sugar	L1	3851	1	0.03
+cpd00218	Niacin	other	L1	3851	1	0.03
+cpd00220	Riboflavin	other	L1	3851	1	0.03
+cpd00263	Pyridoxol	other	L1	3851	1	0.03
 cpd00363	Ethanol	alcohol/diol	L2	3851	2608	67.72
-cpd00130	L-Malate	organic acid	L2	3851	1389	36.07
+cpd00020	Pyruvate	organic acid	L2	3851	1664	43.21
 cpd00246	Inosine	nucleoside	L2	3851	1505	39.08
-cpd00053	L-Glutamine	amino acid	L2	3851	469	12.18
-cpd00105	D-Ribose	sugar	L2	3851	920	23.89
+cpd00130	L-Malate	organic acid	L2	3851	1389	36.07
 cpd00159	L-Lactate	organic acid	L2	3851	967	25.11
-cpd00367	Cytidine	nucleoside	L2	3851	404	10.49
+cpd00105	D-Ribose	sugar	L2	3851	920	23.89
 cpd00036	Succinate	organic acid	L2	3851	605	15.71
-cpd00221	D-Lactate	organic acid	L2	3851	529	13.74
 cpd00118	Putrescine	other	L2	3851	576	14.96
 cpd00116	Methanol	alcohol/diol	L2	3851	571	14.83
-cpd00108	Galactose	sugar	L2	3851	210	5.45
-cpd01217	Xanthosine	nucleoside	L2	3851	254	6.60
-cpd00084	L-Cysteine	amino acid	L2	3851	6	0.16
-cpd00023	L-Glutamate	amino acid	L2	3851	91	2.36
-cpd00139	Glycolate	organic acid	L2	3851	34	0.88
-cpd00019	S-Adenosyl-homocysteine	amino acid	L2	3851	9	0.23
-cpd00039	L-Lysine	amino acid	L2	3851	28	0.73
-cpd00311	Guanosine	nucleoside	L2	3851	169	4.39
+cpd00221	D-Lactate	organic acid	L2	3851	529	13.74
+cpd00053	L-Glutamine	amino acid	L2	3851	469	12.18
 cpd00033	Glycine	amino acid	L2	3851	433	11.24
+cpd00367	Cytidine	nucleoside	L2	3851	404	10.49
+cpd00324	MTTL	other	L2	3851	311	8.08
 cpd00029	Acetate	organic acid	L2	3851	293	7.61
-cpd00054	L-Serine	amino acid	L2	3851	4	0.10
-cpd00309	XAN	other	L2	3851	98	2.54
-cpd00024	2-Oxoglutarate	organic acid	L2	3851	45	1.17
-cpd00092	Uracil	other	L2	3851	28	0.73
-cpd00117	D-Alanine	amino acid	L2	3851	14	0.36
-cpd00453	1,2-Propanediol	alcohol/diol	L2	3851	117	3.04
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L2	3851	156	4.05
+cpd01217	Xanthosine	nucleoside	L2	3851	254	6.60
 cpd00047	Formate	organic acid	L2	3851	217	5.63
 cpd00141	Propionate	organic acid	L2	3851	213	5.53
-cpd00324	MTTL	other	L2	3851	311	8.08
-cpd00137	Citrate	organic acid	L2	3851	2	0.05
+cpd00108	Galactose	sugar	L2	3851	210	5.45
+cpd00311	Guanosine	nucleoside	L2	3851	169	4.39
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L2	3851	156	4.05
+cpd00453	1,2-Propanediol	alcohol/diol	L2	3851	117	3.04
+cpd00309	XAN	other	L2	3851	98	2.54
+cpd00106	Fumarate	organic acid	L2	3851	94	2.44
+cpd00023	L-Glutamate	amino acid	L2	3851	91	2.36
+cpd00588	Sorbitol	alcohol/diol	L2	3851	61	1.58
 cpd00129	L-Proline	amino acid	L2	3851	56	1.45
-cpd00220	Riboflavin	other	L2	3851	1	0.03
-cpd00041	L-Aspartate	amino acid	L2	3851	4	0.10
-cpd00100	Glycerol	alcohol/diol	L2	3851	2	0.05
-cpd00371	Propanal	other	L2	3851	13	0.34
-cpd00122	N-Acetyl-D-glucosamine	other	L2	3851	1	0.03
-cpd00263	Pyridoxol	other	L2	3851	1	0.03
-cpd00065	L-Tryptophan	amino acid	L2	3851	13	0.34
+cpd00024	2-Oxoglutarate	organic acid	L2	3851	45	1.17
+cpd00139	Glycolate	organic acid	L2	3851	34	0.88
+cpd00039	L-Lysine	amino acid	L2	3851	28	0.73
+cpd00092	Uracil	other	L2	3851	28	0.73
 cpd00359	indol	other	L2	3851	28	0.73
-cpd00182	Adenosine	nucleoside	L2	3851	2	0.05
 cpd00306	Xylitol	other	L2	3851	22	0.57
 cpd00017	S-Adenosyl-L-methionine	amino acid	L2	3851	20	0.52
 cpd00281	GABA	other	L2	3851	20	0.52
-cpd00106	Fumarate	organic acid	L2	3851	94	2.44
-cpd00035	L-Alanine	amino acid	L2	3851	10	0.26
-cpd00588	Sorbitol	alcohol/diol	L2	3851	61	1.58
+cpd00117	D-Alanine	amino acid	L2	3851	14	0.36
+cpd00065	L-Tryptophan	amino acid	L2	3851	13	0.34
+cpd00371	Propanal	other	L2	3851	13	0.34
 cpd00222	GLCN	other	L2	3851	12	0.31
-cpd00064	Ornithine	other	L2	3851	7	0.18
-cpd00218	Niacin	other	L2	3851	1	0.03
-cpd00154	Xylose	sugar	L2	3851	1	0.03
+cpd00035	L-Alanine	amino acid	L2	3851	10	0.26
 cpd00307	Cytosine	other	L2	3851	10	0.26
-cpd00159	L-Lactate	organic acid	L3	5078	1194	23.51
+cpd00019	S-Adenosyl-homocysteine	amino acid	L2	3851	9	0.23
+cpd00064	Ornithine	other	L2	3851	7	0.18
+cpd00084	L-Cysteine	amino acid	L2	3851	6	0.16
+cpd00041	L-Aspartate	amino acid	L2	3851	4	0.10
+cpd00054	L-Serine	amino acid	L2	3851	4	0.10
+cpd00100	Glycerol	alcohol/diol	L2	3851	2	0.05
+cpd00137	Citrate	organic acid	L2	3851	2	0.05
+cpd00182	Adenosine	nucleoside	L2	3851	2	0.05
+cpd00122	N-Acetyl-D-glucosamine	other	L2	3851	1	0.03
+cpd00154	Xylose	sugar	L2	3851	1	0.03
+cpd00218	Niacin	other	L2	3851	1	0.03
+cpd00220	Riboflavin	other	L2	3851	1	0.03
+cpd00263	Pyridoxol	other	L2	3851	1	0.03
 cpd00363	Ethanol	alcohol/diol	L3	5078	3399	66.94
-cpd00130	L-Malate	organic acid	L3	5078	1909	37.59
 cpd00246	Inosine	nucleoside	L3	5078	2130	41.95
-cpd00053	L-Glutamine	amino acid	L3	5078	631	12.43
 cpd00020	Pyruvate	organic acid	L3	5078	2113	41.61
-cpd00116	Methanol	alcohol/diol	L3	5078	727	14.32
+cpd00130	L-Malate	organic acid	L3	5078	1909	37.59
 cpd00105	D-Ribose	sugar	L3	5078	1371	27.00
-cpd00367	Cytidine	nucleoside	L3	5078	499	9.83
-cpd00221	D-Lactate	organic acid	L3	5078	735	14.47
-cpd00118	Putrescine	other	L3	5078	754	14.85
+cpd00159	L-Lactate	organic acid	L3	5078	1194	23.51
 cpd00036	Succinate	organic acid	L3	5078	829	16.33
-cpd01217	Xanthosine	nucleoside	L3	5078	329	6.48
-cpd00084	L-Cysteine	amino acid	L3	5078	12	0.24
-cpd00139	Glycolate	organic acid	L3	5078	40	0.79
-cpd00019	S-Adenosyl-homocysteine	amino acid	L3	5078	15	0.30
-cpd00023	L-Glutamate	amino acid	L3	5078	115	2.26
-cpd00039	L-Lysine	amino acid	L3	5078	29	0.57
-cpd00311	Guanosine	nucleoside	L3	5078	217	4.27
+cpd00118	Putrescine	other	L3	5078	754	14.85
+cpd00221	D-Lactate	organic acid	L3	5078	735	14.47
+cpd00116	Methanol	alcohol/diol	L3	5078	727	14.32
 cpd00033	Glycine	amino acid	L3	5078	644	12.68
-cpd00029	Acetate	organic acid	L3	5078	331	6.52
-cpd00309	XAN	other	L3	5078	140	2.76
-cpd00092	Uracil	other	L3	5078	41	0.81
-cpd00024	2-Oxoglutarate	organic acid	L3	5078	99	1.95
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L3	5078	195	3.84
-cpd00453	1,2-Propanediol	alcohol/diol	L3	5078	178	3.51
-cpd00047	Formate	organic acid	L3	5078	329	6.48
-cpd00141	Propionate	organic acid	L3	5078	300	5.91
+cpd00053	L-Glutamine	amino acid	L3	5078	631	12.43
+cpd00367	Cytidine	nucleoside	L3	5078	499	9.83
 cpd00324	MTTL	other	L3	5078	460	9.06
+cpd00029	Acetate	organic acid	L3	5078	331	6.52
+cpd00047	Formate	organic acid	L3	5078	329	6.48
+cpd01217	Xanthosine	nucleoside	L3	5078	329	6.48
+cpd00141	Propionate	organic acid	L3	5078	300	5.91
+cpd00311	Guanosine	nucleoside	L3	5078	217	4.27
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L3	5078	195	3.84
 cpd00588	Sorbitol	alcohol/diol	L3	5078	188	3.70
-cpd00137	Citrate	organic acid	L3	5078	3	0.06
+cpd00453	1,2-Propanediol	alcohol/diol	L3	5078	178	3.51
+cpd00309	XAN	other	L3	5078	140	2.76
+cpd00106	Fumarate	organic acid	L3	5078	139	2.74
+cpd00023	L-Glutamate	amino acid	L3	5078	115	2.26
+cpd00024	2-Oxoglutarate	organic acid	L3	5078	99	1.95
 cpd00129	L-Proline	amino acid	L3	5078	91	1.79
-cpd00222	GLCN	other	L3	5078	23	0.45
-cpd00121	L-Inositol	other	L3	5078	2	0.04
-cpd00220	Riboflavin	other	L3	5078	4	0.08
-cpd00041	L-Aspartate	amino acid	L3	5078	5	0.10
-cpd00644	PAN	other	L3	5078	2	0.04
-cpd00108	Galactose	sugar	L3	5078	12	0.24
-cpd00100	Glycerol	alcohol/diol	L3	5078	2	0.04
-cpd00054	L-Serine	amino acid	L3	5078	4	0.08
-cpd00371	Propanal	other	L3	5078	16	0.32
-cpd00122	N-Acetyl-D-glucosamine	other	L3	5078	2	0.04
-cpd00263	Pyridoxol	other	L3	5078	1	0.02
-cpd00117	D-Alanine	amino acid	L3	5078	23	0.45
-cpd00065	L-Tryptophan	amino acid	L3	5078	19	0.37
+cpd00092	Uracil	other	L3	5078	41	0.81
+cpd00139	Glycolate	organic acid	L3	5078	40	0.79
 cpd00359	indol	other	L3	5078	36	0.71
 cpd00017	S-Adenosyl-L-methionine	amino acid	L3	5078	34	0.67
+cpd00039	L-Lysine	amino acid	L3	5078	29	0.57
 cpd00306	Xylitol	other	L3	5078	29	0.57
 cpd00281	GABA	other	L3	5078	26	0.51
-cpd00106	Fumarate	organic acid	L3	5078	139	2.74
+cpd00117	D-Alanine	amino acid	L3	5078	23	0.45
+cpd00222	GLCN	other	L3	5078	23	0.45
+cpd00065	L-Tryptophan	amino acid	L3	5078	19	0.37
 cpd00035	L-Alanine	amino acid	L3	5078	18	0.35
-cpd00218	Niacin	other	L3	5078	2	0.04
-cpd00064	Ornithine	other	L3	5078	7	0.14
-cpd00154	Xylose	sugar	L3	5078	1	0.02
+cpd00371	Propanal	other	L3	5078	16	0.32
+cpd00019	S-Adenosyl-homocysteine	amino acid	L3	5078	15	0.30
 cpd00307	Cytosine	other	L3	5078	14	0.28
-cpd00159	L-Lactate	organic acid	L4	5644	1263	22.38
+cpd00084	L-Cysteine	amino acid	L3	5078	12	0.24
+cpd00108	Galactose	sugar	L3	5078	12	0.24
+cpd00064	Ornithine	other	L3	5078	7	0.14
+cpd00041	L-Aspartate	amino acid	L3	5078	5	0.10
+cpd00054	L-Serine	amino acid	L3	5078	4	0.08
+cpd00220	Riboflavin	other	L3	5078	4	0.08
+cpd00137	Citrate	organic acid	L3	5078	3	0.06
+cpd00100	Glycerol	alcohol/diol	L3	5078	2	0.04
+cpd00121	L-Inositol	other	L3	5078	2	0.04
+cpd00122	N-Acetyl-D-glucosamine	other	L3	5078	2	0.04
+cpd00218	Niacin	other	L3	5078	2	0.04
+cpd00644	PAN	other	L3	5078	2	0.04
+cpd00154	Xylose	sugar	L3	5078	1	0.02
+cpd00263	Pyridoxol	other	L3	5078	1	0.02
 cpd00363	Ethanol	alcohol/diol	L4	5644	3888	68.89
-cpd00130	L-Malate	organic acid	L4	5644	2041	36.16
-cpd00246	Inosine	nucleoside	L4	5644	2400	42.52
-cpd00053	L-Glutamine	amino acid	L4	5644	681	12.07
 cpd00020	Pyruvate	organic acid	L4	5644	2403	42.58
-cpd00116	Methanol	alcohol/diol	L4	5644	823	14.58
+cpd00246	Inosine	nucleoside	L4	5644	2400	42.52
+cpd00130	L-Malate	organic acid	L4	5644	2041	36.16
 cpd00105	D-Ribose	sugar	L4	5644	1352	23.95
-cpd00309	XAN	other	L4	5644	285	5.05
-cpd00367	Cytidine	nucleoside	L4	5644	481	8.52
-cpd00221	D-Lactate	organic acid	L4	5644	801	14.19
+cpd00159	L-Lactate	organic acid	L4	5644	1263	22.38
 cpd00118	Putrescine	other	L4	5644	893	15.82
 cpd00036	Succinate	organic acid	L4	5644	862	15.27
-cpd01217	Xanthosine	nucleoside	L4	5644	359	6.36
-cpd00084	L-Cysteine	amino acid	L4	5644	20	0.35
-cpd00019	S-Adenosyl-homocysteine	amino acid	L4	5644	15	0.27
-cpd00139	Glycolate	organic acid	L4	5644	39	0.69
-cpd00023	L-Glutamate	amino acid	L4	5644	140	2.48
-cpd00039	L-Lysine	amino acid	L4	5644	35	0.62
-cpd00029	Acetate	organic acid	L4	5644	383	6.79
+cpd00116	Methanol	alcohol/diol	L4	5644	823	14.58
+cpd00221	D-Lactate	organic acid	L4	5644	801	14.19
 cpd00033	Glycine	amino acid	L4	5644	718	12.72
-cpd00311	Guanosine	nucleoside	L4	5644	231	4.09
-cpd00092	Uracil	other	L4	5644	53	0.94
-cpd00024	2-Oxoglutarate	organic acid	L4	5644	102	1.81
-cpd00054	L-Serine	amino acid	L4	5644	6	0.11
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L4	5644	241	4.27
-cpd00453	1,2-Propanediol	alcohol/diol	L4	5644	187	3.31
+cpd00053	L-Glutamine	amino acid	L4	5644	681	12.07
+cpd00324	MTTL	other	L4	5644	495	8.77
+cpd00367	Cytidine	nucleoside	L4	5644	481	8.52
+cpd00029	Acetate	organic acid	L4	5644	383	6.79
+cpd01217	Xanthosine	nucleoside	L4	5644	359	6.36
 cpd00047	Formate	organic acid	L4	5644	340	6.02
 cpd00141	Propionate	organic acid	L4	5644	309	5.47
-cpd00324	MTTL	other	L4	5644	495	8.77
+cpd00309	XAN	other	L4	5644	285	5.05
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L4	5644	241	4.27
+cpd00311	Guanosine	nucleoside	L4	5644	231	4.09
+cpd00453	1,2-Propanediol	alcohol/diol	L4	5644	187	3.31
 cpd00588	Sorbitol	alcohol/diol	L4	5644	179	3.17
-cpd00137	Citrate	organic acid	L4	5644	3	0.05
+cpd00106	Fumarate	organic acid	L4	5644	148	2.62
+cpd00023	L-Glutamate	amino acid	L4	5644	140	2.48
+cpd00024	2-Oxoglutarate	organic acid	L4	5644	102	1.81
 cpd00129	L-Proline	amino acid	L4	5644	92	1.63
+cpd00092	Uracil	other	L4	5644	53	0.94
 cpd00306	Xylitol	other	L4	5644	51	0.90
-cpd00222	GLCN	other	L4	5644	24	0.43
-cpd00121	L-Inositol	other	L4	5644	2	0.04
-cpd00220	Riboflavin	other	L4	5644	6	0.11
-cpd00117	D-Alanine	amino acid	L4	5644	26	0.46
-cpd00041	L-Aspartate	amino acid	L4	5644	4	0.07
-cpd00644	PAN	other	L4	5644	3	0.05
-cpd00108	Galactose	sugar	L4	5644	12	0.21
-cpd00100	Glycerol	alcohol/diol	L4	5644	1	0.02
-cpd00371	Propanal	other	L4	5644	16	0.28
-cpd00122	N-Acetyl-D-glucosamine	other	L4	5644	2	0.04
-cpd00263	Pyridoxol	other	L4	5644	1	0.02
-cpd00065	L-Tryptophan	amino acid	L4	5644	20	0.35
+cpd00139	Glycolate	organic acid	L4	5644	39	0.69
+cpd00039	L-Lysine	amino acid	L4	5644	35	0.62
 cpd00359	indol	other	L4	5644	35	0.62
 cpd00017	S-Adenosyl-L-methionine	amino acid	L4	5644	34	0.60
 cpd00281	GABA	other	L4	5644	32	0.57
-cpd00106	Fumarate	organic acid	L4	5644	148	2.62
-cpd00218	Niacin	other	L4	5644	3	0.05
-cpd00064	Ornithine	other	L4	5644	7	0.12
+cpd00117	D-Alanine	amino acid	L4	5644	26	0.46
+cpd00222	GLCN	other	L4	5644	24	0.43
+cpd00065	L-Tryptophan	amino acid	L4	5644	20	0.35
+cpd00084	L-Cysteine	amino acid	L4	5644	20	0.35
+cpd00371	Propanal	other	L4	5644	16	0.28
+cpd00019	S-Adenosyl-homocysteine	amino acid	L4	5644	15	0.27
 cpd00035	L-Alanine	amino acid	L4	5644	15	0.27
 cpd00307	Cytosine	other	L4	5644	13	0.23
+cpd00108	Galactose	sugar	L4	5644	12	0.21
+cpd00064	Ornithine	other	L4	5644	7	0.12
+cpd00054	L-Serine	amino acid	L4	5644	6	0.11
+cpd00220	Riboflavin	other	L4	5644	6	0.11
+cpd00041	L-Aspartate	amino acid	L4	5644	4	0.07
+cpd00137	Citrate	organic acid	L4	5644	3	0.05
+cpd00218	Niacin	other	L4	5644	3	0.05
+cpd00644	PAN	other	L4	5644	3	0.05
+cpd00121	L-Inositol	other	L4	5644	2	0.04
+cpd00122	N-Acetyl-D-glucosamine	other	L4	5644	2	0.04
+cpd00100	Glycerol	alcohol/diol	L4	5644	1	0.02
+cpd00263	Pyridoxol	other	L4	5644	1	0.02
 cpd03846	octanoate	other	L4	5644	1	0.02
-cpd00159	L-Lactate	organic acid	L5	5753	1285	22.34
 cpd00363	Ethanol	alcohol/diol	L5	5753	3958	68.80
-cpd00130	L-Malate	organic acid	L5	5753	2109	36.66
-cpd00246	Inosine	nucleoside	L5	5753	2447	42.53
-cpd00053	L-Glutamine	amino acid	L5	5753	690	11.99
 cpd00020	Pyruvate	organic acid	L5	5753	2465	42.85
-cpd00116	Methanol	alcohol/diol	L5	5753	852	14.81
+cpd00246	Inosine	nucleoside	L5	5753	2447	42.53
+cpd00130	L-Malate	organic acid	L5	5753	2109	36.66
 cpd00105	D-Ribose	sugar	L5	5753	1402	24.37
-cpd00309	XAN	other	L5	5753	286	4.97
-cpd00367	Cytidine	nucleoside	L5	5753	490	8.52
-cpd00221	D-Lactate	organic acid	L5	5753	828	14.39
+cpd00159	L-Lactate	organic acid	L5	5753	1285	22.34
 cpd00118	Putrescine	other	L5	5753	909	15.80
 cpd00036	Succinate	organic acid	L5	5753	881	15.31
-cpd01217	Xanthosine	nucleoside	L5	5753	356	6.19
-cpd00084	L-Cysteine	amino acid	L5	5753	16	0.28
-cpd00019	S-Adenosyl-homocysteine	amino acid	L5	5753	15	0.26
-cpd00139	Glycolate	organic acid	L5	5753	40	0.70
-cpd00023	L-Glutamate	amino acid	L5	5753	142	2.47
-cpd00039	L-Lysine	amino acid	L5	5753	37	0.64
-cpd00029	Acetate	organic acid	L5	5753	390	6.78
+cpd00116	Methanol	alcohol/diol	L5	5753	852	14.81
+cpd00221	D-Lactate	organic acid	L5	5753	828	14.39
 cpd00033	Glycine	amino acid	L5	5753	728	12.65
-cpd00311	Guanosine	nucleoside	L5	5753	234	4.07
-cpd00092	Uracil	other	L5	5753	54	0.94
-cpd00024	2-Oxoglutarate	organic acid	L5	5753	113	1.96
-cpd00054	L-Serine	amino acid	L5	5753	6	0.10
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L5	5753	268	4.66
+cpd00053	L-Glutamine	amino acid	L5	5753	690	11.99
 cpd00453	1,2-Propanediol	alcohol/diol	L5	5753	658	11.44
-cpd00047	Formate	organic acid	L5	5753	356	6.19
-cpd00141	Propionate	organic acid	L5	5753	325	5.65
 cpd00324	MTTL	other	L5	5753	514	8.93
+cpd00367	Cytidine	nucleoside	L5	5753	490	8.52
+cpd00029	Acetate	organic acid	L5	5753	390	6.78
+cpd00047	Formate	organic acid	L5	5753	356	6.19
+cpd01217	Xanthosine	nucleoside	L5	5753	356	6.19
+cpd00141	Propionate	organic acid	L5	5753	325	5.65
+cpd00309	XAN	other	L5	5753	286	4.97
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L5	5753	268	4.66
+cpd00311	Guanosine	nucleoside	L5	5753	234	4.07
 cpd00588	Sorbitol	alcohol/diol	L5	5753	199	3.46
-cpd00306	Xylitol	other	L5	5753	60	1.04
-cpd00137	Citrate	organic acid	L5	5753	3	0.05
+cpd00106	Fumarate	organic acid	L5	5753	149	2.59
+cpd00023	L-Glutamate	amino acid	L5	5753	142	2.47
+cpd00024	2-Oxoglutarate	organic acid	L5	5753	113	1.96
 cpd00129	L-Proline	amino acid	L5	5753	94	1.63
-cpd00222	GLCN	other	L5	5753	24	0.42
-cpd00121	L-Inositol	other	L5	5753	2	0.03
-cpd03846	octanoate	other	L5	5753	2	0.03
-cpd00182	Adenosine	nucleoside	L5	5753	1	0.02
-cpd00644	PAN	other	L5	5753	4	0.07
-cpd00220	Riboflavin	other	L5	5753	6	0.10
-cpd00117	D-Alanine	amino acid	L5	5753	26	0.45
-cpd00041	L-Aspartate	amino acid	L5	5753	5	0.09
-cpd00108	Galactose	sugar	L5	5753	13	0.23
-cpd00100	Glycerol	alcohol/diol	L5	5753	2	0.03
-cpd00371	Propanal	other	L5	5753	16	0.28
-cpd00122	N-Acetyl-D-glucosamine	other	L5	5753	3	0.05
-cpd00263	Pyridoxol	other	L5	5753	1	0.02
-cpd00065	L-Tryptophan	amino acid	L5	5753	20	0.35
+cpd00306	Xylitol	other	L5	5753	60	1.04
+cpd00092	Uracil	other	L5	5753	54	0.94
+cpd00139	Glycolate	organic acid	L5	5753	40	0.70
+cpd00039	L-Lysine	amino acid	L5	5753	37	0.64
 cpd00359	indol	other	L5	5753	37	0.64
 cpd00017	S-Adenosyl-L-methionine	amino acid	L5	5753	35	0.61
 cpd00281	GABA	other	L5	5753	34	0.59
-cpd00106	Fumarate	organic acid	L5	5753	149	2.59
-cpd00218	Niacin	other	L5	5753	3	0.05
-cpd00064	Ornithine	other	L5	5753	10	0.17
+cpd00117	D-Alanine	amino acid	L5	5753	26	0.45
+cpd00222	GLCN	other	L5	5753	24	0.42
+cpd00065	L-Tryptophan	amino acid	L5	5753	20	0.35
+cpd00084	L-Cysteine	amino acid	L5	5753	16	0.28
+cpd00371	Propanal	other	L5	5753	16	0.28
+cpd00019	S-Adenosyl-homocysteine	amino acid	L5	5753	15	0.26
 cpd00035	L-Alanine	amino acid	L5	5753	15	0.26
 cpd00307	Cytosine	other	L5	5753	14	0.24
-cpd00246	Inosine	nucleoside	L6	4505	2077	46.10
-cpd00159	L-Lactate	organic acid	L6	4505	1217	27.01
+cpd00108	Galactose	sugar	L5	5753	13	0.23
+cpd00064	Ornithine	other	L5	5753	10	0.17
+cpd00054	L-Serine	amino acid	L5	5753	6	0.10
+cpd00220	Riboflavin	other	L5	5753	6	0.10
+cpd00041	L-Aspartate	amino acid	L5	5753	5	0.09
+cpd00644	PAN	other	L5	5753	4	0.07
+cpd00122	N-Acetyl-D-glucosamine	other	L5	5753	3	0.05
+cpd00137	Citrate	organic acid	L5	5753	3	0.05
+cpd00218	Niacin	other	L5	5753	3	0.05
+cpd00100	Glycerol	alcohol/diol	L5	5753	2	0.03
+cpd00121	L-Inositol	other	L5	5753	2	0.03
+cpd03846	octanoate	other	L5	5753	2	0.03
+cpd00182	Adenosine	nucleoside	L5	5753	1	0.02
+cpd00263	Pyridoxol	other	L5	5753	1	0.02
 cpd00363	Ethanol	alcohol/diol	L6	4505	2913	64.66
-cpd00116	Methanol	alcohol/diol	L6	4505	675	14.98
+cpd00246	Inosine	nucleoside	L6	4505	2077	46.10
+cpd00130	L-Malate	organic acid	L6	4505	1928	42.80
+cpd00020	Pyruvate	organic acid	L6	4505	1841	40.87
+cpd00159	L-Lactate	organic acid	L6	4505	1217	27.01
+cpd00105	D-Ribose	sugar	L6	4505	1011	22.44
 cpd00036	Succinate	organic acid	L6	4505	828	18.38
 cpd00221	D-Lactate	organic acid	L6	4505	716	15.89
-cpd00130	L-Malate	organic acid	L6	4505	1928	42.80
+cpd00116	Methanol	alcohol/diol	L6	4505	675	14.98
 cpd00118	Putrescine	other	L6	4505	647	14.36
-cpd00020	Pyruvate	organic acid	L6	4505	1841	40.87
-cpd00105	D-Ribose	sugar	L6	4505	1011	22.44
+cpd00033	Glycine	amino acid	L6	4505	554	12.30
+cpd00053	L-Glutamine	amino acid	L6	4505	544	12.08
+cpd00453	1,2-Propanediol	alcohol/diol	L6	4505	495	10.99
+cpd00324	MTTL	other	L6	4505	459	10.19
+cpd00141	Propionate	organic acid	L6	4505	386	8.57
+cpd00047	Formate	organic acid	L6	4505	321	7.13
+cpd00029	Acetate	organic acid	L6	4505	319	7.08
 cpd00367	Cytidine	nucleoside	L6	4505	316	7.01
 cpd01217	Xanthosine	nucleoside	L6	4505	290	6.44
-cpd00084	L-Cysteine	amino acid	L6	4505	8	0.18
-cpd00309	XAN	other	L6	4505	238	5.28
-cpd00053	L-Glutamine	amino acid	L6	4505	544	12.08
-cpd00139	Glycolate	organic acid	L6	4505	42	0.93
-cpd00023	L-Glutamate	amino acid	L6	4505	97	2.15
-cpd00039	L-Lysine	amino acid	L6	4505	38	0.84
-cpd00029	Acetate	organic acid	L6	4505	319	7.08
-cpd00033	Glycine	amino acid	L6	4505	554	12.30
-cpd00311	Guanosine	nucleoside	L6	4505	230	5.11
-cpd00092	Uracil	other	L6	4505	55	1.22
-cpd00024	2-Oxoglutarate	organic acid	L6	4505	151	3.35
-cpd00019	S-Adenosyl-homocysteine	amino acid	L6	4505	9	0.20
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L6	4505	197	4.37
-cpd00453	1,2-Propanediol	alcohol/diol	L6	4505	495	10.99
-cpd00047	Formate	organic acid	L6	4505	321	7.13
-cpd00324	MTTL	other	L6	4505	459	10.19
-cpd00129	L-Proline	amino acid	L6	4505	129	2.86
-cpd00141	Propionate	organic acid	L6	4505	386	8.57
 cpd00588	Sorbitol	alcohol/diol	L6	4505	276	6.13
+cpd00309	XAN	other	L6	4505	238	5.28
+cpd00311	Guanosine	nucleoside	L6	4505	230	5.11
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L6	4505	197	4.37
+cpd00106	Fumarate	organic acid	L6	4505	174	3.86
+cpd00024	2-Oxoglutarate	organic acid	L6	4505	151	3.35
+cpd00129	L-Proline	amino acid	L6	4505	129	2.86
+cpd00023	L-Glutamate	amino acid	L6	4505	97	2.15
 cpd00306	Xylitol	other	L6	4505	70	1.55
-cpd00137	Citrate	organic acid	L6	4505	1	0.02
-cpd00121	L-Inositol	other	L6	4505	8	0.18
+cpd00092	Uracil	other	L6	4505	55	1.22
+cpd00139	Glycolate	organic acid	L6	4505	42	0.93
+cpd00039	L-Lysine	amino acid	L6	4505	38	0.84
+cpd00117	D-Alanine	amino acid	L6	4505	36	0.80
 cpd00794	TRHL	other	L6	4505	36	0.80
-cpd03846	octanoate	other	L6	4505	2	0.04
-cpd00182	Adenosine	nucleoside	L6	4505	1	0.02
-cpd00644	PAN	other	L6	4505	3	0.07
-cpd00220	Riboflavin	other	L6	4505	6	0.13
-cpd00041	L-Aspartate	amino acid	L6	4505	5	0.11
-cpd00108	Galactose	sugar	L6	4505	11	0.24
-cpd00371	Propanal	other	L6	4505	12	0.27
-cpd00161	L-Threonine	amino acid	L6	4505	4	0.09
-cpd00054	L-Serine	amino acid	L6	4505	1	0.02
-cpd00065	L-Tryptophan	amino acid	L6	4505	19	0.42
 cpd00359	indol	other	L6	4505	27	0.60
 cpd00017	S-Adenosyl-L-methionine	amino acid	L6	4505	26	0.58
-cpd00117	D-Alanine	amino acid	L6	4505	36	0.80
 cpd00281	GABA	other	L6	4505	25	0.55
-cpd00106	Fumarate	organic acid	L6	4505	174	3.86
-cpd00035	L-Alanine	amino acid	L6	4505	19	0.42
-cpd00218	Niacin	other	L6	4505	4	0.09
-cpd00064	Ornithine	other	L6	4505	6	0.13
 cpd00222	GLCN	other	L6	4505	24	0.53
+cpd00035	L-Alanine	amino acid	L6	4505	19	0.42
+cpd00065	L-Tryptophan	amino acid	L6	4505	19	0.42
 cpd00307	Cytosine	other	L6	4505	13	0.29
-cpd00246	Inosine	nucleoside	L7	4649	2119	45.58
-cpd00159	L-Lactate	organic acid	L7	4649	1282	27.58
+cpd00371	Propanal	other	L6	4505	12	0.27
+cpd00108	Galactose	sugar	L6	4505	11	0.24
+cpd00019	S-Adenosyl-homocysteine	amino acid	L6	4505	9	0.20
+cpd00084	L-Cysteine	amino acid	L6	4505	8	0.18
+cpd00121	L-Inositol	other	L6	4505	8	0.18
+cpd00064	Ornithine	other	L6	4505	6	0.13
+cpd00220	Riboflavin	other	L6	4505	6	0.13
+cpd00041	L-Aspartate	amino acid	L6	4505	5	0.11
+cpd00161	L-Threonine	amino acid	L6	4505	4	0.09
+cpd00218	Niacin	other	L6	4505	4	0.09
+cpd00644	PAN	other	L6	4505	3	0.07
+cpd03846	octanoate	other	L6	4505	2	0.04
+cpd00054	L-Serine	amino acid	L6	4505	1	0.02
+cpd00137	Citrate	organic acid	L6	4505	1	0.02
+cpd00182	Adenosine	nucleoside	L6	4505	1	0.02
 cpd00363	Ethanol	alcohol/diol	L7	4649	2959	63.65
-cpd00116	Methanol	alcohol/diol	L7	4649	695	14.95
-cpd00036	Succinate	organic acid	L7	4649	854	18.37
+cpd00246	Inosine	nucleoside	L7	4649	2119	45.58
 cpd00130	L-Malate	organic acid	L7	4649	2046	44.01
-cpd00221	D-Lactate	organic acid	L7	4649	745	16.02
-cpd00118	Putrescine	other	L7	4649	665	14.30
 cpd00020	Pyruvate	organic acid	L7	4649	1916	41.21
+cpd00159	L-Lactate	organic acid	L7	4649	1282	27.58
 cpd00105	D-Ribose	sugar	L7	4649	1015	21.83
-cpd00367	Cytidine	nucleoside	L7	4649	341	7.33
-cpd01217	Xanthosine	nucleoside	L7	4649	296	6.37
-cpd00084	L-Cysteine	amino acid	L7	4649	10	0.22
-cpd00309	XAN	other	L7	4649	254	5.46
-cpd00053	L-Glutamine	amino acid	L7	4649	549	11.81
-cpd00139	Glycolate	organic acid	L7	4649	42	0.90
-cpd00023	L-Glutamate	amino acid	L7	4649	104	2.24
-cpd00039	L-Lysine	amino acid	L7	4649	35	0.75
-cpd00029	Acetate	organic acid	L7	4649	315	6.78
+cpd00036	Succinate	organic acid	L7	4649	854	18.37
+cpd00221	D-Lactate	organic acid	L7	4649	745	16.02
+cpd00116	Methanol	alcohol/diol	L7	4649	695	14.95
+cpd00118	Putrescine	other	L7	4649	665	14.30
 cpd00033	Glycine	amino acid	L7	4649	557	11.98
-cpd00311	Guanosine	nucleoside	L7	4649	240	5.16
-cpd00092	Uracil	other	L7	4649	54	1.16
-cpd00024	2-Oxoglutarate	organic acid	L7	4649	170	3.66
-cpd00019	S-Adenosyl-homocysteine	amino acid	L7	4649	9	0.19
+cpd00053	L-Glutamine	amino acid	L7	4649	549	11.81
 cpd00453	1,2-Propanediol	alcohol/diol	L7	4649	492	10.58
-cpd00047	Formate	organic acid	L7	4649	344	7.40
 cpd00324	MTTL	other	L7	4649	458	9.85
+cpd00141	Propionate	organic acid	L7	4649	401	8.63
+cpd00047	Formate	organic acid	L7	4649	344	7.40
+cpd00367	Cytidine	nucleoside	L7	4649	341	7.33
+cpd00029	Acetate	organic acid	L7	4649	315	6.78
+cpd01217	Xanthosine	nucleoside	L7	4649	296	6.37
+cpd00588	Sorbitol	alcohol/diol	L7	4649	283	6.09
+cpd00309	XAN	other	L7	4649	254	5.46
+cpd00311	Guanosine	nucleoside	L7	4649	240	5.16
 cpd01861	(R)-1,2-Propanediol	alcohol/diol	L7	4649	212	4.56
 cpd00129	L-Proline	amino acid	L7	4649	171	3.68
-cpd00141	Propionate	organic acid	L7	4649	401	8.63
-cpd00588	Sorbitol	alcohol/diol	L7	4649	283	6.09
+cpd00024	2-Oxoglutarate	organic acid	L7	4649	170	3.66
+cpd00106	Fumarate	organic acid	L7	4649	169	3.64
+cpd00023	L-Glutamate	amino acid	L7	4649	104	2.24
 cpd00306	Xylitol	other	L7	4649	73	1.57
-cpd00137	Citrate	organic acid	L7	4649	1	0.02
-cpd00121	L-Inositol	other	L7	4649	8	0.17
+cpd00092	Uracil	other	L7	4649	54	1.16
+cpd00139	Glycolate	organic acid	L7	4649	42	0.90
 cpd00794	TRHL	other	L7	4649	37	0.80
+cpd00039	L-Lysine	amino acid	L7	4649	35	0.75
+cpd00117	D-Alanine	amino acid	L7	4649	34	0.73
+cpd00017	S-Adenosyl-L-methionine	amino acid	L7	4649	28	0.60
+cpd00035	L-Alanine	amino acid	L7	4649	28	0.60
+cpd00222	GLCN	other	L7	4649	26	0.56
+cpd00359	indol	other	L7	4649	26	0.56
+cpd00281	GABA	other	L7	4649	23	0.49
+cpd00065	L-Tryptophan	amino acid	L7	4649	18	0.39
 cpd00307	Cytosine	other	L7	4649	14	0.30
-cpd00220	Riboflavin	other	L7	4649	6	0.13
-cpd00041	L-Aspartate	amino acid	L7	4649	6	0.13
-cpd00054	L-Serine	amino acid	L7	4649	2	0.04
 cpd00108	Galactose	sugar	L7	4649	13	0.28
 cpd00371	Propanal	other	L7	4649	13	0.28
-cpd00161	L-Threonine	amino acid	L7	4649	1	0.02
-cpd00065	L-Tryptophan	amino acid	L7	4649	18	0.39
-cpd00359	indol	other	L7	4649	26	0.56
-cpd00017	S-Adenosyl-L-methionine	amino acid	L7	4649	28	0.60
-cpd00281	GABA	other	L7	4649	23	0.49
-cpd00106	Fumarate	organic acid	L7	4649	169	3.64
-cpd00117	D-Alanine	amino acid	L7	4649	34	0.73
-cpd00035	L-Alanine	amino acid	L7	4649	28	0.60
-cpd00218	Niacin	other	L7	4649	4	0.09
+cpd00084	L-Cysteine	amino acid	L7	4649	10	0.22
+cpd00019	S-Adenosyl-homocysteine	amino acid	L7	4649	9	0.19
 cpd00064	Ornithine	other	L7	4649	9	0.19
-cpd00222	GLCN	other	L7	4649	26	0.56
-cpd03846	octanoate	other	L7	4649	1	0.02
+cpd00121	L-Inositol	other	L7	4649	8	0.17
+cpd00041	L-Aspartate	amino acid	L7	4649	6	0.13
+cpd00220	Riboflavin	other	L7	4649	6	0.13
+cpd00218	Niacin	other	L7	4649	4	0.09
+cpd00054	L-Serine	amino acid	L7	4649	2	0.04
+cpd00137	Citrate	organic acid	L7	4649	1	0.02
+cpd00161	L-Threonine	amino acid	L7	4649	1	0.02
 cpd00644	PAN	other	L7	4649	1	0.02
-cpd00246	Inosine	nucleoside	L8	4646	2123	45.70
-cpd00159	L-Lactate	organic acid	L8	4646	1280	27.55
+cpd03846	octanoate	other	L7	4649	1	0.02
 cpd00363	Ethanol	alcohol/diol	L8	4646	2950	63.50
-cpd00116	Methanol	alcohol/diol	L8	4646	700	15.07
-cpd00036	Succinate	organic acid	L8	4646	854	18.38
+cpd00246	Inosine	nucleoside	L8	4646	2123	45.70
 cpd00130	L-Malate	organic acid	L8	4646	2050	44.12
-cpd00221	D-Lactate	organic acid	L8	4646	748	16.10
-cpd00118	Putrescine	other	L8	4646	671	14.44
 cpd00020	Pyruvate	organic acid	L8	4646	1918	41.28
+cpd00159	L-Lactate	organic acid	L8	4646	1280	27.55
 cpd00105	D-Ribose	sugar	L8	4646	1010	21.74
-cpd00367	Cytidine	nucleoside	L8	4646	341	7.34
-cpd01217	Xanthosine	nucleoside	L8	4646	295	6.35
-cpd00084	L-Cysteine	amino acid	L8	4646	10	0.22
-cpd00309	XAN	other	L8	4646	255	5.49
-cpd00053	L-Glutamine	amino acid	L8	4646	538	11.58
-cpd00139	Glycolate	organic acid	L8	4646	42	0.90
-cpd00023	L-Glutamate	amino acid	L8	4646	105	2.26
-cpd00039	L-Lysine	amino acid	L8	4646	35	0.75
-cpd00029	Acetate	organic acid	L8	4646	309	6.65
+cpd00036	Succinate	organic acid	L8	4646	854	18.38
+cpd00221	D-Lactate	organic acid	L8	4646	748	16.10
+cpd00116	Methanol	alcohol/diol	L8	4646	700	15.07
+cpd00118	Putrescine	other	L8	4646	671	14.44
 cpd00033	Glycine	amino acid	L8	4646	555	11.95
-cpd00311	Guanosine	nucleoside	L8	4646	240	5.17
-cpd00092	Uracil	other	L8	4646	53	1.14
-cpd00024	2-Oxoglutarate	organic acid	L8	4646	170	3.66
-cpd00019	S-Adenosyl-homocysteine	amino acid	L8	4646	9	0.19
+cpd00053	L-Glutamine	amino acid	L8	4646	538	11.58
 cpd00453	1,2-Propanediol	alcohol/diol	L8	4646	499	10.74
-cpd00047	Formate	organic acid	L8	4646	345	7.43
 cpd00324	MTTL	other	L8	4646	456	9.81
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L8	4646	209	4.50
-cpd00129	L-Proline	amino acid	L8	4646	170	3.66
 cpd00141	Propionate	organic acid	L8	4646	401	8.63
+cpd00047	Formate	organic acid	L8	4646	345	7.43
+cpd00367	Cytidine	nucleoside	L8	4646	341	7.34
+cpd00029	Acetate	organic acid	L8	4646	309	6.65
+cpd01217	Xanthosine	nucleoside	L8	4646	295	6.35
 cpd00588	Sorbitol	alcohol/diol	L8	4646	283	6.09
-cpd00306	Xylitol	other	L8	4646	73	1.57
-cpd00137	Citrate	organic acid	L8	4646	1	0.02
-cpd00121	L-Inositol	other	L8	4646	8	0.17
-cpd00794	TRHL	other	L8	4646	37	0.80
-cpd00307	Cytosine	other	L8	4646	14	0.30
-cpd00220	Riboflavin	other	L8	4646	6	0.13
-cpd00041	L-Aspartate	amino acid	L8	4646	6	0.13
-cpd00054	L-Serine	amino acid	L8	4646	2	0.04
-cpd00108	Galactose	sugar	L8	4646	12	0.26
-cpd00371	Propanal	other	L8	4646	13	0.28
-cpd00161	L-Threonine	amino acid	L8	4646	1	0.02
-cpd00065	L-Tryptophan	amino acid	L8	4646	17	0.37
-cpd00359	indol	other	L8	4646	26	0.56
-cpd00017	S-Adenosyl-L-methionine	amino acid	L8	4646	28	0.60
-cpd00281	GABA	other	L8	4646	23	0.50
+cpd00309	XAN	other	L8	4646	255	5.49
+cpd00311	Guanosine	nucleoside	L8	4646	240	5.17
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L8	4646	209	4.50
+cpd00024	2-Oxoglutarate	organic acid	L8	4646	170	3.66
+cpd00129	L-Proline	amino acid	L8	4646	170	3.66
 cpd00106	Fumarate	organic acid	L8	4646	168	3.62
+cpd00023	L-Glutamate	amino acid	L8	4646	105	2.26
+cpd00306	Xylitol	other	L8	4646	73	1.57
+cpd00092	Uracil	other	L8	4646	53	1.14
+cpd00139	Glycolate	organic acid	L8	4646	42	0.90
+cpd00794	TRHL	other	L8	4646	37	0.80
+cpd00039	L-Lysine	amino acid	L8	4646	35	0.75
 cpd00117	D-Alanine	amino acid	L8	4646	34	0.73
+cpd00017	S-Adenosyl-L-methionine	amino acid	L8	4646	28	0.60
 cpd00035	L-Alanine	amino acid	L8	4646	28	0.60
-cpd00218	Niacin	other	L8	4646	4	0.09
-cpd00064	Ornithine	other	L8	4646	9	0.19
 cpd00222	GLCN	other	L8	4646	26	0.56
-cpd03846	octanoate	other	L8	4646	1	0.02
+cpd00359	indol	other	L8	4646	26	0.56
+cpd00281	GABA	other	L8	4646	23	0.50
+cpd00065	L-Tryptophan	amino acid	L8	4646	17	0.37
+cpd00307	Cytosine	other	L8	4646	14	0.30
+cpd00371	Propanal	other	L8	4646	13	0.28
+cpd00108	Galactose	sugar	L8	4646	12	0.26
+cpd00084	L-Cysteine	amino acid	L8	4646	10	0.22
+cpd00019	S-Adenosyl-homocysteine	amino acid	L8	4646	9	0.19
+cpd00064	Ornithine	other	L8	4646	9	0.19
+cpd00121	L-Inositol	other	L8	4646	8	0.17
+cpd00041	L-Aspartate	amino acid	L8	4646	6	0.13
+cpd00220	Riboflavin	other	L8	4646	6	0.13
+cpd00218	Niacin	other	L8	4646	4	0.09
+cpd00054	L-Serine	amino acid	L8	4646	2	0.04
+cpd00137	Citrate	organic acid	L8	4646	1	0.02
+cpd00161	L-Threonine	amino acid	L8	4646	1	0.02
 cpd00644	PAN	other	L8	4646	1	0.02
-cpd00036	Succinate	organic acid	L9	4572	829	18.13
-cpd00159	L-Lactate	organic acid	L9	4572	1238	27.08
+cpd03846	octanoate	other	L8	4646	1	0.02
 cpd00363	Ethanol	alcohol/diol	L9	4572	2962	64.79
 cpd00246	Inosine	nucleoside	L9	4572	2092	45.76
 cpd00130	L-Malate	organic acid	L9	4572	2001	43.77
-cpd00221	D-Lactate	organic acid	L9	4572	729	15.94
-cpd00118	Putrescine	other	L9	4572	643	14.06
 cpd00020	Pyruvate	organic acid	L9	4572	1915	41.89
+cpd00159	L-Lactate	organic acid	L9	4572	1238	27.08
 cpd00105	D-Ribose	sugar	L9	4572	1003	21.94
-cpd00367	Cytidine	nucleoside	L9	4572	306	6.69
-cpd00084	L-Cysteine	amino acid	L9	4572	7	0.15
-cpd00309	XAN	other	L9	4572	259	5.66
+cpd00036	Succinate	organic acid	L9	4572	829	18.13
+cpd00221	D-Lactate	organic acid	L9	4572	729	15.94
 cpd00116	Methanol	alcohol/diol	L9	4572	652	14.26
+cpd00118	Putrescine	other	L9	4572	643	14.06
 cpd00053	L-Glutamine	amino acid	L9	4572	544	11.90
-cpd00139	Glycolate	organic acid	L9	4572	41	0.90
-cpd00023	L-Glutamate	amino acid	L9	4572	82	1.79
-cpd00039	L-Lysine	amino acid	L9	4572	37	0.81
-cpd00029	Acetate	organic acid	L9	4572	307	6.71
 cpd00033	Glycine	amino acid	L9	4572	542	11.85
-cpd01217	Xanthosine	nucleoside	L9	4572	288	6.30
-cpd00311	Guanosine	nucleoside	L9	4572	238	5.21
-cpd00092	Uracil	other	L9	4572	55	1.20
-cpd00024	2-Oxoglutarate	organic acid	L9	4572	185	4.05
-cpd00019	S-Adenosyl-homocysteine	amino acid	L9	4572	9	0.20
-cpd01861	(R)-1,2-Propanediol	alcohol/diol	L9	4572	219	4.79
-cpd00047	Formate	organic acid	L9	4572	342	7.48
-cpd00129	L-Proline	amino acid	L9	4572	179	3.92
-cpd00141	Propionate	organic acid	L9	4572	413	9.03
-cpd00588	Sorbitol	alcohol/diol	L9	4572	293	6.41
 cpd00453	1,2-Propanediol	alcohol/diol	L9	4572	484	10.59
 cpd00324	MTTL	other	L9	4572	452	9.89
-cpd00306	Xylitol	other	L9	4572	76	1.66
-cpd00137	Citrate	organic acid	L9	4572	1	0.02
-cpd00121	L-Inositol	other	L9	4572	9	0.20
-cpd00794	TRHL	other	L9	4572	37	0.81
-cpd00182	Adenosine	nucleoside	L9	4572	2	0.04
-cpd03846	octanoate	other	L9	4572	2	0.04
-cpd00644	PAN	other	L9	4572	2	0.04
-cpd00307	Cytosine	other	L9	4572	19	0.42
-cpd00220	Riboflavin	other	L9	4572	6	0.13
-cpd00041	L-Aspartate	amino acid	L9	4572	6	0.13
-cpd00132	L-Asparagine	amino acid	L9	4572	1	0.02
-cpd00108	Galactose	sugar	L9	4572	11	0.24
-cpd00371	Propanal	other	L9	4572	13	0.28
-cpd00054	L-Serine	amino acid	L9	4572	4	0.09
-cpd00065	L-Tryptophan	amino acid	L9	4572	14	0.31
-cpd00359	indol	other	L9	4572	25	0.55
-cpd00017	S-Adenosyl-L-methionine	amino acid	L9	4572	32	0.70
+cpd00141	Propionate	organic acid	L9	4572	413	9.03
+cpd00047	Formate	organic acid	L9	4572	342	7.48
+cpd00029	Acetate	organic acid	L9	4572	307	6.71
+cpd00367	Cytidine	nucleoside	L9	4572	306	6.69
+cpd00588	Sorbitol	alcohol/diol	L9	4572	293	6.41
+cpd01217	Xanthosine	nucleoside	L9	4572	288	6.30
+cpd00309	XAN	other	L9	4572	259	5.66
+cpd00311	Guanosine	nucleoside	L9	4572	238	5.21
+cpd01861	(R)-1,2-Propanediol	alcohol/diol	L9	4572	219	4.79
+cpd00024	2-Oxoglutarate	organic acid	L9	4572	185	4.05
+cpd00129	L-Proline	amino acid	L9	4572	179	3.92
 cpd00106	Fumarate	organic acid	L9	4572	164	3.59
-cpd00281	GABA	other	L9	4572	25	0.55
+cpd00023	L-Glutamate	amino acid	L9	4572	82	1.79
+cpd00306	Xylitol	other	L9	4572	76	1.66
+cpd00092	Uracil	other	L9	4572	55	1.20
+cpd00139	Glycolate	organic acid	L9	4572	41	0.90
+cpd00039	L-Lysine	amino acid	L9	4572	37	0.81
+cpd00794	TRHL	other	L9	4572	37	0.81
 cpd00117	D-Alanine	amino acid	L9	4572	34	0.74
-cpd00218	Niacin	other	L9	4572	3	0.07
-cpd00064	Ornithine	other	L9	4572	10	0.22
+cpd00017	S-Adenosyl-L-methionine	amino acid	L9	4572	32	0.70
 cpd00035	L-Alanine	amino acid	L9	4572	29	0.63
 cpd00222	GLCN	other	L9	4572	25	0.55
+cpd00281	GABA	other	L9	4572	25	0.55
+cpd00359	indol	other	L9	4572	25	0.55
+cpd00307	Cytosine	other	L9	4572	19	0.42
+cpd00065	L-Tryptophan	amino acid	L9	4572	14	0.31
+cpd00371	Propanal	other	L9	4572	13	0.28
+cpd00108	Galactose	sugar	L9	4572	11	0.24
+cpd00064	Ornithine	other	L9	4572	10	0.22
+cpd00019	S-Adenosyl-homocysteine	amino acid	L9	4572	9	0.20
+cpd00121	L-Inositol	other	L9	4572	9	0.20
+cpd00084	L-Cysteine	amino acid	L9	4572	7	0.15
+cpd00041	L-Aspartate	amino acid	L9	4572	6	0.13
+cpd00220	Riboflavin	other	L9	4572	6	0.13
+cpd00054	L-Serine	amino acid	L9	4572	4	0.09
+cpd00218	Niacin	other	L9	4572	3	0.07
+cpd00182	Adenosine	nucleoside	L9	4572	2	0.04
+cpd00644	PAN	other	L9	4572	2	0.04
+cpd03846	octanoate	other	L9	4572	2	0.04
+cpd00132	L-Asparagine	amino acid	L9	4572	1	0.02
+cpd00137	Citrate	organic acid	L9	4572	1	0.02

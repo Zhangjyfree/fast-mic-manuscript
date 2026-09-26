@@ -3,17 +3,17 @@
 # collect per-level pairwise interaction results. The raw per-pair tables in
 # results/{akk,lac}_vs_uhgg/ of this repository were produced with this script.
 #
-# This script requires the fast-mic engine repository: it needs the
-# target/release/fast-mic binary and the media/gradient_L*_gapseq.csv medium
-# definitions, neither of which is mirrored here (medium composition is given in
-# Supplementary Table S4). It is kept for provenance.
+# Run it from the repository root. The fast-mic binary and the media come from
+# the engine checkout, $FASTMIC_ENGINE (default ../fast-mic): the ten levels are
+# those listed in its media/gradient_media_list.txt. test/UHGG/final_gapseq_xml
+# must be extracted first (README).
 #
 # Usage:
 #   # Akkermansia: models gap-filled on the Akkermansia minimal medium
 #   bash scripts/run_gradient.sh \
 #        --group1 test/akk/akk_gapseq_xml \
 #        --group2 test/UHGG/final_gapseq_xml \
-#        --threads 12 --full-tsv
+#        --threads 12 --full-tsv --out results/akk_vs_uhgg
 #
 #   # Lactobacillus-group: models gap-filled on Western diet + mucin
 #   bash scripts/run_gradient.sh \
@@ -28,13 +28,13 @@
 #   --group2 DIR        second group of a cross-group run
 #   --threads N         number of threads (0 = all cores)
 #   --full-tsv          also write *.full.tsv (per-metabolite cross-feeding)
-#   --out DIR           output directory (default: derived from the group names, see below)
+#   --out DIR           output directory (default: results/<group1>_vs_<group2>, see below)
 #
 # Output:
-#   Without --out, the directory is derived automatically so that runs do not overwrite each other:
-#     group1=akk, group2=UHGG  →  gradient_result_akk_vs_UHGG/
-#     group1=lac, group2=UHGG  →  gradient_result_lac_vs_UHGG/
-#     --models akk                →  gradient_result_akk/
+#   Without --out, the directory is derived from the group names:
+#     group1=akk, group2=UHGG  →  results/akk_vs_uhgg/
+#     group1=lac, group2=UHGG  →  results/lac_vs_uhgg/
+#     --models akk             →  results/akk/
 #   Directory contents:
 #     L0_base.tsv ... L9_mos.tsv
 #     L*.full.tsv   (with --full-tsv)
@@ -42,9 +42,9 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")"/.. && pwd)"
-BIN="$SCRIPT_DIR/target/release/fast-mic"
-MEDIA_DIR="$SCRIPT_DIR/media"
+ENGINE="${FASTMIC_ENGINE:-../fast-mic}"   # engine checkout, relative to the repository root
+BIN="$ENGINE/target/release/fast-mic"
+MEDIA_LIST="$ENGINE/media/gradient_media_list.txt" # L0–L9, paths relative to the engine
 OUT_DIR=""                       # empty = derive automatically (see below)
 
 # ── CLI options ─────────────────────────────────────────────────
@@ -87,12 +87,13 @@ group_label() {
 
 # ── auto-derive OUT_DIR (only when --out was not given) ──────
 if [[ -z "$OUT_DIR" ]]; then
+    lc() { tr '[:upper:]' '[:lower:]' <<<"$1"; }
     if [[ -n "$MODELS" ]]; then
-        OUT_DIR="$SCRIPT_DIR/gradient_result_$(group_label "$MODELS")"
+        OUT_DIR="results/$(lc "$(group_label "$MODELS")")"
     elif [[ -n "$GROUP1" && -n "$GROUP2" ]]; then
-        OUT_DIR="$SCRIPT_DIR/gradient_result_$(group_label "$GROUP1")_vs_$(group_label "$GROUP2")"
+        OUT_DIR="results/$(lc "$(group_label "$GROUP1")")_vs_$(lc "$(group_label "$GROUP2")")"
     else
-        OUT_DIR="$SCRIPT_DIR/gradient_result"   # fallback (validation below will error out)
+        OUT_DIR="results/gradient_result"   # fallback (validation below will error out)
     fi
 fi
 
@@ -102,11 +103,11 @@ if [[ -z "$MODELS" && ( -z "$GROUP1" || -z "$GROUP2" ) ]]; then
     exit 1
 fi
 if [[ ! -x "$BIN" ]]; then
-    echo "Error: fast-mic binary not found at $BIN — run 'cargo build --release' first." >&2
+    echo "Error: fast-mic binary not found at $BIN — build the engine (cargo build --release) or set FASTMIC_ENGINE." >&2
     exit 1
 fi
-if ! ls "$MEDIA_DIR"/gradient_L*_gapseq.csv >/dev/null 2>&1; then
-    echo "Error: gradient media not found in $MEDIA_DIR — expected media/gradient_L*_gapseq.csv from the fast-mic engine repository (composition: Supplementary Table S4)." >&2
+if [[ ! -f "$MEDIA_LIST" ]]; then
+    echo "Error: $MEDIA_LIST not found — run from the repository root, or set FASTMIC_ENGINE." >&2
     exit 1
 fi
 
@@ -132,7 +133,9 @@ echo "Output:  $OUT_DIR" | tee -a "$LOG"
 echo "" | tee -a "$LOG"
 
 # ── Main loop over the gradient media (L0–L9) ────────────────────────────
-for med in "$MEDIA_DIR"/gradient_L*_gapseq.csv; do
+while read -r rel; do
+    [[ -z "$rel" ]] && continue
+    med="$ENGINE/$rel"
     # extract short label
     label=$(basename "$med" .csv | sed 's/^gradient_//;s/_gapseq$//')
     out="$OUT_DIR/${label}.tsv"
@@ -160,7 +163,7 @@ for med in "$MEDIA_DIR"/gradient_L*_gapseq.csv; do
     # time + log
     /usr/bin/time -p "$BIN" "${args[@]}" >>"$LOG" 2>&1
     echo "    done." | tee -a "$LOG"
-done
+done < "$MEDIA_LIST"
 
 echo "" | tee -a "$LOG"
 echo "=== Gradient run finished $(date -u +%FT%TZ) ===" | tee -a "$LOG"

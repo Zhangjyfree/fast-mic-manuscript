@@ -12,7 +12,7 @@ cross-fed in mutualistic pairs, we count how many OTHER community members carry 
 be intercepted before it reaches the intended partner (pairwise mutualism = an upper bound);
 a metabolite few members can import is robust to higher-order competition.
 
-Output: results/figS4/interception.tsv
+Output: results/figS7/interception.tsv
   cpd, name, class, system, prevalence (mean % of mutualistic pairs, from fig5),
   n_uptakers, interception_frac (= n_uptakers / n_community_models)
 
@@ -23,7 +23,7 @@ from collections import defaultdict
 
 FM = "."
 UHGG = f"{FM}/test/UHGG/final_gapseq_xml"
-OUT = f"{FM}/results/figS4/interception.tsv"
+OUT = f"{FM}/results/figS7/interception.tsv"
 EX = re.compile(rb'id="R_EX_(cpd\d+)_e0"')
 
 def community_uptake_counts():

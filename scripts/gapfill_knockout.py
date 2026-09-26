@@ -17,21 +17,21 @@ Candidates are blocked (both flux bounds set to 0), monoculture growth is checke
 to be unchanged, the knockout models are re-screened against the community on
 the same medium, and each control mutualistic pair is followed to its new class.
 
-Requires COBRApy, the fast-mic engine binary and the gradient media (engine
-repository).
+Requires COBRApy and the fast-mic engine checkout ($FASTMIC_ENGINE or --engine,
+default ../fast-mic), which provides the binary and the media.
 
 Usage (from the repository root):
-  python3 scripts/gapfill_knockout.py \
-      --engine ../fast-mic --system Akkermansia \
+  python3 scripts/gapfill_knockout.py --system Akkermansia \
       --models test/akk/akk_gapseq_xml \
       --partners test/UHGG/final_gapseq_xml \
       --control results/akk_vs_uhgg/L5_pectin.tsv \
-      --medium L5_pectin --threads 12 --workdir /tmp/ko_akk
+      --medium L5_pectin --threads 12 --append
 
-  Then merge the per-system rows into results/figS12/R15_summary.tsv
-  (use --append to add a row to an existing summary).
+  and the same with --system Lactobacillus --models test/lac/lac_genomes_faa_gapseq_wdm_xml
+  --control results/lac_vs_uhgg/L5_pectin.tsv. --append replaces that system's row in
+  results/figS12/R15_summary.tsv.
 """
-import argparse, csv, os, subprocess, sys
+import argparse, csv, os, subprocess, sys, tempfile
 
 VIABLE = 1e-4          # viability threshold (h^-1), as in the main analysis
 ZERO_FLUX = 1e-9       # |v| below this counts as zero in the monoculture pFBA solution
@@ -50,20 +50,23 @@ def run_engine(engine, g1, g2, medium, out, threads):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--engine", required=True, help="fast-mic engine repository (binary + media/)")
+    ap.add_argument("--engine", default=os.environ.get("FASTMIC_ENGINE", "../fast-mic"),
+                    help="fast-mic engine checkout (default: $FASTMIC_ENGINE or ../fast-mic)")
     ap.add_argument("--system", required=True, help="label written to the summary, e.g. Akkermansia")
     ap.add_argument("--models", required=True, help="directory of probiotic SBML models")
     ap.add_argument("--partners", required=True, help="directory of community SBML models")
     ap.add_argument("--control", required=True, help="control per-pair TSV on the same medium")
     ap.add_argument("--medium", default="L5_pectin")
     ap.add_argument("--threads", type=int, default=0)
-    ap.add_argument("--workdir", required=True)
+    ap.add_argument("--workdir", default=None,
+                    help="scratch directory (default: a temporary directory, removed afterwards)")
     ap.add_argument("--summary", default="results/figS12/R15_summary.tsv")
     ap.add_argument("--append", action="store_true", help="replace/add this system's row in --summary")
     a = ap.parse_args()
 
-    engine = os.path.abspath(a.engine)
-    wd = os.path.abspath(a.workdir)
+    engine = a.engine
+    tmp = None if a.workdir else tempfile.TemporaryDirectory()
+    wd = a.workdir or tmp.name
     ko_dir = f"{wd}/ko_models"
     os.makedirs(ko_dir, exist_ok=True)
 
