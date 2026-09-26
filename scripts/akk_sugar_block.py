@@ -13,8 +13,8 @@ Run from the repository root after extracting test/UHGG/final_gapseq_xml (README
 The fast-mic binary and the media come from the engine checkout, $FASTMIC_ENGINE
 (default ../fast-mic).
 
-Output: results/fig4/akk_sugarblock_{L5_pectin,L5glc,L6_resistant_starch}.tsv
-        results/fig4/akk_sugarblock_summary.tsv  (viable pairs and mutualism per medium)
+Output: results/tableS10/akk_sugarblock_{L5_pectin,L5glc,L6_resistant_starch}.tsv
+        results/tableS10/akk_sugarblock_summary.tsv  (viable pairs and mutualism per medium)
 Usage : python3 scripts/akk_sugar_block.py [--threads N]
 """
 import argparse, csv, glob, os, re, subprocess, sys, tempfile
@@ -76,17 +76,17 @@ for strain in growth["L5_pectin"]:
 print("monoculture growth identical on L5, L5-glc and L6 for all strains")
 
 # 3. community screen on the three media
-os.makedirs("results/fig4", exist_ok=True)
+os.makedirs("results/tableS10", exist_ok=True)
 rows = []
 for lv in LEVELS:
-    out = f"results/fig4/akk_sugarblock_{lv}.tsv"
+    out = f"results/tableS10/akk_sugarblock_{lv}.tsv"
     res = screen(PARTNERS, lv, out, a.threads)
     viable = [r for r in res if float(r["growth_a_alone"]) > VIABLE and float(r["growth_b_alone"]) > VIABLE]
     mut = sum(r["interaction_type"] == "mutualism" for r in viable)
     rows.append([lv, len(viable), mut, f"{100 * mut / len(viable):.2f}"])
     print(f"-> {out}  mutualism {100 * mut / len(viable):.2f}% of {len(viable)} viable pairs")
-with open("results/fig4/akk_sugarblock_summary.tsv", "w", newline="") as fh:
+with open("results/tableS10/akk_sugarblock_summary.tsv", "w", newline="") as fh:
     w = csv.writer(fh, delimiter="\t", lineterminator="\n")
     w.writerow(["medium", "viable_pairs", "mutualistic_pairs", "mutualism_pct"])
     w.writerows(rows)
-print("-> results/fig4/akk_sugarblock_summary.tsv")
+print("-> results/tableS10/akk_sugarblock_summary.tsv")

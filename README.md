@@ -83,7 +83,8 @@ fast-mic-manuscript/
 │   ├── figS1/ figS2/ figS4/ figS5/        # supplementary intermediates
 │   ├── figS7/ figS9/ figS10/ figS11/ figS12/
 │   ├── litvalidation/                     # literature cross-check
-│   └── tableS5/                           # 1,000 models × 10 media, FBA vs post-CFF biomass (+ by-level summary)
+│   ├── tableS5/                           # 1,000 models × 10 media, FBA vs post-CFF biomass (+ by-level summary)
+│   └── tableS10/                          # Akkermansia free-sugar uptake control (Table S10, last three rows)
 └── test/
     ├── akk/  lac/                         # genomes, GEMs, IQ-TREE trees
     └── UHGG/                              # split UHGG model archive + GTDB metadata
@@ -233,7 +234,7 @@ individual UHGG models need the extracted model set (§7).
 | `results/fig1/…_mem.tsv` | 1G | same script with `--reps 1 --out-suffix _mem` — records `peak_rss_mb` (fast-mic per child process via `os.wait4`; SMETANA via `getrusage(RUSAGE_SELF)`) | engine + SMETANA env |
 | `results/fig2/` | 2, 6D | `python3 scripts/extract_fig2_traits.py` | `test/akk/akk_gapseq_xml`, `test/lac/lac_genomes_faa_gapseq_wdm_xml`, trees, `{akk,lac}_vs_uhgg/` |
 | `results/fig4/` | 4G, Table S10 | `bash scripts/run_fig4_contrast.sh 12` | engine (media incl. L5-glc) |
-| `results/fig4/akk_sugarblock_*` | Table S10 (last three rows), Discussion | `python3 scripts/akk_sugar_block.py --threads 12` — blocks the *Akkermansia* glucose/maltose transporters (no gene association in any strain), checks that its monoculture growth is then identical on L5, L5-glc and L6, and re-screens the three media | engine |
+| `results/tableS10/` | Table S10 (last three rows), Discussion | `python3 scripts/akk_sugar_block.py --threads 12` — blocks the *Akkermansia* glucose/maltose transporters (no gene association in any strain), checks that its monoculture growth is then identical on L5, L5-glc and L6, and re-screens the three media | engine |
 | `results/fig5/` | 5 | `python3 scripts/extract_fig5_crossfeed.py` | `{akk,lac}_vs_uhgg/*.full.tsv[.gz]`, engine `media/compounds.tsv` |
 | `results/fig6/` | 6 | `python3 scripts/extract_fig6_enrich.py` | `{akk,lac}_vs_uhgg/`, `test/UHGG/…metadata…gz` (needs `numpy`) |
 | `results/figS1/` | S1, Table S3 | `python3 scripts/figS1_l0_uptake.py` | engine, `test/lac/…` |
