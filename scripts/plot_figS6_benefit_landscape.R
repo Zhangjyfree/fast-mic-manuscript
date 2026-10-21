@@ -117,7 +117,7 @@ figS6 <- ggplot(dat, aes(ba, bb)) +
                        name = "Pairs", labels = comma) +
   scale_x_continuous(limits = c(-CLAMP, CLAMP), breaks = c(-1, 0, 1)) +
   scale_y_continuous(limits = c(-CLAMP, CLAMP), breaks = c(-1, 0, 1)) +
-  labs(title = "**Benefit landscape** β<sub>A</sub> **vs** β<sub>B</sub> **across the gradient**",
+  labs(title = "Benefit landscape: β<sub>A</sub> vs β<sub>B</sub> across the gradient",   # whole title bold via theme
        x = "β<sub>A</sub> (probiotic relative benefit)",
        y = "β<sub>B</sub> (commensal relative benefit)") +
   theme_gm()

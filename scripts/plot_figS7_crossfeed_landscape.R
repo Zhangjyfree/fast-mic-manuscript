@@ -49,7 +49,15 @@ SYS_LEVELS <- c("Akkermansia × UHGG (gut)",
                 "Lactobacillus × UHGG (gut)")
 SYS_COLOURS <- setNames(c("#762a83", "#1b7837"), SYS_LEVELS)
 
+# ModelSEED ships a few compounds under a terse abbreviation (MTTL, PAN, XAN ...);
+# spell them out as in Figure 5 and Table S11.
+NAME_FIX <- c("cpd00324" = "Methanethiol", "cpd00644" = "Pantothenate", "cpd00309" = "Xanthine",
+              "cpd00359" = "Indole",       "cpd00208" = "Lactose",      "cpd00222" = "D-Gluconate",
+              "cpd00276" = "D-Glucosamine")
+fix_name <- function(cpd, name) ifelse(cpd %in% names(NAME_FIX), NAME_FIX[cpd], name)
+
 cf <- suppressMessages(read_tsv(tbl_path, show_col_types = FALSE, progress = FALSE)) |>
+  mutate(metabolite = fix_name(cpd, metabolite)) |>
   filter(sys_label %in% SYS_LEVELS) |>
   mutate(sys_label = factor(sys_label, levels = SYS_LEVELS))
 
@@ -105,6 +113,7 @@ int_path <- file.path(RESULTS, "figS7", "interception.tsv")
 pB <- NULL
 if (file.exists(int_path)) {
   itc <- suppressMessages(read_tsv(int_path, show_col_types = FALSE)) |>
+    mutate(name = fix_name(cpd, name)) |>
     mutate(sys_label = ifelse(system == "Akkermansia",
                               "Akkermansia × UHGG (gut)", "Lactobacillus × UHGG (gut)")) |>
     filter(sys_label %in% SYS_LEVELS) |>

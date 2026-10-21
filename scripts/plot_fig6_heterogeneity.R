@@ -135,13 +135,14 @@ dD <- d |> select(system, group, mean_mut, transporters, exchanges) |>
 rho_lab <- dD |> group_by(trait) |>
   summarise(rho = suppressWarnings(cor(value, mean_mut, method = "spearman")),
             x = min(value), y = max(mean_mut), .groups = "drop") |>
-  mutate(lab = sprintf("rho = %.2f (n.s.)", rho))
+  mutate(lab = sprintf("%s<br>\u03c1 = %.2f, n.s.", trait, rho))   # strip text is markdown
+# Spearman rho goes in the facet strip, clear of the points
+dD <- dD |> left_join(rho_lab |> select(trait, lab), by = "trait")
 pD <- ggplot(dD, aes(value, mean_mut)) +
   geom_point(aes(colour = group), size = 1.3) +
-  geom_text(data = rho_lab, aes(x = x, y = y, label = lab), inherit.aes = FALSE,
-            hjust = 0, vjust = 1, size = 1.9, colour = "grey25") +
-  facet_wrap(~ trait, scales = "free_x") +
-  scale_y_continuous(expand = expansion(mult = c(0.05, 0.14))) +   # headroom for the rho labels
+  facet_wrap(~ lab, scales = "free_x") +
+  scale_x_continuous(n.breaks = 3) +                                 # three ticks: no overlap
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.08))) +
   scale_colour_manual(values = grp_cols, name = NULL, guide = "none") +
   labs(x = "GEM trait (count)", y = "Mean mutualism (%)",
        title = "Capacity does not predict cooperation",

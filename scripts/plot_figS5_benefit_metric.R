@@ -76,7 +76,7 @@ p <- ggplot(mut, aes(level, mut, group=metric, colour=metric, shape=metric)) +
   scale_shape_manual(values=c(21,24), name=NULL, labels=METRIC_MD) +
   scale_y_continuous(sec.axis=sec_axis(~ ./sf, name="Mean monoculture growth μ<sub>alone</sub> (h<sup>−1</sup>)")) +
   labs(x="Prebiotic level", y="Mutualism (% of viable pairs)",
-       title="The glucose crash is not a normalization artifact of the relative benefit metric",
+       title="The glucose crash is not a normalization artefact of the relative benefit metric",
        subtitle=sp_md(paste0("Re-scoring mutualism with a fixed ABSOLUTE benefit (orange) reproduces the L5→L6 crash of the relative metric (blue),<br>",
                              "even though μ<sub>alone</sub> jumps at L6 (grey dashed, +35% Akkermansia / +42% Lactobacillus). Dotted red line = L5→L6 transition."))) +
   theme_classic(base_size=8, base_family = BMC_FONT) +

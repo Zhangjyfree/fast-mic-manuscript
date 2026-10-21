@@ -137,7 +137,7 @@ pA <- ggplot(all_summ, aes(level_idx, n_viable, colour = system)) +
   geom_line(linewidth = 0.6) +
   geom_point(size = 1.2) +
   # Glucose annotation
-  annotate("text", x = 5.8, y = max(all_summ$n_viable) * 0.55,
+  annotate("text", x = 5.8, y = max(all_summ$n_viable) * 0.80,
            label = "Glucose\nadded", size = 2, colour = "#CC3311",
            fontface = "bold", lineheight = 0.85, hjust = 0, family = BMC_FONT) +
   scale_colour_manual(values = sys_colours, labels = sp_md) +
@@ -145,7 +145,7 @@ pA <- ggplot(all_summ, aes(level_idx, n_viable, colour = system)) +
   scale_y_continuous(labels = comma, expand = expansion(mult = c(0.02, 0.08))) +
   labs(title = "Viable pair count across gradient", y = "Viable pairs") +
   theme_gm() +
-  theme(legend.position = c(0.60, 0.30),
+  theme(legend.position = c(0.72, 0.12),
         legend.background = element_rect(fill = alpha("white", 0.85), colour = NA))
 
 # ── Panel B: Mutualism fraction ──────────────────────────────────────────────
@@ -169,7 +169,7 @@ pB <- ggplot(all_summ, aes(level_idx, mutualism, colour = system)) +
   x_scale + x_lab +
   scale_y_continuous(labels = percent_format(accuracy = 1),
                      expand = expansion(mult = c(0.05, 0.18))) +
-  labs(title = "Mutualism peaks at specialty sugars",
+  labs(title = "Mutualism peaks at pectin (L5)",
        y = "Mutualism (% of viable pairs)") +
   theme_gm() +
   theme(legend.position = "none")
@@ -199,7 +199,7 @@ pD <- ggplot(all_summ, aes(level_idx, net_benefit, colour = system)) +
   scale_colour_manual(values = sys_colours, labels = sp_md) +
   x_scale + x_lab +
   scale_y_continuous(labels = percent_format(accuracy = 1)) +
-  labs(title = "Net benefit least negative at specialty sugars",
+  labs(title = "Net benefit least negative at pectin (L5)",
        y = "Mean β̄ = (β<sub>A</sub> + β<sub>B</sub>)/2") +
   theme_gm() +
   theme(legend.position = "none")

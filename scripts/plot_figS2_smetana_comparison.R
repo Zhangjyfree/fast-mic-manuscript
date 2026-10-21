@@ -44,7 +44,7 @@ base_theme <- theme_bw(base_size = 7.5, base_family = BMC_FONT) +
         plot.subtitle = element_text(size = 5.8, colour = "grey40"))
 
 humantime <- function(sec) { u <- c(year=3.156e7, day=86400, hour=3600, min=60)
-  for (n in names(u)) if (sec >= u[[n]]) { v <- sec/u[[n]]; return(sprintf("%.0f %s%s", v, n, ifelse(v>=2,"s",""))) }
+  for (n in names(u)) if (sec >= u[[n]]) { v <- round(sec/u[[n]]); return(sprintf("%.0f %s%s", v, n, ifelse(v != 1,"s",""))) }  # plural after rounding
   sprintf("%.0f s", sec) }
 auroc <- function(score, pos) { ok <- is.finite(score) & !is.na(pos); score<-score[ok]; pos<-pos[ok]
   n1<-sum(pos); n2<-sum(!pos); if(n1==0||n2==0) return(NA_real_)

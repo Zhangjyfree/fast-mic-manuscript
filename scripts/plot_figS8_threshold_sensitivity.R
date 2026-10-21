@@ -105,7 +105,7 @@ theme_gm <- function() {
       axis.line        = element_line(linewidth = 0.3, colour = "black"),
       axis.ticks       = element_line(linewidth = 0.25, colour = "black"),
       panel.grid.major.y = element_line(colour = "grey92", linewidth = 0.15),
-      legend.position  = c(0.5, 0.93),
+      legend.position  = "bottom",                     # below the panel, clear of the curves
       legend.direction = "horizontal",
       legend.title     = md(size = 5.5),
       legend.text      = element_text(size = 5),

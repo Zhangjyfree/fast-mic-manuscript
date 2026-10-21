@@ -55,7 +55,7 @@ lac_genus <- function(s) {
 }
 pretty_lac <- function(s) s |> sub("_GCF_.*$", "", x = _) |> gsub("_", " ", x = _) |>
   sub("^([A-Z]) ", "\\1. ", x = _)   # "L acidophilus" -> "L. acidophilus"
-pretty_akk <- function(s) paste0(akk_species(s), " ", sub("^akk_", "", s))  # species + accession
+pretty_akk <- function(s) paste0(akk_species(s), " ", sub("^akk_GCF_", "", s))  # species + accession, as in Fig 6
 grp_cols <- c("A. muciniphila"="#762A83","A. massiliensis"="#9970AB","A. biwaensis"="#C2A5CF",
               "Lactobacillus"="#1B7837","Lacticaseibacillus"="#5AAE61",
               "Lactiplantibacillus"="#A6DBA0","Limosilactobacillus"="#00695C")
@@ -83,7 +83,14 @@ build_system <- function(sys_key, group_fun, pretty_fun, title, growth_lim) {
   # ── tree (carries the system title; leftmost, so no title collision) ──
   ptree <- ggtree(tree, linewidth = 0.4) %<+% meta +
     geom_tippoint(aes(colour = group), size = 1.2) +
-    geom_tiplab(aes(label = pretty_it, colour = group), parse = TRUE,
+    # branch support from IQ-TREE: SH-aLRT (%) / ultrafast bootstrap (%)
+    # placed above the middle of the branch leading to each node; the root (left after
+    # pruning the outgroup) carries no meaningful support and is not labelled
+    geom_label2(aes(x = branch, label = sub("^(\\d+)(\\.\\d+)?/", "\\1/", label),
+                    subset = !isTip & node != rootnode(tree)),
+                size = 1.15, colour = "grey30", fill = "white", border.colour = "white",
+                label.padding = unit(0.04, "lines"), family = BMC_FONT) +
+    geom_tiplab(aes(label = pretty_it), colour = "grey15", parse = TRUE,
                 family = BMC_FONT, size = 1.85, align = TRUE,
                 linetype = "dotted", linesize = 0.2, offset = 0.005, show.legend = FALSE) +
     scale_colour_manual(values = grp_cols, name = NULL, labels = sp_md) +
@@ -97,7 +104,7 @@ build_system <- function(sys_key, group_fun, pretty_fun, title, growth_lim) {
           plot.title = md(size = 8, face = "bold"),
           plot.subtitle = element_text(size = 6.5, colour = "grey35",
                                        family = BMC_FONT)) +
-    xlim(0, max(ape::node.depth.edgelength(tree)) * 3.4)   # headroom for aligned tip labels
+    xlim(0, max(ape::node.depth.edgelength(tree)) * 3.8)   # headroom for aligned tip labels
 
   # ── trait bars (faceted, y = strain) ──
   tl <- traits |>

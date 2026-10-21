@@ -50,7 +50,7 @@ fast-mic-manuscript/
 │   ├── plot_fig3_gradient_overview.R      # Fig 3 interactions across the gradient
 │   ├── plot_fig4_mechanisms.R             # Fig 4 glucose-crash mechanisms, panels A–G
 │   ├── extract_fig5_crossfeed.py          # Fig 5 per-level cross-feeding prevalence
-│   ├── plot_fig5_crossfeed.R              # Fig 5 Sankey + condition heatmaps + class composition
+│   ├── plot_fig5_crossfeed.R              # Fig 5 Sankey (marks from results/litvalidation/) + condition heatmaps + class composition
 │   ├── extract_fig6_enrich.py             # Fig 6 bootstrap CIs + partner phyla
 │   ├── plot_fig6_heterogeneity.R          # Fig 6 strain heterogeneity, panels A–E
 │   ├── plot_figS1_l0_substrates.R … plot_figS12_gapfill_knockout.R   # Supplementary Figs S1–S12
@@ -196,7 +196,7 @@ Rscript scripts/plot_fig1_benchmark.R      # default input paths point there
 Rscript scripts/plot_fig2_repertoire.R    results/figures_paper/fig2_repertoire
 Rscript scripts/plot_fig3_gradient_overview.R
 Rscript scripts/plot_fig4_mechanisms.R
-Rscript scripts/plot_fig5_crossfeed.R     results/figures_paper/fig5_crossfeed
+Rscript scripts/plot_fig5_crossfeed.R     results/figures_paper/fig5_crossfeed   # reads results/fig5/ and results/litvalidation/
 Rscript scripts/plot_fig6_heterogeneity.R results/figures_paper/fig6_heterogeneity
 
 # Supplementary figures S1–S12 (numbered in order of first citation)

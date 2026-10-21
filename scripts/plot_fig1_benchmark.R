@@ -174,14 +174,6 @@ pA <- ggplot(all_summ,
   geom_errorbar(aes(ymin = wall_min, ymax = wall_max), width = 0.16,
                 linewidth = 0.6, alpha = 0.95) +
   geom_point(size = 1.3) +
-  {
-    if (nrow(speedup_1t) > 0)
-      geom_text(data = speedup_1t,
-                aes(x = 1.05, y = y_mid, label = label),
-                inherit.aes = FALSE,
-                hjust = 0, vjust = -0.5, size = 1.7,
-                colour = "grey20")
-  } +
   scale_x_continuous(breaks = x_breaks, trans = "log2",
                      labels = function(x) as.integer(x)) +
   scale_y_log10(labels = label_number(suffix = " s", accuracy = 0.01)) +
@@ -190,7 +182,10 @@ pA <- ggplot(all_summ,
   scale_linetype_manual(values = size_lty, name = "Models") +
   labs(x = "Threads", y = "Wall time (s, log scale)",
        title = "Runtime",
-       subtitle = "fast-mic vs COBRApy at matched core counts") +
+       subtitle = paste0("Single-thread speed-up over COBRApy: ",
+                         paste(sprintf("%.0f× (n = %s)", speedup_1t$speedup,
+                                       trimws(format(speedup_1t$n_models, big.mark = ","))),
+                               collapse = ", "))) +
   base_theme
 
 # ── Panel B: Speedup — fast-mic only ──
@@ -359,8 +354,8 @@ lim <- max(scatter$fastmic_growth, scatter$cobra_growth, na.rm = TRUE) * 1.05
 if (!is.finite(lim) || lim == 0) lim <- 1
 
 ann <- if (!is.na(r2) && !is.na(mae)) {
-  sprintf("R2 = %.4f\nMAE = %.2e h-1\n%.1f%% within 1%%\nn = %d",
-          r2, mae, pct1, as.integer(n))
+  sprintf("R² = %.4f, n = %s\nMAE %.1f × 10⁻⁷ h⁻¹; %.0f%% within 1%%",
+          r2, format(as.integer(n), big.mark = ","), mae * 1e7, pct1)
 } else {
   "No stats available"
 }
@@ -370,14 +365,10 @@ pE <- ggplot(scatter, aes(cobra_growth, fastmic_growth)) +
   geom_abline(slope = 1, intercept = 0,
               colour = GREY, linetype = "dashed", linewidth = 0.6) +
   geom_point(alpha = 0.30, size = 1.1, colour = BLUE) +
-  annotate("text",
-           x = lim * 0.04, y = lim * 0.97,
-           label = ann, hjust = 0, vjust = 1,
-           size = 2, family = BMC_FONT) +
   coord_equal(xlim = c(0, lim), ylim = c(0, lim)) +
   labs(x = "COBRApy growth rate (h<sup>−1</sup>)",
        y = "fast-mic growth rate (h<sup>−1</sup>)",
-       title = "Numerical agreement") +
+       title = "Numerical agreement", subtitle = ann) +
   base_theme + theme(legend.position = "none")
 
 # ============================================================

@@ -1,14 +1,15 @@
 #!/usr/bin/env Rscript
 # Fig 5 (combined): predicted cross-feeding currencies of the two probiotics.
-#   A  Sankey/alluvial  probiotic -> exported metabolite -> biological fate (original)
+#   A  Sankey/alluvial  probiotic -> exported metabolite -> metabolite class
 #   B  Condition-resolved prevalence: top exported metabolites x L0-L9 (Akk & Lac)
 #   C  Metabolite-class composition of each probiotic's cross-feeding currencies
 # Ambiguous universal by-products (ethanol, pyruvate, L/D-lactate) are set aside
 # (as in the manuscript) for B and C. Sankey frequencies are the pooled % of
 # mutualistic pairs, computed from the same extracted table.
 #
-# Input: results/fig5/fig5_prevalence_{lac,akk}.tsv  (extract_fig5_crossfeed.py)
-# Usage: Rscript scripts/plot_fig5_v2.R [output_prefix]
+# Input: results/fig5/fig5_prevalence_{lac,akk}.tsv  (extract_fig5_crossfeed.py) and
+#        results/litvalidation/lit_validation.tsv (build_lit_validation_table.py; Table S11 verdicts)
+# Usage: Rscript scripts/plot_fig5_crossfeed.R [output_prefix]
 
 suppressPackageStartupMessages({
   library(ggplot2); library(dplyr); library(tidyr); library(readr); library(tibble)
@@ -74,44 +75,58 @@ pooled <- raw |> group_by(sys, cpd, name) |>
             by = "sys") |>
   mutate(freq = 100 * exp / totmut)
 
-# ── Panel A: Sankey (currency catalogue from manuscript; freq from pooled) ────
-CUR <- tibble::tribble(
-  ~probiotic,      ~sys,  ~cpd,        ~name,         ~func,
-  "Akkermansia",   "akk", "cpd00116",  "Methanol",    "Deoxy-sugar\nproducts",
-  "Akkermansia",   "akk", "cpd00118",  "Putrescine",  "Deoxy-sugar\nproducts",
-  "Akkermansia",   "akk", "cpd01861",  "(R)-1,2-PD*", "Deoxy-sugar\nproducts",
-  "Akkermansia",   "akk", "cpd00036",  "Succinate*",  "SCFA &\npropionate",
-  "Akkermansia",   "akk", "cpd00047",  "Formate",     "SCFA &\npropionate",
-  "Akkermansia",   "akk", "cpd00141",  "Propionate",  "SCFA &\npropionate",
-  "Akkermansia",   "akk", "cpd00130",  "L-Malate",    "SCFA &\npropionate",
-  "Lactobacillus", "lac", "cpd00246",  "Inosine*",    "Purine\nsalvage",
-  "Lactobacillus", "lac", "cpd01217",  "Xanthosine*", "Purine\nsalvage",
-  "Lactobacillus", "lac", "cpd00311",  "Guanosine*",  "Purine\nsalvage",
-  "Lactobacillus", "lac", "cpd00367",  "Cytidine",    "Purine\nsalvage",
-  "Lactobacillus", "lac", "cpd00105",  "D-Ribose",    "Pentose\nutilisation"
-) |>
-  left_join(pooled |> select(sys, cpd, freq), by = c("sys","cpd")) |>
-  mutate(freq = ifelse(is.na(freq), 0, freq)) |>
-  filter(freq >= 5) |>
-  mutate(met_lab = sprintf("%s  %.0f%%", name, round(freq)),
-         probiotic = factor(probiotic, levels = c("Akkermansia","Lactobacillus")),
-         func = factor(func, levels = unique(func)))
-CUR <- CUR |> mutate(met_lab = factor(met_lab, levels = CUR |> arrange(probiotic, desc(freq)) |> pull(met_lab)))
+# ── Panel A: Sankey, built from the data ─────────────────────────────────────
+# Metabolites: every informative currency (ambiguous end-products set aside) that
+# the probiotic exports in at least 10% of its mutualistic pairs, pooled over L0–L9.
+# Third axis: metabolite class (as in panel C). Marks come from the literature
+# cross-check behind Table S11 (results/litvalidation/lit_validation.tsv):
+#   * = directly documented in culture, † = contradicted by published experiments.
+MIN_FREQ <- 10
+CLASS_LAB <- c("organic acid"="Organic acid", "alcohol/diol"="Alcohol / diol", "sugar"="Sugar",
+               "nucleoside"="Nucleoside", "amino acid"="Amino acid", "other"="Other")
+lit <- read_tsv(sprintf("%s/results/litvalidation/lit_validation.tsv", FM), show_col_types = FALSE) |>
+  transmute(probiotic = system, cpd, verdict)
+mark_of <- function(v) dplyr::case_when(v == "supported" ~ "*", v == "contradicted" ~ "†", TRUE ~ "")
 
-pA <- ggplot(CUR, aes(axis1 = probiotic, axis2 = met_lab, axis3 = func, y = freq)) +
-  geom_alluvium(aes(fill = probiotic), width = 0.36, alpha = 0.5, curve_type = "sigmoid", colour = NA) +
-  geom_stratum(aes(fill = probiotic), width = 0.36, linewidth = 0.5, colour = "white") +
+CUR <- pooled |>
+  filter(!cpd %in% AMBIG, freq >= MIN_FREQ) |>
+  left_join(raw |> distinct(sys, cpd, class), by = c("sys", "cpd")) |>
+  mutate(probiotic = unname(SYS_LAB[sys]),
+         name = ifelse(cpd %in% names(NAME_FIX), NAME_FIX[cpd], name)) |>
+  left_join(lit, by = c("probiotic", "cpd")) |>
+  mutate(mark = mark_of(verdict),
+         met_key = paste(sys, cpd, sep = "|"),
+         met_txt = sprintf("%s%s  %.0f%%", name, mark, round(freq)),
+         class_txt = unname(CLASS_LAB[class]),
+         probiotic = factor(probiotic, levels = c("Akkermansia", "Lactobacillus")))
+met_order <- CUR |> arrange(probiotic, match(class, names(CLASS_LAB)), desc(freq)) |> pull(met_key)   # grouped by class: fewer crossings
+CUR <- CUR |> mutate(met_key = factor(met_key, levels = met_order),
+                     class_txt = factor(class_txt, levels = intersect(CLASS_LAB, class_txt)))
+
+# stratum fill / text: genus colour on the first two axes, class colour on the third
+lab_txt <- c(setNames(GENERA, GENERA), setNames(CUR$met_txt, as.character(CUR$met_key)),
+             setNames(levels(CUR$class_txt), levels(CUR$class_txt)))
+pal <- c("Akkermansia" = COL_AKK, "Lactobacillus" = COL_LAC,
+         setNames(ifelse(CUR$probiotic == "Akkermansia", COL_AKK, COL_LAC), as.character(CUR$met_key)),
+         setNames(unname(CLASS_COL[names(CLASS_LAB)[match(levels(CUR$class_txt), CLASS_LAB)]]),
+                  levels(CUR$class_txt)))
+dark_txt <- c("Amino acid", "Other", "Sugar")
+
+pA <- ggplot(CUR, aes(axis1 = probiotic, axis2 = met_key, axis3 = class_txt, y = freq)) +
+  geom_alluvium(aes(fill = probiotic), width = 0.40, alpha = 0.45, curve_type = "sigmoid", colour = NA) +
+  geom_stratum(aes(fill = after_stat(as.character(stratum))), width = 0.40, linewidth = 0.5, colour = "white") +
   geom_text(stat = "stratum",
-            aes(label = after_stat(stratum),
-                fontface = after_stat(ifelse(as.character(stratum) %in% GENERA,
-                                             "bold.italic", "bold"))),
-            size = 1.45, lineheight = 0.85, colour = "white") +
-  scale_discrete_identity(aesthetics = "fontface") +
-  scale_fill_manual(values = c("Akkermansia"=COL_AKK,"Lactobacillus"=COL_LAC), guide = "none") +
-  scale_x_discrete(limits = c("Probiotic","Exported metabolite","Biological fate"),
-                   expand = expansion(mult = c(0.10, 0.12)), position = "top") +
-  scale_y_continuous(expand = expansion(mult = c(0.06, 0.04))) +   # room for the last stratum label
-  labs(title = "Predicted cross-feeding currencies (pooled L0–L9; * = experimental support)", y = NULL) +
+            aes(label = after_stat(lab_txt[as.character(stratum)]),
+                fontface = after_stat(ifelse(as.character(stratum) %in% GENERA, "bold.italic", "bold")),
+                colour = after_stat(ifelse(as.character(stratum) %in% dark_txt, "grey15", "white"))),
+            size = 1.45, lineheight = 0.85) +
+  scale_discrete_identity(aesthetics = c("fontface", "colour")) +
+  scale_fill_manual(values = pal, guide = "none") +
+  scale_x_discrete(limits = c("Probiotic", "Exported metabolite", "Metabolite class"),
+                   expand = expansion(mult = c(0.08, 0.08)), position = "top") +
+  scale_y_continuous(expand = expansion(mult = c(0.02, 0.02))) +
+  labs(title = "Exported cross-feeding metabolites (pooled L0–L9; * documented in culture, † contradicted; Table S11)",
+       y = NULL) +
   theme_void(base_size = 7, base_family = BMC_FONT) +
   theme(plot.title = element_text(face = "bold", size = 8, hjust = 0.5, margin = margin(b = 3)),
         axis.text.x = element_text(face = "bold", size = 6, colour = "grey30"),
